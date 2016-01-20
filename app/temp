@@ -1,0 +1,11 @@
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
+
+
+
+
+/vendor
+/node_modules
+.env
