@@ -533,12 +533,15 @@
     <div class="mainpanel">
 
       <div class="contentpanel">
-
-        <ol class="breadcrumb breadcrumb-quirk">
+        <?php
+        //echo basename($_SERVER['PHP_SELF']);
+        //if(basename($_SERVER['PHP_SELF'])!="index.php"){ ?>
+          <ol class="breadcrumb breadcrumb-quirk">
           <li><a href="index.html"><i class="fa fa-home mr5"></i> Home</a></li>
           <li><a href="buttons.html">Pages</a></li>
           <li class="active">Blank</li>
-        </ol>
+          </ol>
+        <?php// } ?>
 
         @yield('content')
 
