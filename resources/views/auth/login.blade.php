@@ -43,7 +43,7 @@
 			<div class="form-group mb10">
 				<div class="input-group">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-					<input name="name" id="name" type="text" class="form-control" placeholder="Enter Username">
+					<input name="email" id="email" type="text" class="form-control" placeholder="Enter Email">
 				</div>
 			</div>
 			<div class="form-group nomargin">
