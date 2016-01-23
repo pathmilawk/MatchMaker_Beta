@@ -17,7 +17,14 @@ Route::get('home', 'HomeController@index');
 
 Route::get('abc', 'AbcController@index');
 
-Route::get('testDamindu', 'UserController@test');
+Route::post('/testDamindu', function(){
+    return view('testD');
+});
+
+
+Route::get('/testDamindu', function(){
+    return view('testD');
+});
 
 // Authentication routes...
 Route::get('auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
@@ -25,11 +32,16 @@ Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
 
 // Registration routes...
-Route::get('auth/register', ['as' => 'register', 'uses' => 'Auth\AuthController@Register']);
-Route::post('auth/register', 'Auth\AuthController@postRegister') ;
+//Route::get('auth/register', ['as' => 'register', 'uses' => 'Auth\AuthController@Register']);
 
-//
-//Route::controllers([
-//	'auth' => 'Auth\AuthController',
-//	'password' => 'Auth\PasswordController',
-//]);
+
+//Route::get('auth/register', function(){
+//    return view('auth/register');
+//});
+//Route::post('auth/register', 'Auth\AuthController@postRegister') ;
+
+
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);

@@ -5,7 +5,11 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller {
+class AuthanticationsController extends Controller {
+
+	public function postRegister(){
+
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -80,7 +84,5 @@ class UserController extends Controller {
 	{
 		//
 	}
-
-
 
 }

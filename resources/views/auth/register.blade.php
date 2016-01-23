@@ -38,21 +38,29 @@
 				<div class="panel-body">
 					<button class="btn btn-primary btn-quirk btn-fb btn-block">Sign Up Using Facebook</button>
 					<div class="or">or</div>
-					<form action="index.html">
+					<form action="http://matchmaker.dev.com/auth/register" method="post" ><input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
+
 						<div class="form-group mb15">
-							<input type="text" class="form-control" placeholder="Enter Your Username">
+							<input name="username" id="username" type="text" class="form-control" placeholder="Enter Your Username">
 						</div>
 						<div class="form-group mb15">
-							<input type="text" class="form-control" placeholder="Enter Your Password">
+							<input name="password" id="password" type="password" class="form-control" placeholder="Enter Your Password">
 						</div>
 						<div class="form-group mb15">
-							<input type="text" class="form-control" placeholder="Enter Your Full Name">
+							<input name="name" id="name" type="text" class="form-control" placeholder="Enter Your Full Name">
 						</div>
+
+
+					<div class="form-group mb15">
+						<input name="email" id="email" type="text" class="form-control" placeholder="Enter Your email">
+					</div>
 
 						<div class="row mb15">
 							<div class="col-xs-5">
 								<div class="form-group">
-									<select class="form-control" style="width: 100%" data-placeholder="Birth Month">
+									<select name="bdayM" id="bdayM"class="form-control" style="width: 100%" data-placeholder="Birth Month">
 										<option value="">&nbsp;</option>
 										<option value="January">January</option>
 										<option value="February">February</option>
@@ -65,7 +73,7 @@
 							</div>
 							<div class="col-xs-3">
 								<div class="form-group">
-									<select class="form-control" style="width: 100%" data-placeholder="Birth Day">
+									<select name="bdayD" id="bdayD" class="form-control" style="width: 100%" data-placeholder="Birth Day">
 										<option value="">&nbsp;</option>
 										<option value="01">01</option>
 										<option value="02">02</option>
@@ -78,7 +86,7 @@
 							</div>
 							<div class="col-xs-4">
 								<div class="form-group">
-									<select class="form-control" style="width: 100%" data-placeholder="Birth Year">
+									<select name="bdayY" id="bdayY"class="form-control" style="width: 100%" data-placeholder="Birth Year">
 										<option value="">&nbsp;</option>
 										<option value="1986">1986</option>
 										<option value="1987">1987</option>
@@ -95,8 +103,14 @@
 							</label>
 						</div>
 						<div class="form-group">
-							<button class="btn btn-success btn-quirk btn-block">Create Account</button>
+							<button type="submit" class="btn btn-success btn-quirk btn-block">Create Account</button>
 						</div>
+
+
+
+
+
+
 					</form>
 				</div><!-- panel-body -->
 			</div><!-- panel -->
