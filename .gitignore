@@ -6,3 +6,4 @@ Vagrantfile
 .idea/*
 .idea/workspace.xml
 .idea/misc.xml
+resources/views/testDamindu.blade.php
