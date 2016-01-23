@@ -15,7 +15,12 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
-//Route::get('testDamindu', )
+Route::get('testDamindu', 'UserController@test');
+
+Route::get('login', function(){
+	return view('auth.register');
+});
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
