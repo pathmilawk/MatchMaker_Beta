@@ -81,9 +81,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- Search Box Starts -->
 
         <div class="searchBox">
-            <h1 style=" margin-top: 70px; ">Find Your Soulmate Here...</h1>
+            <h1 style=" margin-top: 30px; ">Find Your Soulmate Here...</h1>
             <form action="searchResults.blade.php" method="post">
-                <table name= "searchBox_table" style="margin-top: 30px; margin-left: 50px; margin-right: 50px">
+                <table name= "searchBox_table" style="margin-top: 20px; margin-left: 30px; margin-right: 30px">
                     <tr>
                         <td>I am a </td>
                         <td>
@@ -102,6 +102,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </tr>
                     <tr>
                         <td>My partner should be,<td>
+                    </tr>
+                    <tr>
+                        <td>From</td>
+                        <td>
+                            <select name="places">
+                                <option>Ampara</option>
+                                <option>Anuradhapura</option>
+                                <option>Badulla</option>
+                                <option>Batticaloa</option>
+                                <option>Colombo</option>
+                                <option>Galle</option>
+                                <option>Gampaha</option>
+                                <option>Hambantota</option>
+                                <option>Jaffna</option>
+                                <option>Kalutara</option>
+                                <option>Kandy</option>
+                                <option>Kilinochchi</option>
+                                <option>Kurunegala</option>
+                                <option>Manner</option>
+                                <option>Matale</option>
+                                <option>Matale</option>
+                                <option>Monaragala</option>
+                                <option>Mullativu</option>
+                                <option>Nuwara Eliya</option>
+                                <option>Polonnaruwa</option>
+                                <option>Puttalam</option>
+                                <option>Ratnapura</option>
+                                <option>Trincomalee</option>
+                                <option>Vavuniya</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>Age</td>
