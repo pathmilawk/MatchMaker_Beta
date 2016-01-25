@@ -12,6 +12,10 @@
     <link href="{{asset('/client/css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
     <link href="{{asset('/client/css/style.css')}}" type="text/css" rel="stylesheet" media="all">
     <link href="{{asset('/client/css/component.css')}}" rel="stylesheet" type="text/css"  />
+
+    <!-- Search Box CSS-->
+    <link href="{{asset('/client/css/searchBox.css')}}" rel="stylesheet" type="text/css"  />
+
     <!-- Custom Theme files -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -74,7 +78,131 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </nav>
 <div class="banner">
     <div class="logo">
-        <a href="index.html"><h1>Weeke<span>nd</span></h1><p>After Friday...</p></a>
+        <!-- Search Box Starts -->
+
+        <div class="searchBox">
+            <h1 style=" margin-top: 70px; ">Find Your Soulmate Here...</h1>
+            <form action="searchResults.blade.php" method="post">
+                <table name= "searchBox_table" style="margin-top: 30px; margin-left: 50px; margin-right: 50px">
+                    <tr>
+                        <td>I am a </td>
+                        <td>
+                            <select name="usersGender">
+                                <option>Man</option>
+                                <option>Women</option>
+                            </select>
+                        </td>
+                        <td>looking for a</td>
+                        <td>
+                            <select name="lookingGender">
+                                <option>Man</option>
+                                <option>Women</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>My partner should be,<td>
+                    </tr>
+                    <tr>
+                        <td>Age</td>
+                        <td>
+                            <select name="ageStart">
+                                <option>18</option><option>19</option>
+                                <option>20</option><option>21</option>
+                                <option>22</option><option>23</option>
+                                <option>24</option><option>25</option>
+                                <option>27</option><option>28</option>
+                                <option>29</option><option>30</option>
+                                <option>31</option><option>32</option>
+                                <option>33</option><option>34</option>
+                                <option>35</option><option>36</option>
+                                <option>37</option><option>38</option>
+                                <option>39</option><option>40</option>
+                                <option>41</option><option>42</option>
+                                <option>43</option><option>44</option>
+                                <option>45</option><option>46</option>
+                                <option>47</option><option>48</option>
+                                <option>49</option><option>50</option>
+                                <option>51</option><option>52</option>
+                                <option>53</option><option>54</option>
+                                <option>55</option><option>56</option>
+                                <option>57</option><option>58</option>
+                                <option>59</option><option>60</option>
+                                <option>61</option><option>62</option>
+                                <option>63</option><option>64</option>
+                                <option>65</option><option>66</option>
+                                <option>67</option><option>68</option>
+                                <option>69</option><option>70</option>
+                            </select>
+                        </td>
+                        <td>to</td>
+                        <td>
+                            <select name="ageEnd" >
+                                <option>18</option><option>19</option>
+                                <option>20</option><option>21</option>
+                                <option>22</option><option>23</option>
+                                <option>24</option><option>25</option>
+                                <option>27</option><option>28</option>
+                                <option>29</option><option>30</option>
+                                <option>31</option><option>32</option>
+                                <option>33</option><option>34</option>
+                                <option>35</option><option>36</option>
+                                <option>37</option><option>38</option>
+                                <option>39</option><option>40</option>
+                                <option>41</option><option>42</option>
+                                <option>43</option><option>44</option>
+                                <option>45</option><option>46</option>
+                                <option>47</option><option>48</option>
+                                <option>49</option><option>50</option>
+                                <option>51</option><option>52</option>
+                                <option>53</option><option>54</option>
+                                <option>55</option><option>56</option>
+                                <option>57</option><option>58</option>
+                                <option>59</option><option>60</option>
+                                <option>61</option><option>62</option>
+                                <option>63</option><option>64</option>
+                                <option>65</option><option>66</option>
+                                <option>67</option><option>68</option>
+                                <option>69</option><option>70</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Religion</td>
+                        <td>
+                            <select name="religion">
+                                <option>Buddhist</option>
+                                <option>Christian</option>
+                                <option>Muslim</option>
+                                <option>Hindu</option>
+                                <option>Doesn't Matter</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mother Tongue</td>
+                        <td>
+                            <select name="motherTongue">
+                                <option>Sinhala</option>
+                                <option>English</option>
+                                <option>Tamil</option>
+                                <option>Hindi</option>
+                                <option>Doesn't Matter</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><input type="button" id="searchBox_submit" class ="button" value="Search"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <!-- Search Box Ends -->
+
     </div>
 </div>
 <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
