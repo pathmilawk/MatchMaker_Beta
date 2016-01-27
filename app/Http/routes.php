@@ -15,8 +15,10 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
+//Pathmila's-------------------------------
 Route::get('abc', 'AbcController@index');
-
+Route::get('view_story','StoryController@viewStory');
+//-----------------------------------------
 Route::get('testDamindu', 'UserController@test');
 
 // Authentication routes...
@@ -33,3 +35,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister') ;
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',
 //]);
+
+
+//comment section
+Route::post('commentFormSubmit','StoryController@commentFormSubmit');

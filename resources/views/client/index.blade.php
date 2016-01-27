@@ -5,13 +5,11 @@
 
 @section('content')
 
-        <!DOCTYPE html>
-<html>
 <head>
     <title>Weekend a People and Society Category Flat bootstrap Responsive website Template | Home :: w3layouts</title>
-    <link href="{{asset('/client/css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
-    <link href="{{asset('/client/css/style.css')}}" type="text/css" rel="stylesheet" media="all">
-    <link href="{{asset('/client/css/component.css')}}" rel="stylesheet" type="text/css"  />
+    <link href="{{asset('external_css/css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
+    <link href="{{asset('external_css/css/style.css')}}" type="text/css" rel="stylesheet" media="all">
+    <link href="{{asset('external_css/css/component.css')}}" rel="stylesheet" type="text/css"  />
     <!-- Custom Theme files -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,12 +19,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--web-fonts-->
     <link href='//fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
     <!--js-->
-    <script src="{{asset('/client/js/jquery-1.11.1.min.js')}}"></script>
-    <script src="{{asset('/client/js/bootstrap.js')}}"> </script>
-    <script src="{{asset('/client/js/modernizr.custom.js')}}"></script>
+    <script src="{{asset('external_css/js/jquery-1.11.1.min.js')}}"></script>
+    <script src="{{asset('external_css/js/bootstrap.js')}}"> </script>
+    <script src="{{asset('external_css/js/modernizr.custom.js')}}"></script>
     <!--//js-->
-    <script type="text/javascript" src="{{asset('/client/js/move-top.js')}}"></script>
-    <script type="text/javascript" src="{{asset('/client/js/easing.js')}}"></script>
+    <script type="text/javascript" src="{{asset('external_css/js/move-top.js')}}"></script>
+    <script type="text/javascript" src="{{asset('external_css/js/easing.js')}}"></script>
     <!--/script-->
     <script type="text/javascript">
         jQuery(document).ready(function($) {
@@ -78,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-<script src="{{asset('js/classie.js')}}"></script>
+<script src="{{asset('external_css/js/classie.js')}}"></script>
 <script>
     var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
             showLeftPush = document.getElementById( 'showLeftPush' ),
@@ -113,17 +111,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="bottom">
                                 <div class=" bottom-in bottom-grid">
                                     <a href="{{URL::to('abc')}}">
-                                    <img class="img-responsive " src="{{asset('/client/images/s1.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s1.jpg')}}" alt="" />
                                     </a>
                                 </div>
                                 <div class=" bottom-in bottom-grid1">
-                                    <img class="img-responsive" src="{{asset('/client/images/s2.jpg')}}" alt="" />
+                                    <img class="img-responsive" src="{{asset('external_css/images/s2.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid2">
-                                    <img class="img-responsive " src="{{asset('/client/images/s3.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s3.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid3">
-                                    <img class="img-responsive " src="{{asset('/client/images/s4.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s4.jpg')}}" alt="" />
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
@@ -131,16 +129,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <div class="bottom">
                                 <div class=" bottom-in bottom-grid">
-                                    <img class="img-responsive " src="{{asset('/client/images/s3.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s3.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid1">
-                                    <img class="img-responsive" src="{{asset('/client/images/s4.jpg')}}" alt="" />
+                                    <img class="img-responsive" src="{{asset('external_css/images/s4.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid2">
-                                    <img class="img-responsive " src="{{asset('/client/images/s1.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s1.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid3">
-                                    <img class="img-responsive " src="{{asset('/client/images/s2.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s2.jpg')}}" alt="" />
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
@@ -148,16 +146,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <div class="bottom">
                                 <div class=" bottom-in bottom-grid">
-                                    <img class="img-responsive " src="{{asset('/client/images/s2.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s2.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid1">
-                                    <img class="img-responsive" src="{{asset('/client/images/s1.jpg')}}" alt="" />
+                                    <img class="img-responsive" src="{{asset('external_css/images/s1.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid2">
-                                    <img class="img-responsive " src="{{asset('/client/images/s4.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s4.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid3">
-                                    <img class="img-responsive " src="{{asset('/client/images/s3.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s3.jpg')}}" alt="" />
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
@@ -165,10 +163,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </div>
             </section>
-            <script>window.jQuery || document.write('<script src="{{asset('/client/js/libs/jquery-1.7.min.js')}}">\x3C/script>')</script>
+            <script>window.jQuery || document.write('<script src="{{asset('external_css/js/libs/jquery-1.7.min.js')}}">\x3C/script>')</script>
             <!--flexslider-->
-            <link rel="stylesheet" href="{{asset('/client/css/flexslider.css')}}" type="text/css" media="screen" />
-            <script defer src="{{asset('/client/js/jquery.flexslider.js')}}"></script>
+            <link rel="stylesheet" href="{{asset('external_css/css/flexslider.css')}}" type="text/css" media="screen" />
+            <script defer src="{{asset('external_css/js/jquery.flexslider.js')}}"></script>
             <script type="text/javascript">
                 $(function(){
                     SyntaxHighlighter.all();
@@ -194,7 +192,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-6 serve-section grid">
                 <div class="col-md-6 serve-grid">
                     <figure class="effect-goliath">
-                        <img class="img-responsive " src="{{asset('/client/images/ser1.jpg')}}" alt="" />
+                        <img class="img-responsive " src="{{asset('external_css/images/ser1.jpg')}}" alt="" />
                         <figcaption>
                             <h2>weeke<span>nd</span></h2>
                             <a href="#">View more</a>
@@ -204,7 +202,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="col-md-6 serve-grid">
                     <figure class="effect-goliath">
-                        <img class="img-responsive " src="{{asset('/client/images/ser2.jpg')}}" alt="" />
+                        <img class="img-responsive " src="{{asset('external_css/images/ser2.jpg')}}" alt="" />
                         <figcaption>
                             <h2>weeke<span>nd</span></h2>
                             <a href="#">View more</a>
@@ -214,7 +212,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="col-md-6 serve-grid">
                     <figure class="effect-goliath">
-                        <img class="img-responsive " src="{{asset('/client/images/ser3.jpg')}}" alt="" />
+                        <img class="img-responsive " src="{{asset('external_css/images/ser3.jpg')}}" alt="" />
                         <figcaption>
                             <h2>weeke<span>nd</span></h2>
                             <a href="#">View more</a>
@@ -224,7 +222,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="col-md-6 serve-grid">
                     <figure class="effect-goliath">
-                        <img class="img-responsive " src="{{asset('/client/images/ser4.jpg')}}" alt="" />
+                        <img class="img-responsive " src="{{asset('external_css/images/ser4.jpg')}}" alt="" />
                         <figcaption>
                             <h2>weeke<span>nd</span></h2>
                             <a href="#">View more</a>
@@ -281,7 +279,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--start-events-->
 <div class="news">
     <div class="container">
-        <h3 class="tittle">News & Events</h3>
+        <h3 class="tittle">Success Stories</h3>
         <div class="news-article">
             <div class="col-md-6 article-post">
                 <div class="col-md-3 post-meta">
@@ -298,11 +296,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="single.html" class="mask"><img src="{{asset('/client/images/b2.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
-                    <a href="single.html"><h4>News tittle Lorem Ipsump</h4></a>
+                    <a href="{{URL::to('view_story')}}" class="mask"><img src="{{asset('external_css/images/b2.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
+                    <a href="{{URL::to('view_story')}}"><h4>News tittle Lorem Ipsump</h4></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div class="read">
-                        <a class="button" href="single.html"><img src="{{asset('/client/images/read.png')}}" alt="" /></a>
+                        <a class="button" href="{{URL::to('view_story')}}"><img src="{{asset('external_css/images/read.png')}}" alt="" /></a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -312,7 +310,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
-                            <a href="single.html" > <i class="glyphicon glyphicon-picture"></i></a>
+                            <a href="{{URL::to('view_story')}}" > <i class="glyphicon glyphicon-picture"></i></a>
                         </div>
                     </div>
                     <ul class="ad-info">
@@ -323,12 +321,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="single.html" class="mask"><img src="{{asset('/client/images/b1.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
+                    <a href="single.html" class="mask"><img src="{{asset('external_css/images/b1.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
 
                     <a href="single.html"><h4>News tittle Lorem Ipsump</h4></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div class="read">
-                        <a class="button" href="single.html"><img src="{{asset('/client/images/read.png')}}" alt="" /></a>
+                        <a class="button" href="single.html"><img src="{{asset('external_css/images/read.png')}}" alt="" /></a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -344,7 +342,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <h3 class="tittle three">Testimonials</h3>
         <div class="test">
-            <img src="{{asset('/client/images/t1.jpg')}}" alt="name" />
+            <img src="{{asset('external_css/images/t1.jpg')}}" alt="name" />
             <div class="test-text">
                 <h4>David son</h4>
                 <p><span> </span>Duis quis risus a nunc ultricies varius.Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus.</p>
@@ -377,7 +375,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--/footer-->
 <div class="copy">
-    <p>&copy; 2015 Weekend. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p>
+
 </div>
 <!--start-smoth-scrolling-->
 <script type="text/javascript">
@@ -398,7 +396,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <a href="#house" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
 </body>
-</html>
+
 
 
 @stop
