@@ -30,7 +30,7 @@
 
 <div class="panel signin">
 	<div class="panel-heading">
-		<h1>Quirk</h1>
+		<h1>Match Maker Beta</h1>
 		<h4 class="panel-title">Welcome! Please signin.</h4>
 	</div>
 	<div class="panel-body">
