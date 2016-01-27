@@ -15,7 +15,10 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
+//pathmila's
 Route::get('abc', 'AbcController@index');
+Route::get('view_story','StoryController@viewStory');
+//---------------
 
 Route::post('/testDamindu', function(){
     return view('testD');
