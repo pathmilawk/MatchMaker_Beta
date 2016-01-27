@@ -20,6 +20,7 @@ class AuthController extends Controller {
 
 	use AuthenticatesAndRegistersUsers;
 
+
 	/**
 	 * Create a new authentication controller instance.
 	 *
@@ -34,9 +35,9 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
-	public function register(){
-		return view('auth/register');
-	}
+//	public function register(){
+//		return view('auth/register');
+//	}
 
 
 }
