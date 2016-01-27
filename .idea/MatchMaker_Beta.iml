@@ -64,10 +64,14 @@
     <orderEntry type="module-library">
       <library name="PHARS">
         <CLASSES>
-          <root url="phar://$MODULE_DIR$/composer.phar/" />
+          <root url="phar://$MODULE_DIR$/composer.phar" />
         </CLASSES>
         <SOURCES>
+<<<<<<< HEAD
           <root url="phar://$MODULE_DIR$/composer.phar/" />
+=======
+          <root url="phar://$MODULE_DIR$/composer.phar" />
+>>>>>>> d473443cf90f66acf5ab41b9a4fb99a0250ffbb1
         </SOURCES>
       </library>
     </orderEntry>

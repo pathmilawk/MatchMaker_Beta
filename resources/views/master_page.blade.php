@@ -5,34 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
-  <!--<link rel="shortcut icon" href="../images/favicon.png" type="image/png">-->
 
-  <title>Quirk Responsive Admin Templates</title>
+  <title>Match Maker Beta</title>
 
   @section('css_ref')
 
-  <link rel="stylesheet" href="{{asset('/client/lib/fontawesome/css/font-awesome.css')}}">
-  <link rel="stylesheet" href="{{asset('/client/lib/weather-icons/css/weather-icons.css')}}">
-  <link rel="stylesheet" href="{{asset('/client/lib/jquery-toggles/toggles-full.css')}}">
+  <link rel="stylesheet" href="{{asset('internal_css/lib/fontawesome/css/font-awesome.css')}}">
+  <link rel="stylesheet" href="{{asset('internal_css/lib/weather-icons/css/weather-icons.css')}}">
+  <link rel="stylesheet" href="{{asset('internal_css/lib/jquery-toggles/toggles-full.css')}}">
 
-  <link rel="stylesheet" href="{{asset('client/css/quirk.css')}}">
+  <link rel="stylesheet" href="{{asset('internal_css/css/quirk.css')}}">
 
-  <script src="{{asset('/client/lib/modernizr/modernizr.js')}}"></script>
+  <script src="{{asset('internal_css/lib/modernizr/modernizr.js')}}"></script>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
-  <script src="{{asset('/client/lib/html5shiv/html5shiv.js')}}'"></script>
-  <script src="{{asset('/client/lib/respond/respond.src.js')}}'"></script>
+  <script src="{{asset('internal_css/lib/html5shiv/html5shiv.js')}}'"></script>
+  <script src="{{asset('internal_css/lib/respond/respond.src.js')}}'"></script>
   <![endif]-->
 
    @show
 
 </head>
-
 <body>
-
   <header>
     <div class="headerpanel">
-
       <div class="logopanel">
         <h2><a href="index.html">Quirk</a></h2>
       </div><!-- logopanel -->
@@ -199,7 +195,7 @@
             <li>
               <div class="btn-group">
                 <button type="button" class="btn btn-logged" data-toggle="dropdown">
-                  <img src="{{asset('/client/images/photos/loggeduser.png')}}" alt="" />
+                  <img src="{{asset('internal_css/images/photos/loggeduser.png')}}" alt="" />
                   Elen Adarna
                   <span class="caret"></span>
                 </button>
@@ -233,7 +229,7 @@
         <div class="media leftpanel-profile">
           <div class="media-left">
             <a href="#">
-              <img src="{{ asset('client/images/photos/loggeduser.png')}}" alt="" class="media-object img-circle">
+              <img src="{{ asset('internal_css/images/photos/loggeduser.png')}}" alt="" class="media-object img-circle">
             </a>
           </div>
           <div class="media-body">
@@ -375,7 +371,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="{{ asset('/client/images/photos/user1.png')}}" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user1.png')}}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Christina R. Hill</h4>
@@ -386,7 +382,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="{{ asset('/client/images/photos/user2.png')}}" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user2.png')}}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Floyd M. Romero</h4>
@@ -397,7 +393,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="{{ asset('/client/images/photos/user3.png')}}" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user3.png')}}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Jennie S. Gray</h4>
@@ -408,7 +404,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="{{ asset('/client/images/photos/user4.png')}}" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user4.png')}}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Alia J. Locher</h4>
@@ -419,7 +415,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="{{ asset('/client/images/photos/user5.png')}}" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user5.png')}}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Nicholas T. Hinkle</h4>
@@ -430,7 +426,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="{{ asset('/client/images/photos/user6.png')}}" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user6.png')}}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Jamie W. Bradford</h4>
@@ -441,7 +437,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="{{ asset('/client/images/photos/user7.png')}}" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user7.png')}}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Pamela J. Stump</h4>
@@ -452,7 +448,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="{{ asset('/client/images/photos/user8.png')}}" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user8.png')}}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Refugio C. Burgess</h4>
@@ -463,7 +459,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="{{ asset('/client/images/photos/user9.png')}}" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user9.png')}}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Ashley T. Brewington</h4>
@@ -474,7 +470,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="{{ asset('/client/images/photos/user10.pn')}}g" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user10.pn')}}g" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Roberta F. Horn</h4>
@@ -550,12 +546,12 @@
 </section>
 
 @section('js_ref')
-<script src="{{asset('/client/lib/jquery/jquery.js')}}"></script>
-<script src="{{asset('/client/lib/jquery-ui/jquery-ui.js')}}"></script>
-<script src="{{asset('/client/lib/bootstrap/js/bootstrap.js')}}"></script>
-<script src="{{asset('/client/lib/jquery-toggles/toggles.js')}}"></script>
+<script src="{{asset('internal_css/lib/jquery/jquery.js')}}"></script>
+<script src="{{asset('internal_css/lib/jquery-ui/jquery-ui.js')}}"></script>
+<script src="{{asset('internal_css/lib/bootstrap/js/bootstrap.js')}}"></script>
+<script src="{{asset('internal_css/lib/jquery-toggles/toggles.js')}}"></script>
 
-<script src="{{asset('/client/js/quirk.js')}}"></script>
+<script src="{{asset('internal_css/js/quirk.js')}}"></script>
 
 @show
 

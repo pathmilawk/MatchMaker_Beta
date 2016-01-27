@@ -9,9 +9,13 @@
 <html>
 <head>
     <title>Weekend a People and Society Category Flat bootstrap Responsive website Template | Home :: w3layouts</title>
-    <link href="{{asset('/client/css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
-    <link href="{{asset('/client/css/style.css')}}" type="text/css" rel="stylesheet" media="all">
-    <link href="{{asset('/client/css/component.css')}}" rel="stylesheet" type="text/css"  />
+    <link href="{{asset('external_css/css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
+    <link href="{{asset('external_css/css/style.css')}}" type="text/css" rel="stylesheet" media="all">
+    <link href="{{asset('external_css/css/component.css')}}" rel="stylesheet" type="text/css"  />
+
+    <!-- Search Box CSS-->
+    <link href="{{asset('external_css/css/searchBox.css')}}" rel="stylesheet" type="text/css"  />
+
     <!-- Custom Theme files -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,12 +25,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--web-fonts-->
     <link href='//fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
     <!--js-->
-    <script src="{{asset('/client/js/jquery-1.11.1.min.js')}}"></script>
-    <script src="{{asset('/client/js/bootstrap.js')}}"> </script>
-    <script src="{{asset('/client/js/modernizr.custom.js')}}"></script>
+    <script src="{{asset('external_css/js/jquery-1.11.1.min.js')}}"></script>
+    <script src="{{asset('external_css/js/bootstrap.js')}}"> </script>
+    <script src="{{asset('external_css/js/modernizr.custom.js')}}"></script>
     <!--//js-->
-    <script type="text/javascript" src="{{asset('/client/js/move-top.js')}}"></script>
-    <script type="text/javascript" src="{{asset('/client/js/easing.js')}}"></script>
+    <script type="text/javascript" src="{{asset('external_css/js/move-top.js')}}"></script>
+    <script type="text/javascript" src="{{asset('external_css/js/easing.js')}}"></script>
     <!--/script-->
     <script type="text/javascript">
         jQuery(document).ready(function($) {
@@ -74,11 +78,166 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </nav>
 <div class="banner">
     <div class="logo">
-        <a href="index.html"><h1>Weeke<span>nd</span></h1><p>After Friday...</p></a>
+        <!-- Search Box Starts -->
+
+        <div class="searchBox">
+            <h1 style=" margin-top: 30px; ">Find Your Soulmate Here...</h1>
+            <form action="searchResults.blade.php" method="post">
+                <table name= "searchBox_table" style="margin-top: 20px; margin-left: 30px; margin-right: 30px">
+                    <tr>
+                        <td>I am a </td>
+                        <td>
+                            <select name="usersGender">
+                                <option>Man</option>
+                                <option>Women</option>
+                            </select>
+                        </td>
+                        <td>looking for a</td>
+                        <td>
+                            <select name="lookingGender">
+                                <option>Man</option>
+                                <option>Women</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>My partner should be,<td>
+                    </tr>
+                    <tr>
+                        <td>From</td>
+                        <td>
+                            <select name="places">
+                                <option>Ampara</option>
+                                <option>Anuradhapura</option>
+                                <option>Badulla</option>
+                                <option>Batticaloa</option>
+                                <option>Colombo</option>
+                                <option>Galle</option>
+                                <option>Gampaha</option>
+                                <option>Hambantota</option>
+                                <option>Jaffna</option>
+                                <option>Kalutara</option>
+                                <option>Kandy</option>
+                                <option>Kilinochchi</option>
+                                <option>Kurunegala</option>
+                                <option>Manner</option>
+                                <option>Matale</option>
+                                <option>Matale</option>
+                                <option>Monaragala</option>
+                                <option>Mullativu</option>
+                                <option>Nuwara Eliya</option>
+                                <option>Polonnaruwa</option>
+                                <option>Puttalam</option>
+                                <option>Ratnapura</option>
+                                <option>Trincomalee</option>
+                                <option>Vavuniya</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Age</td>
+                        <td>
+                            <select name="ageStart">
+                                <option>18</option><option>19</option>
+                                <option>20</option><option>21</option>
+                                <option>22</option><option>23</option>
+                                <option>24</option><option>25</option>
+                                <option>27</option><option>28</option>
+                                <option>29</option><option>30</option>
+                                <option>31</option><option>32</option>
+                                <option>33</option><option>34</option>
+                                <option>35</option><option>36</option>
+                                <option>37</option><option>38</option>
+                                <option>39</option><option>40</option>
+                                <option>41</option><option>42</option>
+                                <option>43</option><option>44</option>
+                                <option>45</option><option>46</option>
+                                <option>47</option><option>48</option>
+                                <option>49</option><option>50</option>
+                                <option>51</option><option>52</option>
+                                <option>53</option><option>54</option>
+                                <option>55</option><option>56</option>
+                                <option>57</option><option>58</option>
+                                <option>59</option><option>60</option>
+                                <option>61</option><option>62</option>
+                                <option>63</option><option>64</option>
+                                <option>65</option><option>66</option>
+                                <option>67</option><option>68</option>
+                                <option>69</option><option>70</option>
+                            </select>
+                        </td>
+                        <td>to</td>
+                        <td>
+                            <select name="ageEnd" >
+                                <option>18</option><option>19</option>
+                                <option>20</option><option>21</option>
+                                <option>22</option><option>23</option>
+                                <option>24</option><option>25</option>
+                                <option>27</option><option>28</option>
+                                <option>29</option><option>30</option>
+                                <option>31</option><option>32</option>
+                                <option>33</option><option>34</option>
+                                <option>35</option><option>36</option>
+                                <option>37</option><option>38</option>
+                                <option>39</option><option>40</option>
+                                <option>41</option><option>42</option>
+                                <option>43</option><option>44</option>
+                                <option>45</option><option>46</option>
+                                <option>47</option><option>48</option>
+                                <option>49</option><option>50</option>
+                                <option>51</option><option>52</option>
+                                <option>53</option><option>54</option>
+                                <option>55</option><option>56</option>
+                                <option>57</option><option>58</option>
+                                <option>59</option><option>60</option>
+                                <option>61</option><option>62</option>
+                                <option>63</option><option>64</option>
+                                <option>65</option><option>66</option>
+                                <option>67</option><option>68</option>
+                                <option>69</option><option>70</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Religion</td>
+                        <td>
+                            <select name="religion">
+                                <option>Buddhist</option>
+                                <option>Christian</option>
+                                <option>Muslim</option>
+                                <option>Hindu</option>
+                                <option>Doesn't Matter</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mother Tongue</td>
+                        <td>
+                            <select name="motherTongue">
+                                <option>Sinhala</option>
+                                <option>English</option>
+                                <option>Tamil</option>
+                                <option>Hindi</option>
+                                <option>Doesn't Matter</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><input type="button" id="searchBox_submit" class ="button" value="Search"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <!-- Search Box Ends -->
+
     </div>
 </div>
 <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-<script src="{{asset('js/classie.js')}}"></script>
+<script src="{{asset('external_css/js/classie.js')}}"></script>
 <script>
     var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
             showLeftPush = document.getElementById( 'showLeftPush' ),
@@ -113,17 +272,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="bottom">
                                 <div class=" bottom-in bottom-grid">
                                     <a href="{{URL::to('abc')}}">
-                                    <img class="img-responsive " src="{{asset('/client/images/s1.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s1.jpg')}}" alt="" />
                                     </a>
                                 </div>
                                 <div class=" bottom-in bottom-grid1">
-                                    <img class="img-responsive" src="{{asset('/client/images/s2.jpg')}}" alt="" />
+                                    <img class="img-responsive" src="{{asset('external_css/images/s2.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid2">
-                                    <img class="img-responsive " src="{{asset('/client/images/s3.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s3.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid3">
-                                    <img class="img-responsive " src="{{asset('/client/images/s4.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s4.jpg')}}" alt="" />
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
@@ -131,16 +290,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <div class="bottom">
                                 <div class=" bottom-in bottom-grid">
-                                    <img class="img-responsive " src="{{asset('/client/images/s3.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s3.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid1">
-                                    <img class="img-responsive" src="{{asset('/client/images/s4.jpg')}}" alt="" />
+                                    <img class="img-responsive" src="{{asset('external_css/images/s4.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid2">
-                                    <img class="img-responsive " src="{{asset('/client/images/s1.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s1.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid3">
-                                    <img class="img-responsive " src="{{asset('/client/images/s2.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s2.jpg')}}" alt="" />
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
@@ -148,16 +307,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <div class="bottom">
                                 <div class=" bottom-in bottom-grid">
-                                    <img class="img-responsive " src="{{asset('/client/images/s2.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s2.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid1">
-                                    <img class="img-responsive" src="{{asset('/client/images/s1.jpg')}}" alt="" />
+                                    <img class="img-responsive" src="{{asset('external_css/images/s1.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid2">
-                                    <img class="img-responsive " src="{{asset('/client/images/s4.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s4.jpg')}}" alt="" />
                                 </div>
                                 <div class=" bottom-in bottom-grid3">
-                                    <img class="img-responsive " src="{{asset('/client/images/s3.jpg')}}" alt="" />
+                                    <img class="img-responsive " src="{{asset('external_css/images/s3.jpg')}}" alt="" />
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
@@ -165,10 +324,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </div>
             </section>
-            <script>window.jQuery || document.write('<script src="{{asset('/client/js/libs/jquery-1.7.min.js')}}">\x3C/script>')</script>
+            <script>window.jQuery || document.write('<script src="{{asset('external_css/js/libs/jquery-1.7.min.js')}}">\x3C/script>')</script> //*****
             <!--flexslider-->
-            <link rel="stylesheet" href="{{asset('/client/css/flexslider.css')}}" type="text/css" media="screen" />
-            <script defer src="{{asset('/client/js/jquery.flexslider.js')}}"></script>
+            <link rel="stylesheet" href="{{asset('external_css/css/flexslider.css')}}" type="text/css" media="screen" />
+            <script defer src="{{asset('external_css/js/jquery.flexslider.js')}}"></script>
             <script type="text/javascript">
                 $(function(){
                     SyntaxHighlighter.all();
@@ -194,7 +353,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-6 serve-section grid">
                 <div class="col-md-6 serve-grid">
                     <figure class="effect-goliath">
-                        <img class="img-responsive " src="{{asset('/client/images/ser1.jpg')}}" alt="" />
+                        <img class="img-responsive " src="{{asset('external_css/images/ser1.jpg')}}" alt="" />
                         <figcaption>
                             <h2>weeke<span>nd</span></h2>
                             <a href="#">View more</a>
@@ -204,7 +363,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="col-md-6 serve-grid">
                     <figure class="effect-goliath">
-                        <img class="img-responsive " src="{{asset('/client/images/ser2.jpg')}}" alt="" />
+                        <img class="img-responsive " src="{{asset('external_css/images/ser2.jpg')}}" alt="" />
                         <figcaption>
                             <h2>weeke<span>nd</span></h2>
                             <a href="#">View more</a>
@@ -214,7 +373,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="col-md-6 serve-grid">
                     <figure class="effect-goliath">
-                        <img class="img-responsive " src="{{asset('/client/images/ser3.jpg')}}" alt="" />
+                        <img class="img-responsive " src="{{asset('external_css/images/ser3.jpg')}}" alt="" />
                         <figcaption>
                             <h2>weeke<span>nd</span></h2>
                             <a href="#">View more</a>
@@ -224,7 +383,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="col-md-6 serve-grid">
                     <figure class="effect-goliath">
-                        <img class="img-responsive " src="{{asset('/client/images/ser4.jpg')}}" alt="" />
+                        <img class="img-responsive " src="{{asset('external_css/images/ser4.jpg')}}" alt="" />
                         <figcaption>
                             <h2>weeke<span>nd</span></h2>
                             <a href="#">View more</a>
@@ -298,11 +457,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="single.html" class="mask"><img src="{{asset('/client/images/b2.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
+                    <a href="single.html" class="mask"><img src="{{asset('external_css/images/b2.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
                     <a href="single.html"><h4>News tittle Lorem Ipsump</h4></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div class="read">
-                        <a class="button" href="single.html"><img src="{{asset('/client/images/read.png')}}" alt="" /></a>
+                        <a class="button" href="single.html"><img src="{{asset('external_css/images/read.png')}}" alt="" /></a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -323,12 +482,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="single.html" class="mask"><img src="{{asset('/client/images/b1.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
+                    <a href="single.html" class="mask"><img src="{{asset('external_css/images/b1.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
 
                     <a href="single.html"><h4>News tittle Lorem Ipsump</h4></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div class="read">
-                        <a class="button" href="single.html"><img src="{{asset('/client/images/read.png')}}" alt="" /></a>
+                        <a class="button" href="single.html"><img src="{{asset('external_css/images/read.png')}}" alt="" /></a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -344,7 +503,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <h3 class="tittle three">Testimonials</h3>
         <div class="test">
-            <img src="{{asset('/client/images/t1.jpg')}}" alt="name" />
+            <img src="{{asset('external_css/images/t1.jpg')}}" alt="name" />
             <div class="test-text">
                 <h4>David son</h4>
                 <p><span> </span>Duis quis risus a nunc ultricies varius.Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus.</p>
