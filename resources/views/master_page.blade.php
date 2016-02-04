@@ -30,7 +30,7 @@
   <header>
     <div class="headerpanel">
       <div class="logopanel">
-        <h2><a href="index.html">Quirk</a></h2>
+        <h2><a href="/">Quirk</a></h2>
       </div><!-- logopanel -->
 
       <div class="headerbar">
@@ -196,7 +196,7 @@
               <div class="btn-group">
                 <button type="button" class="btn btn-logged" data-toggle="dropdown">
                   <img src="{{asset('internal_css/images/photos/loggeduser.png')}}" alt="" />
-                  Elen Adarna
+                  {{ Auth::user()->name }}
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu pull-right">

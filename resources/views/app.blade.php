@@ -7,19 +7,21 @@
   <meta name="author" content="">
   <!--<link rel="shortcut icon" href="../images/favicon.png" type="image/png">-->
 
-  <title>Quirk Responsive Admin Templates</title>
+  <title>Home-MatchMaker</title>
 
-  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
-  <link rel="stylesheet" href="../lib/weather-icons/css/weather-icons.css">
-  <link rel="stylesheet" href="../lib/jquery-toggles/toggles-full.css">
+  @section('css_ref')
 
-  <link rel="stylesheet" href="../css/quirk.css">
+    <link rel="stylesheet" href="{{asset('internal_css/lib/fontawesome/css/font-awesome.css')}}">
+    <link rel="stylesheet" href="{{asset('internal_css/lib/weather-icons/css/weather-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('internal_css/lib/jquery-toggles/toggles-full.css')}}">
 
-  <script src="../lib/modernizr/modernizr.js"></script>
+    <link rel="stylesheet" href="{{asset('internal_css/css/quirk.css')}}">
+
+    <script src="{{asset('internal_css/lib/modernizr/modernizr.js')}}"></script>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
-  <script src="../lib/html5shiv/html5shiv.js"></script>
-  <script src="../lib/respond/respond.src.js"></script>
+    <script src="{{asset('internal_css/lib/html5shiv/html5shiv.js')}}'"></script>
+    <script src="{{asset('internal_css/lib/respond/respond.src.js')}}'"></script>
   <![endif]-->
 </head>
 
@@ -29,7 +31,7 @@
     <div class="headerpanel">
 
       <div class="logopanel">
-        <h2><a href="index.html">Welcome Home</a></h2>
+        <h2><a href="/">Match Maker</a></h2>
       </div><!-- logopanel -->
 
       <div class="headerbar">
@@ -195,7 +197,7 @@
               <div class="btn-group">
                 <button type="button" class="btn btn-logged" data-toggle="dropdown">
                   <img src="images/photos/loggeduser.png" alt="" />
-                  Elen Adarna
+                  {{ Auth::user()->name }}
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu pull-right">
@@ -232,7 +234,7 @@
             </a>
           </div>
           <div class="media-body">
-            <h4 class="media-heading">Elen Adarna <a data-toggle="collapse" data-target="#loguserinfo" class="pull-right"><i class="fa fa-angle-down"></i></a></h4>
+            <h4 class="media-heading">{{ Auth::user()->name }}<a data-toggle="collapse" data-target="#loguserinfo" class="pull-right"><i class="fa fa-angle-down"></i></a></h4>
             <span>Software Engineer</span>
           </div>
         </div><!-- leftpanel-profile -->
@@ -283,51 +285,48 @@
           <div class="tab-pane active" id="mainmenu">
             <h5 class="sidebar-title">Favorites</h5>
             <ul class="nav nav-pills nav-stacked nav-quirk">
-              <li><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-              <li><a href="widgets.html"><span class="badge pull-right">10+</span><i class="fa fa-cube"></i> <span>Widgets</span></a></li>
-              <li><a href="maps.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a></li>
+              <li><a href="index.html"><i class="fa fa-home"></i> <span>Add Topic</span></a></li>
+              <li><a href="widgets.html"><span class="badge pull-right">10+</span><i class="fa fa-cube"></i> <span>Add Topic</span></a></li>
+              <li><a href="maps.html"><i class="fa fa-map-marker"></i> <span>Add Topic</span></a></li>
             </ul>
 
             <h5 class="sidebar-title">Main Menu</h5>
             <ul class="nav nav-pills nav-stacked nav-quirk">
               <li class="nav-parent">
-                <a href=""><i class="fa fa-check-square"></i> <span>Forms</span></a>
+                <a href=""><i class="fa fa-check-square"></i> <span>Add Topic</span></a>
                 <ul class="children">
-                  <li><a href="general-forms.html">Form Elements</a></li>
-                  <li><a href="form-validation.html">Form Validation</a></li>
-                  <li><a href="form-wizards.html">Form Wizards</a></li>
-                  <li><a href="wysiwyg.html">Text Editor</a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
                 </ul>
               </li>
-              <li class="nav-parent"><a href=""><i class="fa fa-suitcase"></i> <span>UI Elements</span></a>
+              <li class="nav-parent"><a href=""><i class="fa fa-suitcase"></i> <span>Add Topic</span></a>
                 <ul class="children">
-                  <li><a href="buttons.html">Buttons</a></li>
-                  <li><a href="icons.html">Icons</a></li>
-                  <li><a href="typography.html">Typography</a></li>
-                  <li><a href="alerts.html">Alerts &amp; Notifications</a></li>
-                  <li><a href="tabs-accordions.html">Tabs &amp; Accordions</a></li>
-                  <li><a href="sliders.html">Sliders</a></li>
-                  <li><a href="graphs.html">Graphs &amp; Charts</a></li>
-                  <li><a href="panels.html">Panels</a></li>
-                  <li><a href="extras.html">Extras</a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
                 </ul>
               </li>
-              <li class="nav-parent"><a href=""><i class="fa fa-th-list"></i> <span>Tables</span></a>
+              <li class="nav-parent"><a href=""><i class="fa fa-th-list"></i> <span>Add Topic</span></a>
                 <ul class="children">
-                  <li><a href="basic-tables.html">Basic Tables</a></li>
-                  <li><a href="data-tables.html">Data Tables</a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
                 </ul>
               </li>
-              <li class="nav-parent active"><a href=""><i class="fa fa-file-text"></i> <span>Pages</span></a>
+              <li class="nav-parent active"><a href=""><i class="fa fa-file-text"></i> <span>Add Topic</span></a>
                 <ul class="children">
-                  <li><a href="asset-manager.html">Asset Manager</a></li>
-                  <li><a href="people-directory.html">People Directory</a></li>
-                  <li><a href="timeline.html">Timeline</a></li>
-                  <li><a href="profile.html">Profile</a></li>
-                  <li class="active"><a href="blank.html">Blank Page</a></li>
-                  <li><a href="notfound.html">404 Page</a></li>
-                  <li><a href="signin.html">Sign In</a></li>
-                  <li><a href="signup.html">Sign Up</a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
                 </ul>
               </li>
             </ul>
@@ -370,7 +369,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="../images/photos/user1.png" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user1.png') }}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Christina R. Hill</h4>
@@ -381,7 +380,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="../images/photos/user2.png" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user2.png') }}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Floyd M. Romero</h4>
@@ -392,7 +391,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="../images/photos/user3.png" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user3.png') }}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Jennie S. Gray</h4>
@@ -403,7 +402,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="../images/photos/user4.png" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user4.png') }}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Alia J. Locher</h4>
@@ -414,7 +413,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="../images/photos/user5.png" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user5.png') }}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Nicholas T. Hinkle</h4>
@@ -425,7 +424,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="../images/photos/user6.png" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user6.png') }}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Jamie W. Bradford</h4>
@@ -436,7 +435,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="../images/photos/user7.png" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user7.png') }}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Pamela J. Stump</h4>
@@ -447,7 +446,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="../images/photos/user8.png" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user8.png') }}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Refugio C. Burgess</h4>
@@ -458,7 +457,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="../images/photos/user9.png" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user9.png') }}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Ashley T. Brewington</h4>
@@ -469,7 +468,7 @@
               <li class="media">
                 <a href="#">
                   <div class="media-left">
-                    <img class="media-object img-circle" src="../images/photos/user10.png" alt="">
+                    <img class="media-object img-circle" src="{{ asset('internal_css/images/photos/user10.png') }}" alt="">
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">Roberta F. Horn</h4>
@@ -530,9 +529,9 @@
       <div class="contentpanel">
 
         <ol class="breadcrumb breadcrumb-quirk">
-          <li><a href="index.html"><i class="fa fa-home mr5"></i> Home</a></li>
-          <li><a href="buttons.html">Pages</a></li>
-          <li class="active">Blank</li>
+          <li><a href="/home"><i class="fa fa-home mr5"></i> Home</a></li>
+          <li><a href="#">Pages</a></li>
+          <li class="#">Blank</li>
         </ol>
 
         <!-- content goes here... -->
@@ -542,12 +541,12 @@
     </div><!-- mainpanel -->
 </section>
 
-<script src="../lib/jquery/jquery.js"></script>
-<script src="../lib/jquery-ui/jquery-ui.js"></script>
-<script src="../lib/bootstrap/js/bootstrap.js"></script>
-<script src="../lib/jquery-toggles/toggles.js"></script>
+  <script src="{{asset('internal_css/lib/jquery/jquery.js')}}"></script>
+  <script src="{{asset('internal_css/lib/jquery-ui/jquery-ui.js')}}"></script>
+  <script src="{{asset('internal_css/lib/bootstrap/js/bootstrap.js')}}"></script>
+  <script src="{{asset('internal_css/lib/jquery-toggles/toggles.js')}}"></script>
 
-<script src="../js/quirk.js"></script>
+  <script src="{{asset('internal_css/js/quirk.js')}}"></script>
 
 </body>
 </html>
