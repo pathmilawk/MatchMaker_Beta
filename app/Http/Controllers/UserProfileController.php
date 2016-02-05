@@ -5,8 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-
-class UserController extends Controller {
+class UserProfileController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -33,9 +32,10 @@ class UserController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-
+		$input = $request->all();
+		return $input;
 	}
 
 	/**
@@ -80,11 +80,6 @@ class UserController extends Controller {
 	public function destroy($id)
 	{
 		//
-	}
-
-	public function showAddPage()
-	{
-		return view('user.addProfileInfo');
 	}
 
 }

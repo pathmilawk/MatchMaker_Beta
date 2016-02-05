@@ -48,3 +48,7 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+
+Route::get('addMyProfileInformation', 'UserController@showAddPage');
+Route::post('addinfo','UserProfileController@store');

@@ -1,8 +1,19 @@
 @extends('master_page')
-@section('css_ref')
-@parent
-@stop
+    @section('css_ref')
+    @parent
+    @stop
+@section('BarButtons')
+    <div class="searchpanel col-lg-9">
+        <h3 class="profile-left-heading text-center">MatchMaker</h3>
+    </div>
 
+
+    <div class="header-right paddingtop10">
+        <h4>
+        <i><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/login"><span class="label label-primary">Sign In</span></a></i>&nbsp;&nbsp;&nbsp;<i><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/register"><span class="label label-primary">Register</span></a></i>
+        </h4>
+    </div>
+    @show
 @section('content')
 
         <!DOCTYPE html>

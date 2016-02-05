@@ -1,4 +1,8 @@
 @extends('app')
+@section('pageTitle','Home')
+@section('css_ref')
+	@parent
+	@stop
 
 @section('content')
 <div class="container">
@@ -14,4 +18,9 @@
 		</div>
 	</div>
 </div>
-@endsection
+@stop
+
+@section('js_ref')
+	@parent
+
+	@stop
