@@ -37,14 +37,20 @@
 
         <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
 
+        <!--Search-->
         <div class="searchpanel">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
+            <!--<input type="text" class="form-control" placeholder="Search for...">-->
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+              <a href="{{URL::to('search_main')}}">
+                <button class="btn btn-default" type="button" )}}>
+                   <i class="fa fa-search"></i>
+                </button>
+              </a>
             </span>
           </div><!-- input-group -->
         </div>
+
 
         <div class="header-right">
           <ul class="headermenu">

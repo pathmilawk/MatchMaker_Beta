@@ -36,7 +36,7 @@
 	<div class="panel-body">
 		<button class="btn btn-primary btn-quirk btn-fb btn-block">Connect with Facebook</button>
 		<div class="or">or</div>
-		<form action="http://matchmaker.dev.com/auth/login" method="POST" accept-charset="UTF-8">
+		<form action="http://localhost/auth/login" method="POST" accept-charset="UTF-8">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
@@ -64,6 +64,7 @@
 			<a href="register" class="btn btn-default btn-quirk btn-stroke btn-stroke-thin btn-block btn-sign">Not a member? Sign up now!</a>
 		</div>
 	</div>
+
 </div><!-- panel -->
 
 </body>

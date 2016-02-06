@@ -29,6 +29,10 @@ Route::get('/testDamindu', function(){
     return view('testD');
 });
 
+//Savidya's
+Route::get('search_main', 'searchController@searchMain');
+Route::post('login', 'searchController@Login');
+
 // Authentication routes...
 Route::get('auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
 Route::post('auth/login', 'Auth\AuthController@postLogin');

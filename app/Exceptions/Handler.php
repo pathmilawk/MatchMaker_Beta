@@ -36,9 +36,13 @@ class Handler extends ExceptionHandler {
 	 */
 	public function render($request, Exception $e)
 	{
-		if ($this->isHttpException($e))
+		/*if ($this->isHttpException($e))
 		{
 			return $this->renderHttpException($e);
+		}*/
+		if ($e instanceof TokenMismatchException)
+		{
+			return redirect($request->fullUrl())->with('csrf_error', "Opps ! Seems you couldn't submit the form for a long time. Please try again!");
 		}
 		else
 		{

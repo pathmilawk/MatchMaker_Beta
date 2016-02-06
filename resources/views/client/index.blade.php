@@ -82,7 +82,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         <div class="searchBox">
             <h1 style=" margin-top: 30px; ">Find Your Soulmate Here...</h1>
-            <form action="searchResults.blade.php" method="post">
+            <form action="{{URL::to('login')}}" ; method="POST">
+                <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                 <table name= "searchBox_table" style="margin-top: 20px; margin-left: 30px; margin-right: 30px">
                     <tr>
                         <td>I am a </td>
@@ -225,13 +226,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <tr>
                         <td></td>
                         <td></td>
-                        <td><input type="button" id="searchBox_submit" class ="button" value="Search"></td>
+                        <td>
+                            <input type="submit" id="searchBox_submit" class ="button" value="Search"/>
+                        </td>
                     </tr>
                 </table>
             </form>
-
         </div>
-
         <!-- Search Box Ends -->
 
     </div>
@@ -446,7 +447,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
-                            <a href="single.html" > <i class="glyphicon glyphicon-picture"></i></a>
+                            <a href="{{URL::to('view_story')}}" > <i class="glyphicon glyphicon-picture"></i></a>
                         </div>
                     </div>
                     <ul class="ad-info">
@@ -457,7 +458,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="single.html" class="mask"><img src="{{asset('external_css/images/b2.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
+                    <a href="{{URL::to('view_story')}}" class="mask"><img src="{{asset('external_css/images/b2.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
                     <a href="single.html"><h4>News tittle Lorem Ipsump</h4></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div class="read">
