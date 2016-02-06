@@ -36,11 +36,11 @@
 	<div class="panel-body">
 		<button class="btn btn-primary btn-quirk btn-fb btn-block">Connect with Facebook</button>
 		<div class="or">or</div>
-<<<<<<< Updated upstream
+
 		<form action="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/login" method="POST" accept-charset="UTF-8">
-=======
+
 		<form action="localhost/auth/login" method="POST" accept-charset="UTF-8">
->>>>>>> Stashed changes
+
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
