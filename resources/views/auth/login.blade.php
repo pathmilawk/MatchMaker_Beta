@@ -36,10 +36,7 @@
 	<div class="panel-body">
 		<button class="btn btn-primary btn-quirk btn-fb btn-block">Connect with Facebook</button>
 		<div class="or">or</div>
-
 		<form action="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/login" method="POST" accept-charset="UTF-8">
-
-		<form action="localhost/auth/login" method="POST" accept-charset="UTF-8">
 
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
