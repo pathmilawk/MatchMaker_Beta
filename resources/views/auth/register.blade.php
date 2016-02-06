@@ -38,7 +38,11 @@
 				<div class="panel-body">
 					<button class="btn btn-primary btn-quirk btn-fb btn-block">Sign Up Using Facebook</button>
 					<div class="or">or</div>
+<<<<<<< HEAD
 					<form action="http://localhost/auth/register" method="post" ><input type="hidden" name="_token" value="{{ csrf_token() }}">
+=======
+					<form action="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/register" method="post" ><input type="hidden" name="_token" value="{{ csrf_token() }}">
+>>>>>>> 27d2bb9d64362ee74627bb28ab48dbeb3694e332
 
 
 
