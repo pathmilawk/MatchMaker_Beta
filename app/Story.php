@@ -4,10 +4,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Story extends Model {
 
+    protected $table="storys";
 	protected $fillable = [
-        'name',
-        'image',
-        'story'
+        'firstname',
+        'lastname',
+        'phone',
+        'email',
+        'address',
+        'story',
+        'image'
+
     ];
 
 }

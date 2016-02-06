@@ -80,7 +80,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <h3>10 Comments</h3>
 
                     @foreach($notes as $note)
-
                     <div class="met">
                         <div class="code-in">
                             <p class="smith"><a href="#">{{ $note->name }}</a> <span>{{$note->created_at}}</span></p>
@@ -114,13 +113,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="leave">
                     <h3>Leave a comment</h3>
+                    @if($errors->any())
+                        <ul class="alert alert-danger">
+                            @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    @endif
                     <form id="myform" name="myform" action="commentFormSubmit" method="POST">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="single-grid">
                             <div class="single-us">
                                 <input type="text" id="name" name="name" placeholder="Name">
                                 <input type="text" id="email" name="email"  placeholder="Email">
-                                <textarea id="note" name="note" placeholder="Note...">Comment</textarea>
+                                <textarea id="note" name="note" placeholder="Comment"></textarea>
                                 <input type="submit" value="SEND" >
                             </div>
                         </div>

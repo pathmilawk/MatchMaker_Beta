@@ -14,9 +14,13 @@ class CreateStorysTable extends Migration {
 	{
 		Schema::create('storys',function(Blueprint $table){
 			$table->increments('id');
-			$table->string('name');
-			$table->string('image');
+			$table->string('firstname');
+			$table->string('lastname');
+			$table->string('phone');
+			$table->string('email');
+			$table->string('address');
 			$table->longtext('story');
+			$table->string('image');
 			$table->timestamps();
 		});
 	}
