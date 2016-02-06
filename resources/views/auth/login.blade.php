@@ -10,16 +10,16 @@
 
 	<title>Quirk Responsive Admin Templates</title>
 
-	<link rel="stylesheet" href="{{asset('client/lib/fontawesome/css/font-awesome.css')}}">
-	<link rel="stylesheet" href="{{asset('client/css/quirk.css')}}">
+	<link rel="stylesheet" href="{{asset('internal_css/lib/fontawesome/css/font-awesome.css')}}">
+	<link rel="stylesheet" href="{{asset('internal_css/css/quirk.css')}}">
 
-	<script src="{{ asset('client/lib/modernizr/modernizr.js') }}"></script>
+	<script src="{{ asset('internal_css/lib/modernizr/modernizr.js') }}"></script>
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 
-	<script src="{{ asset('client/lib/html5shiv/html5shiv.js') }}"></script>
+	<script src="{{ asset('internal_css/lib/html5shiv/html5shiv.js') }}"></script>
 
-	<script src="{{ asset('client/lib/respond/.src.js') }}"></script>
+	<script src="{{ asset('internal_css/lib/respond/.src.js') }}"></script>
 	<![endif]-->
 </head>
 
@@ -36,7 +36,11 @@
 	<div class="panel-body">
 		<button class="btn btn-primary btn-quirk btn-fb btn-block">Connect with Facebook</button>
 		<div class="or">or</div>
+<<<<<<< Updated upstream
 		<form action="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/login" method="POST" accept-charset="UTF-8">
+=======
+		<form action="localhost/auth/login" method="POST" accept-charset="UTF-8">
+>>>>>>> Stashed changes
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 

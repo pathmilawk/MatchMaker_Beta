@@ -18,6 +18,10 @@ Route::get('home', 'HomeController@index');
 //pathmila's
 Route::get('abc', 'AbcController@index');
 Route::get('view_story','StoryController@viewStory');
+Route::post('commentFormSubmit','StoryController@commentFormSubmit');
+Route::get('submit_story','StoryController@submitStory');
+Route::post('storyFormSubmit','StoryController@storyFormSubmit');
+Route::get('contact_us','ContactController@contactUs');
 //---------------
 
 Route::post('/testDamindu', function(){
