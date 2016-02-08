@@ -32,6 +32,8 @@ Route::get('/testDamindu', function(){
 //Savidya's
 Route::get('search_main', 'searchController@searchMain');
 Route::post('login', 'searchController@Login');
+Route::post('search_result','searchController@searchResult');
+Route::post('register','searchController@Register');
 
 // Authentication routes...
 Route::get('auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);

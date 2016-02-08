@@ -10,26 +10,29 @@ class searchController extends Controller {
 
 	public function searchMain()
     {
-        return view('client.search_main');
+        return view('client.search_main2');
     }
 
-    /**
-     * @return \Illuminate\View\View0
-     */
     public  function Login()
     {
-        $values = $_POST[userGender];
 
-        //$values["usersGender"]=Session::get('Ugender');
-        //$values["lookingGender"]=Session::get('a');
-        //$values["places"]=Session::get('b');
-        //$values["ageStart"]=Session::get('c');
-        //$values["ageEnd"]=Session::get('Uder');
-        //$values["religionr"]=Session::get('Uger');
-        //$values["motherTongue"]=Session::get('Uer');
+        Session::put('lookingGender',$_POST['lookingGender']);
+        Session::put('places',$_POST['places']);
+        Session::put('ageStart',$_POST['ageStart']);
+        Session::put('ageEnd',$_POST['ageEnd']);
+        Session::put('religion',$_POST['religion']);
+        Session::put('motherTongue',$_POST['motherTongue']);
 
-        echo $values;
         return view('auth.login');
     }
 
+    public  function Register()
+    {
+        return view('auth.register');
+    }
+
+    public function searchResult()
+    {
+        return view('client.search_result');
+    }
 }

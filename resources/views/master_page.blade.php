@@ -37,16 +37,10 @@
 
       <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
 
-<<<<<<< HEAD
         <!--Search-->
         <div class="searchpanel">
           <div class="input-group">
             <!--<input type="text" class="form-control" placeholder="Search for...">-->
-=======
-      <div class="searchpanel">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for...">
->>>>>>> 27d2bb9d64362ee74627bb28ab48dbeb3694e332
             <span class="input-group-btn">
               <a href="{{URL::to('search_main')}}">
                 <button class="btn btn-default" type="button" )}}>
@@ -54,7 +48,6 @@
                 </button>
               </a>
             </span>
-<<<<<<< HEAD
           </div><!-- input-group -->
         </div>
 
@@ -88,7 +81,8 @@
                                 <small>June 20, 2015</small>
                                 <span>Soluta nobis est eligendi optio cumque...</span>
                               </div>
-=======
+                            </div>
+                        </ul>
         </div><!-- input-group -->
       </div>
 

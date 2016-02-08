@@ -10,16 +10,16 @@
 
 	<title>Quirk Responsive Admin Templates</title>
 
-	<link rel="stylesheet" href="{{asset('client/lib/fontawesome/css/font-awesome.css')}}">
-	<link rel="stylesheet" href="{{asset('client/css/quirk.css')}}">
+	<link rel="stylesheet" href="{{asset('internal_css/lib/fontawesome/css/font-awesome.css')}}">
+	<link rel="stylesheet" href="{{asset('internal_css/css/quirk.css')}}">
 
 	<script src="{{ asset('client/lib/modernizr/modernizr.js') }}"></script>
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 
-	<script src="{{ asset('client/lib/html5shiv/html5shiv.js') }}"></script>
+	<script src="{{ asset('internal_css/lib/html5shiv/html5shiv.js') }}"></script>
 
-	<script src="{{ asset('client/lib/respond/.src.js') }}"></script>
+	<script src="{{ asset('internal_css/lib/respond/.src.js') }}"></script>
 	<![endif]-->
 </head>
 
@@ -36,11 +36,7 @@
 	<div class="panel-body">
 		<button class="btn btn-primary btn-quirk btn-fb btn-block">Connect with Facebook</button>
 		<div class="or">or</div>
-<<<<<<< HEAD
-		<form action="http://localhost/auth/login" method="POST" accept-charset="UTF-8">
-=======
 		<form action="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/login" method="POST" accept-charset="UTF-8">
->>>>>>> 27d2bb9d64362ee74627bb28ab48dbeb3694e332
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
@@ -65,10 +61,9 @@
 		</form>
 		<hr class="invisible">
 		<div class="form-group">
-			<a href="register" class="btn btn-default btn-quirk btn-stroke btn-stroke-thin btn-block btn-sign">Not a member? Sign up now!</a>
+			<a href="{{URL::to('register')}}" class="btn btn-default btn-quirk btn-stroke btn-stroke-thin btn-block btn-sign">Not a member? Sign up now!</a>
 		</div>
 	</div>
 
 </div><!-- panel -->
-
 </body>
