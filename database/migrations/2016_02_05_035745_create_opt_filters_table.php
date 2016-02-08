@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStorysTable extends Migration {
+class CreateOptFiltersTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,16 @@ class CreateStorysTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('storys',function(Blueprint $table){
+		Schema::create('opt_filters', function(Blueprint $table)
+		{
 			$table->increments('id');
-			$table->string('firstname');
-			$table->string('lastname');
-			$table->string('phone');
-			$table->string('email');
-			$table->string('address');
-			$table->longtext('story');
-			$table->string('image');
+
+
+			//To Savidya = Add your table columns here
+			//Also refer user migration, so you can prevent duplicates
+
+
+
 			$table->timestamps();
 		});
 	}
@@ -32,7 +33,7 @@ class CreateStorysTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('storys');
+		Schema::drop('opt_filters');
 	}
 
 }

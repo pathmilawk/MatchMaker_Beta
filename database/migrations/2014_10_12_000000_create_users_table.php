@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration {
 			$table->string('username');
 			$table->rememberToken();
 			$table->timestamps();
+
 		});
 	}
 

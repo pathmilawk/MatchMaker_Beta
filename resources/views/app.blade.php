@@ -7,7 +7,7 @@
   <meta name="author" content="">
   <!--<link rel="shortcut icon" href="../images/favicon.png" type="image/png">-->
 
-  <title>Home-MatchMaker</title>
+  <title>@yield('pageTitle')</title>
 
   @section('css_ref')
 
@@ -23,6 +23,8 @@
     <script src="{{asset('internal_css/lib/html5shiv/html5shiv.js')}}'"></script>
     <script src="{{asset('internal_css/lib/respond/respond.src.js')}}'"></script>
   <![endif]-->
+  @show
+
 </head>
 
 <body>
@@ -201,7 +203,7 @@
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu pull-right">
-                  <li><a href="profile.html"><i class="glyphicon glyphicon-user"></i> My Profile</a></li>
+                  <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/addMyProfileInformation"><i class="glyphicon glyphicon-user"></i> My Profile</a></li>
                   <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Account Settings</a></li>
                   <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> Help</a></li>
                   <li><a href="auth/logout"><i class="glyphicon glyphicon-log-out"></i> Log Out</a></li>
@@ -531,7 +533,7 @@
         <ol class="breadcrumb breadcrumb-quirk">
           <li><a href="/home"><i class="fa fa-home mr5"></i> Home</a></li>
           <li><a href="#">Pages</a></li>
-          <li class="#">Blank</li>
+          <li class="#"><? echo $_SERVER['PHP_SELF']; ?></li>
         </ol>
 
         <!-- content goes here... -->
@@ -540,13 +542,14 @@
       </div><!-- contentpanel -->
     </div><!-- mainpanel -->
 </section>
-
+@section('js_ref')
   <script src="{{asset('internal_css/lib/jquery/jquery.js')}}"></script>
   <script src="{{asset('internal_css/lib/jquery-ui/jquery-ui.js')}}"></script>
   <script src="{{asset('internal_css/lib/bootstrap/js/bootstrap.js')}}"></script>
   <script src="{{asset('internal_css/lib/jquery-toggles/toggles.js')}}"></script>
-
   <script src="{{asset('internal_css/js/quirk.js')}}"></script>
+  @show
+
 
 </body>
 </html>

@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="{{asset('internal_css/lib/fontawesome/css/font-awesome.css')}}">
 	<link rel="stylesheet" href="{{asset('internal_css/css/quirk.css')}}">
 
-	<script src="{{ asset('client/lib/modernizr/modernizr.js') }}"></script>
+	<script src="{{ asset('internal_css/lib/modernizr/modernizr.js') }}"></script>
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 
@@ -37,6 +37,7 @@
 		<button class="btn btn-primary btn-quirk btn-fb btn-block">Connect with Facebook</button>
 		<div class="or">or</div>
 		<form action="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/login" method="POST" accept-charset="UTF-8">
+
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 

@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< HEAD
     'App\\Commands\\Command' => $baseDir . '/app/Commands/Command.php',
     'App\\Console\\Commands\\Inspire' => $baseDir . '/app/Console/Commands/Inspire.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
@@ -54,8 +55,13 @@ return array(
     'ClassPreloader\\Parser\\DirVisitor' => $vendorDir . '/classpreloader/classpreloader/src/Parser/DirVisitor.php',
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/Parser/FileVisitor.php',
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/Parser/NodeTraverser.php',
+=======
+    'CreateOptFiltersTable' => $baseDir . '/database/migrations/2016_02_05_035745_create_opt_filters_table.php',
+    'CreateContactsTable' => $baseDir . '/database/migrations/2016_02_06_161459_create_contacts_table.php',
+>>>>>>> bdb84b0dba0cd2894c6ddd57a5e48e1e0aaebd03
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateStorysTable' => $baseDir . '/database/migrations/2016_01_24_060747_create_storys_table.php',
+    'CreateUserProfilesTable' => $baseDir . '/database/migrations/2016_02_05_163430_create_user_profiles_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

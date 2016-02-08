@@ -30,17 +30,25 @@
 <header>
   <div class="headerpanel">
     <div class="logopanel">
-      <h2><a href="index.html">Quirk</a></h2>
+      <h2><a href="index.html">MatchMaker</a></h2>
     </div><!-- logopanel -->
 
     <div class="headerbar">
 
       <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
 
+<<<<<<< HEAD
         <!--Search-->
         <div class="searchpanel">
           <div class="input-group">
             <!--<input type="text" class="form-control" placeholder="Search for...">-->
+=======
+      @show
+      @section('BarButtons')
+      <div class="searchpanel">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+>>>>>>> bdb84b0dba0cd2894c6ddd57a5e48e1e0aaebd03
             <span class="input-group-btn">
               <a href="{{URL::to('search_main')}}">
                 <button class="btn btn-default" type="button" )}}>
@@ -237,7 +245,7 @@
             <div class="btn-group">
               <button type="button" class="btn btn-logged" data-toggle="dropdown">
                 <img src="{{asset('internal_css/images/photos/loggeduser.png')}}" alt="" />
-                Elen Adarna
+                Welcome To Matchmaker
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu pull-right">
@@ -256,6 +264,7 @@
           </li>
         </ul>
       </div><!-- header-right -->
+        @show
     </div><!-- headerbar -->
   </div><!-- header-->
 </header>
@@ -573,11 +582,11 @@
       <?php
       //echo basename($_SERVER['PHP_SELF']);
       //if(basename($_SERVER['PHP_SELF'])!="index.php"){ ?>
-      <ol class="breadcrumb breadcrumb-quirk">
-        <li><a href="index.html"><i class="fa fa-home mr5"></i> Home</a></li>
-        <li><a href="buttons.html">Pages</a></li>
-        <li class="active">Blank</li>
-      </ol>
+      <!--ol class="breadcrumb breadcrumb-quirk"-->
+        <!--li><a href="index.html"><i class="fa fa-home mr5"></i> Home</a></li-->
+        <!--li><a href="buttons.html">Pages</a></li-->
+        <!--li class="active">Blank</li-->
+      <!--/ol-->
       <?php// } ?>
 
       @yield('content')

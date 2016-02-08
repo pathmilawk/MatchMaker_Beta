@@ -1,8 +1,19 @@
 @extends('master_page')
-@section('css_ref')
-@parent
-@stop
+    @section('css_ref')
+    @parent
+    @stop
+@section('BarButtons')
+    <div class="searchpanel col-lg-9">
+        <h3 class="profile-left-heading text-center">MatchMaker</h3>
+    </div>
 
+
+    <div class="header-right paddingtop10">
+        <h4>
+        <i><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/login"><span class="label label-primary">Sign In</span></a></i>&nbsp;&nbsp;&nbsp;<i><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/register"><span class="label label-primary">Register</span></a></i>
+        </h4>
+    </div>
+    @show
 @section('content')
 
         <!DOCTYPE html>
@@ -325,7 +336,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </div>
             </section>
-            <script>window.jQuery || document.write('<script src="{{asset('external_css/js/libs/jquery-1.7.min.js')}}">\x3C/script>')</script> //*****
+            <script>window.jQuery || document.write('<script src="{{asset('external_css/js/libs/jquery-1.7.min.js')}}">\x3C/script>')</script> <!--**********>
             <!--flexslider-->
             <link rel="stylesheet" href="{{asset('external_css/css/flexslider.css')}}" type="text/css" media="screen" />
             <script defer src="{{asset('external_css/js/jquery.flexslider.js')}}"></script>
@@ -459,10 +470,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="col-md-9 post-details">
                     <a href="{{URL::to('view_story')}}" class="mask"><img src="{{asset('external_css/images/b2.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
+<<<<<<< HEAD
                     <a href="single.html"><h4>News tittle Lorem Ipsump</h4></a>
+=======
+                    <a href="{{URL::to('view_story')}}"><h4>News tittle Lorem Ipsump</h4></a>
+>>>>>>> bdb84b0dba0cd2894c6ddd57a5e48e1e0aaebd03
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div class="read">
-                        <a class="button" href="single.html"><img src="{{asset('external_css/images/read.png')}}" alt="" /></a>
+                        <a class="button" href="{{URL::to('view_story')}}"><img src="{{asset('external_css/images/read.png')}}" alt="" /></a>
                     </div>
                 </div>
                 <!--post-details-->
@@ -472,7 +487,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-md-3 post-meta">
                     <div class="meta-icon">
                         <div class="pic">
-                            <a href="single.html" > <i class="glyphicon glyphicon-picture"></i></a>
+                            <a href="{{URL::to('view_story')}}" > <i class="glyphicon glyphicon-picture"></i></a>
                         </div>
                     </div>
                     <ul class="ad-info">
@@ -483,12 +498,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="clearfix"> </div>
                 </div>
                 <div class="col-md-9 post-details">
-                    <a href="single.html" class="mask"><img src="{{asset('external_css/images/b1.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
+                    <a href="{{URL::to('view_story')}}" class="mask"><img src="{{asset('external_css/images/b1.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
 
-                    <a href="single.html"><h4>News tittle Lorem Ipsump</h4></a>
+                    <a href="{{URL::to('view_story')}}"><h4>News tittle Lorem Ipsump</h4></a>
                     <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
                     <div class="read">
-                        <a class="button" href="single.html"><img src="{{asset('external_css/images/read.png')}}" alt="" /></a>
+                        <a class="button" href="{{URL::to('view_story')}}"><img src="{{asset('external_css/images/read.png')}}" alt="" /></a>
                     </div>
                 </div>
                 <!--post-details-->
