@@ -32,17 +32,17 @@ class WelcomeController extends Controller {
 	 */
 
 
-	public function pageContent()
+	/*public function pageContent()
 	{
 		$result=DB::table('gallery_contents')->where('id', DB::raw("(select max(`id`) from gallery_contents)"))->get();
-/*		$result= DB::table('gallery_contents')->where('contentType','=','image')->get();*/
+		$result= DB::table('gallery_contents')->where('contentType','=','image')->get();
 		return $result;
-	}
+	}*/
 
 	public function index()
 	{
-		$result = $this->pageContent();
-		return view('client.index')->with('result',$result);
+		/*$result = $this->pageContent();*/
+		return view('client.index');/*->with('result',$result);*/
 	}
 
 }
