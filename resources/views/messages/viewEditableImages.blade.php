@@ -50,7 +50,7 @@
 
                         <td>
                             <ul class="table-options">
-                                <li><a href="view_Selected_messages{{$row->id}}"><i class="fa fa-pencil"></i></a></li>
+                                <li><a href="SetUploadedImage{{$row->id}}"><button class="btn btn-primary btn-quirk btn-stroke">Set as active</button></a></li>
 
                                 <li><a href="deleteImage{{$row->id}}"><i class="fa fa-trash"></i></a></li>
                             </ul>

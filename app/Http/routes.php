@@ -31,6 +31,7 @@ Route::post('viewUploadImage','imagecontroller@viewUpload');
 Route::get('editUploadImage','imagecontroller@editUpload');
 Route::get('deleteImage{id}','imagecontroller@delete');
 Route::post('viewUploadmenu','imagecontroller@menu');//only for displaying the menu
+Route::get('SetUploadedImage{id}','imagecontroller@setUpload');
 
 //Mingling----
 Route::get('viewMingle','mingleController@getView');

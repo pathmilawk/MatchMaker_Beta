@@ -6,9 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'CreateGallaryContentsTable' => $baseDir . '/database/migrations/2016_02_22_045809_create_gallary_contents_table.php',
+    'CreateGalleryContentsTable' => $baseDir . '/database/migrations/2016_02_23_193004_create_gallery_contents_table.php',
+    'CreateMessagesTable' => $baseDir . '/database/migrations/2016_02_23_200938_create_messages_table.php',
+    'CreateMingleTable' => $baseDir . '/database/migrations/2016_02_23_203022_create_mingle_table.php',
     'CreateOptFiltersTable' => $baseDir . '/database/migrations/2016_02_05_035745_create_opt_filters_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreateSentmessagesTable' => $baseDir . '/database/migrations/2016_02_23_203125_create_sentmessages_table.php',
     'CreateStorysTable' => $baseDir . '/database/migrations/2016_01_24_060747_create_storys_table.php',
     'CreateUserProfilesTable' => $baseDir . '/database/migrations/2016_02_05_163430_create_user_profiles_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
