@@ -28,9 +28,23 @@ class HomeController extends Controller {
 	 *
 	 * @return Response
 	 */
+
+
+	public function pageContent()
+	{
+		$result= DB::table('gallery_contents')->where('contentType','=','image')->get();
+		return $result;
+	}
+
 	public function index()
 	{
-		return view('home');
+				return view('home');
+
+		$result = $this->pageContent();
+		return view('client.index')->with('result',$result);
+
+
+//		return view('client.index')->with('result',$result);
 	}
 
 }

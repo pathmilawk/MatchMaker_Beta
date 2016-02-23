@@ -3,6 +3,7 @@
     @parent
     @stop
 @section('BarButtons')
+
     <div class="searchpanel col-lg-9">
         <h3 class="profile-left-heading text-center">MatchMaker</h3>
     </div>
@@ -10,14 +11,18 @@
 
     <div class="header-right paddingtop10">
         <h4>
-        <i><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/login"><span class="label label-primary">Sign In</span></a></i>&nbsp;&nbsp;&nbsp;<i><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/register"><span class="label label-primary">Register</span></a></i>
+            <i><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/login"><span class="label label-primary">Sign In</span></a></i>&nbsp;&nbsp;&nbsp;<i><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/register"><span class="label label-primary">Register</span></a></i>
         </h4>
     </div>
+
     @show
+
 @section('content')
 
-        <!DOCTYPE html>
-<html>
+
+
+
+
 <head>
     <title>Weekend a People and Society Category Flat bootstrap Responsive website Template | Home :: w3layouts</title>
     <link href="{{asset('external_css/css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
@@ -535,12 +540,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         </div>
     </div>
-    <div class="col-md-6 map">
-        <iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Purwokerto,+Central+Java,+Indonesia&amp;aq=0&amp;oq=purwo&amp;sll=37.0625,-95.677068&amp;sspn=50.291089,104.238281&amp;ie=UTF8&amp;hq=&amp;hnear=Purwokerto,+Banyumas,+Central+Java,+Indonesia&amp;ll=-7.431391,109.24783&amp;spn=0.031022,0.050898&amp;t=m&amp;z=14&amp;output=embed"></iframe>
-        <div class="black">
-            <div class="map-l"> <i class="glyphicon glyphicon-map-marker"></i></div>
-        </div>
-    </div>
+
+
+{{--
+    Advertistment Area Prageeth=======================================================
+--}}
+            <div class="col-md-6 map">
+                {{--<iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Purwokerto,+Central+Java,+Indonesia&amp;aq=0&amp;oq=purwo&amp;sll=37.0625,-95.677068&amp;sspn=50.291089,104.238281&amp;ie=UTF8&amp;hq=&amp;hnear=Purwokerto,+Banyumas,+Central+Java,+Indonesia&amp;ll=-7.431391,109.24783&amp;spn=0.031022,0.050898&amp;t=m&amp;z=14&amp;output=embed"></iframe>--}}
+                <div class="black">
+{{--
+                <div class="map-l"> <i class="glyphicon glyphicon-map-marker"></i></div>
+
+--}}
+
+
+
+                    <?php foreach($result as $row){
+                    ?>
+
+                    <img  src="{{asset('images/'.$row->contentName )}}" alt="" />
+
+
+                    <?php }?>
+
+
+
+                </div>
+            </div>
+{{--=====================================================================================--}}
+
     <div class="clearfix"> </div>
 </div>
 <!--//contact-->

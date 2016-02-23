@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use DB;
+
 class WelcomeController extends Controller {
 
 	/*
@@ -28,9 +30,19 @@ class WelcomeController extends Controller {
 	 *
 	 * @return Response
 	 */
+
+
+	public function pageContent()
+	{
+		$result=DB::table('gallery_contents')->where('id', DB::raw("(select max(`id`) from gallery_contents)"))->get();
+/*		$result= DB::table('gallery_contents')->where('contentType','=','image')->get();*/
+		return $result;
+	}
+
 	public function index()
 	{
-		return view('client.index');
+		$result = $this->pageContent();
+		return view('client.index')->with('result',$result);
 	}
 
 }
