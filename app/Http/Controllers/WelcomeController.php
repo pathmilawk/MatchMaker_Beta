@@ -41,8 +41,8 @@ class WelcomeController extends Controller {
 
 	public function index()
 	{
-		$result = $this->pageContent();
-		return view('client.index')->with('result',$result);
+		/*$result = $this->pageContent();*/
+		return view('client.index')/*->with('result',$result)*/;
 	}
 
 }
