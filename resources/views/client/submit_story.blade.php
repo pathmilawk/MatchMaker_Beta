@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="{{asset('internal_css/css/quirk.css')}}">
 
-
 @stop
 
 @section('content')
@@ -73,9 +72,10 @@
                             {!! Form::file('photo',null,['class' => 'form-control']) !!}
 
                         </div>
-
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <div class="form-group">
+                            {{--{{!! Form::hidden('_token',csrf_token()); !!}}--}}
                             {!! Form::submit('Submit Story',['class' => 'btn btn-primary btn-quirk']) !!}
                         </div>
                     </div>

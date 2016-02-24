@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="{{asset('internal_css/lib/fontawesome/css/font-awesome.css')}}">
     <link rel="stylesheet" href="{{asset('internal_css/lib/weather-icons/css/weather-icons.css')}}">
     <link rel="stylesheet" href="{{asset('internal_css/lib/jquery-toggles/toggles-full.css')}}">
+    {{--bootstarp--}}
+    <link rel="stylesheet" href="{{asset('internal_css/lib/bootstrap/css/bootstrap.min.css')}}">
+
 
     <link rel="stylesheet" href="{{asset('internal_css/css/quirk.css')}}">
 
@@ -37,60 +40,16 @@
 
       <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
 
-<<<<<<< HEAD
-        <!--Search-->
-        <div class="searchpanel">
-          <div class="input-group">
-            <!--<input type="text" class="form-control" placeholder="Search for...">-->
-=======
-      @show
+
       @section('BarButtons')
+
+        @show
       <div class="searchpanel">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search for...">
->>>>>>> bdb84b0dba0cd2894c6ddd57a5e48e1e0aaebd03
             <span class="input-group-btn">
-              <a href="{{URL::to('search_main')}}">
-                <button class="btn btn-default" type="button" )}}>
-                   <i class="fa fa-search"></i>
-                </button>
-              </a>
+              <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
             </span>
-          </div><!-- input-group -->
-        </div>
-
-
-        <div class="header-right">
-          <ul class="headermenu">
-            <li>
-              <div id="noticePanel" class="btn-group">
-                <button class="btn btn-notice alert-notice" data-toggle="dropdown">
-                  <i class="fa fa-globe"></i>
-                </button>
-                <div id="noticeDropdown" class="dropdown-menu dm-notice pull-right">
-                  <div role="tabpanel">
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs nav-justified" role="tablist">
-                      <li class="active"><a data-target="#notification" data-toggle="tab">Notifications (2)</a></li>
-                      <li><a data-target="#reminders" data-toggle="tab">Reminders (4)</a></li>
-                    </ul>
-
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                      <div role="tabpanel" class="tab-pane active" id="notification">
-                        <ul class="list-group notice-list">
-                          <li class="list-group-item unread">
-                            <div class="row">
-                              <div class="col-xs-2">
-                                <i class="fa fa-envelope"></i>
-                              </div>
-                              <div class="col-xs-10">
-                                <h5><a href="">New message from Weno Carasbong</a></h5>
-                                <small>June 20, 2015</small>
-                                <span>Soluta nobis est eligendi optio cumque...</span>
-                              </div>
-                            </div>
-                        </ul>
         </div><!-- input-group -->
       </div>
 
@@ -140,7 +99,6 @@
                           <div class="row">
                             <div class="col-xs-2">
                               <i class="fa fa-user"></i>
->>>>>>> 27d2bb9d64362ee74627bb28ab48dbeb3694e332
                             </div>
                             <div class="col-xs-10">
                               <h5><a href="">Zaham Sindil is now following you!</a></h5>

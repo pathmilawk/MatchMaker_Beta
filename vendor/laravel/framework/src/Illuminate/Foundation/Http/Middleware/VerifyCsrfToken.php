@@ -62,6 +62,7 @@ class VerifyCsrfToken implements Middleware {
 		}
 
 		return StringUtils::equals($request->session()->token(), $token);
+
 	}
 
 	/**

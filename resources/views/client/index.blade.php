@@ -16,7 +16,7 @@
     @show
 @section('content')
 
-        <!DOCTYPE html>
+
 <html>
 <head>
     <title>Weekend a People and Society Category Flat bootstrap Responsive website Template | Home :: w3layouts</title>
