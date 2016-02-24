@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="{{asset('internal_css/lib/fontawesome/css/font-awesome.css')}}">
     <link rel="stylesheet" href="{{asset('internal_css/lib/weather-icons/css/weather-icons.css')}}">
     <link rel="stylesheet" href="{{asset('internal_css/lib/jquery-toggles/toggles-full.css')}}">
+    {{--bootstarp--}}
+    <link rel="stylesheet" href="{{asset('internal_css/lib/bootstrap/css/bootstrap.min.css')}}">
+
 
     <link rel="stylesheet" href="{{asset('internal_css/css/quirk.css')}}">
 
