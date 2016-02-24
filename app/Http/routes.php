@@ -22,6 +22,7 @@ Route::post('commentFormSubmit','StoryController@commentFormSubmit');
 Route::get('submit_story','StoryController@submitStory');
 Route::post('storyFormSubmit','StoryController@storyFormSubmit');
 Route::get('contact_us','ContactController@contactUs');
+Route::post('contactFormSubmit','StoryController@contactFormSubmit');
 //---------------
 
 Route::post('/testDamindu', function(){

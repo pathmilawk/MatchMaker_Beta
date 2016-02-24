@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Story;
 use Carbon\Carbon;
 use App\Http\Requests\StoryRequest;
-use Request;
+use App\Http\Requests\CommentRequest;
 use DB;
 
 
@@ -20,7 +20,7 @@ class StoryController extends Controller {
 
     }
 
-    public function commentFormSubmit(Request $request){
+    public function commentFormSubmit(CommentRequest $request){
 
         $name = \Input::get('name');
         $email = \Input::get('email');
@@ -33,8 +33,6 @@ class StoryController extends Controller {
             'email' => 'required|email',
             'note' => 'required',
         ]);
-
-
 
 
         //Story::create($name,$email,$note);

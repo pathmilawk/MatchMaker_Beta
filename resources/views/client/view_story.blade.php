@@ -20,7 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <link href='//fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
 
-    <script src="{{asset('external_css/js/jquery-1.11.1.min.js')}}"></script>
+    {{--<script src="{{asset('external_css/js/jquery-1.11.1.min.js')}}"></script>--}}
     <script src="{{asset('external_css/js/bootstrap.js')}}"> </script>
     <script src="{{asset('external_css/js/modernizr.custom.js')}}"></script>
     <!--//js-->

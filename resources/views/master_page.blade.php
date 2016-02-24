@@ -37,8 +37,10 @@
 
       <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
 
-      @show
+
       @section('BarButtons')
+
+        @show
       <div class="searchpanel">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search for...">
