@@ -13,10 +13,10 @@
         <i><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/login"><span class="label label-primary">Sign In</span></a></i>&nbsp;&nbsp;&nbsp;<i><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/register"><span class="label label-primary">Register</span></a></i>
         </h4>
     </div>
-    @stop
+    @show
 @section('content')
 
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html>
 <head>
     <title>Weekend a People and Society Category Flat bootstrap Responsive website Template | Home :: w3layouts</title>
