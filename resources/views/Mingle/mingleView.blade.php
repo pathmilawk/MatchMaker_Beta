@@ -1,4 +1,3 @@
-
 @extends('master_page')
 @section('css_ref')
     @parent
@@ -6,38 +5,35 @@
 
 @section('content')
 
-<?php foreach($result as $row){
+    <?php foreach($result as $row){
 
-if (Session::has('val'))
-{
+    if (Session::has('val')) {
 
-    $x=Session::get('val');
+        $x = Session::get('val');
 
-    if($x>9)
-        {
-echo 'ddss';
+        if ($x > 9) {
+            echo 'ddss';
         }
-}
+    } else {
 
-
-
-else{
-
-    $x=1;
-}
+        $x = 1;
+    }
 
 
 
 
-?>
+    ?>
 
-<img  src="{{asset($row->image_path)}}" alt="" />
-<form action="getnext<?php echo $x;$x++;  if($x<9){Session::put('val',$x);} else{$value = Session::pull('val', 1);
-}?>" method="post">
-    <input type="submit" name="next" value="Next" class="">
+    <img src="{{asset($row->image_path)}}" alt=""/>
+    <form action="getnext<?php echo $x;$x++;  if ($x < 9) {
+        Session::put('val', $x);
+    } else {
+        $value = Session::pull('val', 1);
+    }?>" method="post">
+        <input type="submit" name="next" value="Next" class="">
 
-</form>
-<?php $x++; }?>
+    </form>
+    <?php $x++; }?>
 
 
 @stop

@@ -11652,7 +11652,7 @@ blockquote {
   font-weight: 500;
 }
 .contentpanel {
-  padding: 20px;
+  padding: 0px;
   position: relative;
 }
 @media (max-width: 320px) {
