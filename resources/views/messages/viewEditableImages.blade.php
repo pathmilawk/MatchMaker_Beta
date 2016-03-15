@@ -31,7 +31,6 @@
                     <tbody>
 
 
-
                     <?php  if ($result){ foreach($result as $row){
                     ?>
 
@@ -44,13 +43,14 @@
                         </td>
 
 
-                        <td> <img  src="{{asset('images/'.$row->contentName )}}" alt="" /></td>
-
+                        <td><img src="{{asset('images/'.$row->contentName )}}" alt=""/></td>
 
 
                         <td>
                             <ul class="table-options">
-                                <li><a href="SetUploadedImage{{$row->id}}"><button class="btn btn-primary btn-quirk btn-stroke">Set as active</button></a></li>
+                                <li><a href="SetUploadedImage{{$row->id}}">
+                                        <button class="btn btn-primary btn-quirk btn-stroke">Set as active</button>
+                                    </a></li>
 
                                 <li><a href="deleteImage{{$row->id}}"><i class="fa fa-trash"></i></a></li>
                             </ul>
@@ -62,12 +62,13 @@
 
                     <tr>
                         <form action="viewUploadmenu" method="post">
-                            <td><input type="submit" class="btn btn-success btn-quirk btn-wide mr5" value="Back" ></td>
+                            <td><input type="submit" class="btn btn-success btn-quirk btn-wide mr5" value="Back"></td>
                         </form>
                     </tr>
                     </tbody>
                 </table>
-            </div><!-- table-responsive -->
+            </div>
+            <!-- table-responsive -->
         </div>
     </div><!-- panel -->
 

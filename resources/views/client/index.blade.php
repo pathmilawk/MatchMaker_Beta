@@ -1,585 +1,445 @@
 @extends('master_page')
-    @section('css_ref')
+@section('css_ref')
     @parent
-    @stop
+@stop
 @section('BarButtons')
-    <div class="searchpanel col-lg-9">
-        <h3 class="profile-left-heading text-center">MatchMaker</h3>
-    </div>
-
-
     <div class="header-right paddingtop10">
         <h4>
-        <i><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/login"><span class="label label-primary">Sign In</span></a></i>&nbsp;&nbsp;&nbsp;<i><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/auth/register"><span class="label label-primary">Register</span></a></i>
+            <i><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']; ?>/auth/login"><span
+                            class="label label-primary">Sign In</span></a></i>&nbsp;&nbsp;&nbsp;
+            <i><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']; ?>/auth/register"><span
+                            class="label label-primary">Register</span></a></i>
         </h4>
     </div>
-    @show
+@show
 @section('content')
+    <html>
+    <head>
+        <title>Match Maker</title>
+        <link href="{{asset('external_css/css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
+        <link href="{{asset('external_css/css/style.css')}}" type="text/css" rel="stylesheet" media="all">
+        <link href="{{asset('external_css/css/component.css')}}" rel="stylesheet" type="text/css"/>
 
+        <!-- Search Box CSS-->
+        <link href="{{asset('external_css/css/searchBox.css')}}" rel="stylesheet" type="text/css"/>
 
-<html>
-<head>
-    <title>Weekend a People and Society Category Flat bootstrap Responsive website Template | Home :: w3layouts</title>
-    <link href="{{asset('external_css/css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
-    <link href="{{asset('external_css/css/style.css')}}" type="text/css" rel="stylesheet" media="all">
-    <link href="{{asset('external_css/css/component.css')}}" rel="stylesheet" type="text/css"  />
-
-    <!-- Search Box CSS-->
-    <link href="{{asset('external_css/css/searchBox.css')}}" rel="stylesheet" type="text/css"  />
-
-    <!-- Custom Theme files -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Weekend Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!--web-fonts-->
-    <link href='//fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
-    <!--js-->
-    <script src="{{asset('external_css/js/jquery-1.11.1.min.js')}}"></script>
-    <script src="{{asset('external_css/js/bootstrap.js')}}"> </script>
-    <script src="{{asset('external_css/js/modernizr.custom.js')}}"></script>
-    <!--//js-->
-    <script type="text/javascript" src="{{asset('external_css/js/move-top.js')}}"></script>
-    <script type="text/javascript" src="{{asset('external_css/js/easing.js')}}"></script>
-    <!--/script-->
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event){
-                event.preventDefault();
-                $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+        <!-- Custom Theme files -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="keywords" content="Weekend Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+        <script type="application/x-javascript"> addEventListener("load", function () {
+                setTimeout(hideURLbar, 0);
+            }, false);
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            } </script>
+        <!--web-fonts-->
+        <link href='//fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic|PT+Serif:400,700,400italic'
+              rel='stylesheet' type='text/css'>
+        <!--js-->
+        <script src="{{asset('external_css/js/jquery-1.11.1.min.js')}}"></script>
+        {{-- <script src="{{asset('external_css/js/bootstrap.js')}}"> </script>--}}
+        <script src="{{asset('external_css/js/modernizr.custom.js')}}"></script>
+        <!--//js-->
+        <script type="text/javascript" src="{{asset('external_css/js/move-top.js')}}"></script>
+        <script type="text/javascript" src="{{asset('external_css/js/easing.js')}}"></script>
+        <!--/script-->
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 900);
+                });
             });
-        });
+        </script>
+    </head>
+    <!--start-home-->
+    <body class="cbp-spmenu-push">
+    <div class="banner">
+        <div class="logo">
+            <!-- Search Box Starts -->
+            <div class="searchBox">
+                <h1 style=" margin-top: 30px; ">Find Your Soulmate Here...</h1>
+                <br>
+                {!! Form::open( ['url' => 'register']) !!}
+                <div class="form-group mt15">
+                    {!! Form::label('gender','I am looking for a :', ['class' => 'col-sm-6 control-label']) !!}
+                    <div class="col-sm-6">
+                        {!! Form::select('Gender',['Select a gender'=>'Select a gender','Male'=>'Male','Female'=>'Female']) !!}
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+
+                <div class="form-group mt15">
+                    {!! Form::label('Age','Age Between :', ['class' => 'col-sm-6 control-label']) !!}
+                    <div class="col-sm-3">
+                        {!! Form::select('AgeStart',['From' => 'From',
+                                                    '18'=>'18','19'=>'19','20'=>'20','21'=>'21','22'=>'22','23'=>'23','24'=>'24','25'=>'25','26'=>'26','27'=>'27','28'=>'28','29'=>'29',
+                                                    '30'=>'30','31'=>'31','32'=>'32','33'=>'33','34'=>'34','35'=>'35','36'=>'36','37'=>'37','38'=>'38','39'=>'39',
+                                                    '40'=>'40','41'=>'41','42'=>'42','43'=>'43','44'=>'44','45'=>'45','46'=>'46','47'=>'47','48'=>'48','49'=>'49',
+                                                    '50'=>'50','51'=>'51','52'=>'52','53'=>'53','54'=>'54','55'=>'55','56'=>'56','57'=>'57','58'=>'58','59'=>'59',
+                                                    '60'=>'60','61'=>'61','62'=>'62','63'=>'63','64'=>'64','65'=>'65','66'=>'66','67'=>'67','68'=>'68','69'=>'69','70'=>'70',
+                                                    ]) !!}
+                    </div>
+                    <div class="col-sm-3">
+                        {!! Form::select('AgeEnd',['To' => 'To',
+                                                        '18'=>'18','19'=>'19','20'=>'20','21'=>'21','22'=>'22','23'=>'23','24'=>'24','25'=>'25','26'=>'26','27'=>'27','28'=>'28','29'=>'29',
+                                                        '30'=>'30','31'=>'31','32'=>'32','33'=>'33','34'=>'34','35'=>'35','36'=>'36','37'=>'37','38'=>'38','39'=>'39',
+                                                        '40'=>'40','41'=>'41','42'=>'42','43'=>'43','44'=>'44','45'=>'45','46'=>'46','47'=>'47','48'=>'48','49'=>'49',
+                                                        '50'=>'50','51'=>'51','52'=>'52','53'=>'53','54'=>'54','55'=>'55','56'=>'56','57'=>'57','58'=>'58','59'=>'59',
+                                                        '60'=>'60','61'=>'61','62'=>'62','63'=>'63','64'=>'64','65'=>'65','66'=>'66','67'=>'67','68'=>'68','69'=>'69','70'=>'70',
+                                                        ]) !!}
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="form-group mt10">
+                    {!! Form::label('From','From :', ['class' => 'col-sm-6 control-label']) !!}
+                    <div class="col-sm-6">
+                        {!! Form::select('From',
+                        ['Select a district'=>'Select a district',
+                            'Ampara'=>'Ampara',
+                            'Anuradhapura'=>'Anuradhapura',
+                            'Badulla'=>'Badulla',
+                            'Batticaloa'=>'Batticaloa',
+                            'Colombo'=>'Colombo',
+                            'Galle'=>'Galle',
+                            'Hambantota'=>'Hambantota',
+                            'Jaffna'=>'Jaffna',
+                            'Kalutara'=>'Kalutara',
+                            'Kandy'=>'Kandy',
+                            'Kilinochchi'=>'Kilinochchi',
+                            'Kurunegala'=>'Kurunegala',
+                            'Manner'=>'Manner',
+                            'Matale'=>'Matale',
+                            'Matale'=>'Matale',
+                            'Monaragala'=>'Monaragala',
+                            'Mullativu'=>'Mullativu',
+                            'Nuwara Eliya'=>'Nuwara Eliya',
+                            'Polonnaruwa'=>'Polonnaruwa',
+                            'uttalam'=>'uttalam',
+                            'Ratnapura'=>'Ratnapura',
+                            'Trincomalee'=>'Trincomalee',
+                            'Vavuniya'=>'Vavuniya',
+                            'Does not matter'=>'Does not matter',]) !!}
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="form-group mt10">
+                    {!! Form::label('Religion','Religion :', ['class' => 'col-sm-6 control-label']) !!}
+                    <div class="col-sm-6">
+                        {!! Form::select('Religion',['Select a religion'=>'Select a religion',
+                                                    'Buddhist'=> 'Buddhist',
+                                                    'Christian'=>'Christian',
+                                                    'Muslim'=> 'Muslim',
+                                                    'Hindu'=>'Hindu',
+                                                    'Does not matter'=>'Does not matter',]) !!}
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="form-group mt15">
+                    {!! Form::label('Mother Tongue','Mother Tongue :', ['class' => 'col-sm-6 control-label']) !!}
+                    <div class="col-sm-6">
+                        {!! Form::select('MotherTongue',['Select a language'=>'Select a language',
+                                                    'Sinhala'=>'Sinhala',
+                                                    'Tamil'=>'Tamil',
+                                                    'English'=>'English',
+                                                    'Hindi'=>'Hindi',
+                                                    'Does not matter'=>'Does not matter',]) !!}
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group mt15">
+                    {!! Form::submit('Search', ['id' => 'button']) !!}
+                </div>
+                {!! Form::close() !!}
+            </div>
+
+            <div class="col-md-3" style="left: 600px;">
+                @if($errors->any())
+                    <ul class="alert alert-danger">
+                        @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                @endif
+            </div>
+            <!-- Search Box Ends -->
+        </div>
+    </div>
+
+    <script src="{{asset('external_css/js/classie.js')}}"></script>
+    <script>
+        var menuLeft = document.getElementById('cbp-spmenu-s1'),
+                showLeftPush = document.getElementById('showLeftPush'),
+                showRightPush = document.getElementById('showRightPush'),
+                body = document.body;
+
+        showLeftPush.onclick = function () {
+            classie.toggle(this, 'active');
+            classie.toggle(body, 'cbp-spmenu-push-toright');
+            classie.toggle(menuLeft, 'cbp-spmenu-open');
+            disableOther('showLeftPush');
+        };
+
+        function disableOther(button) {
+            if (button !== 'showLeftPush') {
+                classie.toggle(showLeftPush, 'disabled');
+            }
+            if (button !== 'showRightPush') {
+                classie.toggle(showRightPush, 'disabled');
+            }
+        }
     </script>
 
+    <!--bottom-grids-->
+    <div class="banner-bottom">
+        <div class="container">
+            <h3 class="tittle">Happy Life</h3>
 
-</head>
-<!--start-home-->
-<body class="cbp-spmenu-push">
-<!--top-header-->
-<!--<div id="house" class="top-header">
-			  <div class="container">
-				 <p class="col-md-3 location"><i class="glyphicon glyphicon-map-marker"></i>16A, Honey Street</p>
-				 <p class="col-md-3 phone"><i class="glyphicon glyphicon-phone"></i> 655 7758 2068 54892</p>
-				 <p class="col-md-3 mail"><i class="glyphicon glyphicon-envelope"></i><a href="mailto:info@example.com">mail@example.com</a></p>
-				<div class="col-md-3 search">
-					<form>
-						<input type="submit" value="">
-						<input type="text" value="Search " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-					</form>
-				</div>
-
-
-				<div class="clearfix"></div>
-			 </div>
-		</div>-->
-<!--bottom-->
-<!--<section class="button">
-          <button id="showLeftPush"><img src="images/menu-icon.png" alt=""></button>
- </section>-->
-<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-    <h3>Menu</h3>
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About us</a>
-    <a href="typography.html">services</a>
-    <a href="news.html">News</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-
-</nav>
-<div class="banner">
-    <div class="logo">
-        <!-- Search Box Starts -->
-
-        <div class="searchBox">
-            <h1 style=" margin-top: 30px; ">Find Your Soulmate Here...</h1>
-            <form action="{{URL::to('login')}}" ; method="POST">
-                <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-                <table name= "searchBox_table" style="margin-top: 20px; margin-left: 30px; margin-right: 30px">
-                    <tr>
-                        <td>I am a </td>
-                        <td>
-                            <select name="usersGender">
-                                <option>Man</option>
-                                <option>Women</option>
-                            </select>
-                        </td>
-                        <td>looking for a</td>
-                        <td>
-                            <select name="lookingGender">
-                                <option>Man</option>
-                                <option>Women</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>My partner should be,<td>
-                    </tr>
-                    <tr>
-                        <td>From</td>
-                        <td>
-                            <select name="places">
-                                <option>Ampara</option>
-                                <option>Anuradhapura</option>
-                                <option>Badulla</option>
-                                <option>Batticaloa</option>
-                                <option>Colombo</option>
-                                <option>Galle</option>
-                                <option>Gampaha</option>
-                                <option>Hambantota</option>
-                                <option>Jaffna</option>
-                                <option>Kalutara</option>
-                                <option>Kandy</option>
-                                <option>Kilinochchi</option>
-                                <option>Kurunegala</option>
-                                <option>Manner</option>
-                                <option>Matale</option>
-                                <option>Matale</option>
-                                <option>Monaragala</option>
-                                <option>Mullativu</option>
-                                <option>Nuwara Eliya</option>
-                                <option>Polonnaruwa</option>
-                                <option>Puttalam</option>
-                                <option>Ratnapura</option>
-                                <option>Trincomalee</option>
-                                <option>Vavuniya</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Age</td>
-                        <td>
-                            <select name="ageStart">
-                                <option>18</option><option>19</option>
-                                <option>20</option><option>21</option>
-                                <option>22</option><option>23</option>
-                                <option>24</option><option>25</option>
-                                <option>27</option><option>28</option>
-                                <option>29</option><option>30</option>
-                                <option>31</option><option>32</option>
-                                <option>33</option><option>34</option>
-                                <option>35</option><option>36</option>
-                                <option>37</option><option>38</option>
-                                <option>39</option><option>40</option>
-                                <option>41</option><option>42</option>
-                                <option>43</option><option>44</option>
-                                <option>45</option><option>46</option>
-                                <option>47</option><option>48</option>
-                                <option>49</option><option>50</option>
-                                <option>51</option><option>52</option>
-                                <option>53</option><option>54</option>
-                                <option>55</option><option>56</option>
-                                <option>57</option><option>58</option>
-                                <option>59</option><option>60</option>
-                                <option>61</option><option>62</option>
-                                <option>63</option><option>64</option>
-                                <option>65</option><option>66</option>
-                                <option>67</option><option>68</option>
-                                <option>69</option><option>70</option>
-                            </select>
-                        </td>
-                        <td>to</td>
-                        <td>
-                            <select name="ageEnd" >
-                                <option>18</option><option>19</option>
-                                <option>20</option><option>21</option>
-                                <option>22</option><option>23</option>
-                                <option>24</option><option>25</option>
-                                <option>27</option><option>28</option>
-                                <option>29</option><option>30</option>
-                                <option>31</option><option>32</option>
-                                <option>33</option><option>34</option>
-                                <option>35</option><option>36</option>
-                                <option>37</option><option>38</option>
-                                <option>39</option><option>40</option>
-                                <option>41</option><option>42</option>
-                                <option>43</option><option>44</option>
-                                <option>45</option><option>46</option>
-                                <option>47</option><option>48</option>
-                                <option>49</option><option>50</option>
-                                <option>51</option><option>52</option>
-                                <option>53</option><option>54</option>
-                                <option>55</option><option>56</option>
-                                <option>57</option><option>58</option>
-                                <option>59</option><option>60</option>
-                                <option>61</option><option>62</option>
-                                <option>63</option><option>64</option>
-                                <option>65</option><option>66</option>
-                                <option>67</option><option>68</option>
-                                <option>69</option><option>70</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Religion</td>
-                        <td>
-                            <select name="religion">
-                                <option>Buddhist</option>
-                                <option>Christian</option>
-                                <option>Muslim</option>
-                                <option>Hindu</option>
-                                <option>Doesn't Matter</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Mother Tongue</td>
-                        <td>
-                            <select name="motherTongue">
-                                <option>Sinhala</option>
-                                <option>English</option>
-                                <option>Tamil</option>
-                                <option>Hindi</option>
-                                <option>Doesn't Matter</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <input type="submit" id="searchBox_submit" class ="button" value="Search"/>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-        <!-- Search Box Ends -->
-
-    </div>
-</div>
-<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-<script src="{{asset('external_css/js/classie.js')}}"></script>
-<script>
-    var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-            showLeftPush = document.getElementById( 'showLeftPush' ),
-            showRightPush = document.getElementById( 'showRightPush' ),
-            body = document.body;
-
-    showLeftPush.onclick = function() {
-        classie.toggle( this, 'active' );
-        classie.toggle( body, 'cbp-spmenu-push-toright' );
-        classie.toggle( menuLeft, 'cbp-spmenu-open' );
-        disableOther( 'showLeftPush' );
-    };
-
-    function disableOther( button ) {
-        if( button !== 'showLeftPush' ) {
-            classie.toggle( showLeftPush, 'disabled' );
-        }
-        if( button !== 'showRightPush' ) {
-            classie.toggle( showRightPush, 'disabled' );
-        }
-    }
-</script>
-<!--bottom-grids-->
-<div class="banner-bottom">
-    <div class="container">
-        <h3 class="tittle">Happy Life</h3>
-        <div class="slider">
-            <section class="slider">
-                <div class="flexslider">
-                    <ul class="slides">
-                        <li>
-                            <div class="bottom">
-                                <div class=" bottom-in bottom-grid">
-                                    <a href="{{URL::to('abc')}}">
-                                    <img class="img-responsive " src="{{asset('external_css/images/s1.jpg')}}" alt="" />
-                                    </a>
+            <div class="slider">
+                <section class="slider">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <div class="bottom">
+                                    <div class=" bottom-in bottom-grid">
+                                        <a href="{{URL::to('abc')}}">
+                                            <img class="img-responsive " src="{{asset('external_css/images/s1.jpg')}}"
+                                                 alt=""/>
+                                        </a>
+                                    </div>
+                                    <div class=" bottom-in bottom-grid1">
+                                        <img class="img-responsive" src="{{asset('external_css/images/s2.jpg')}}"
+                                             alt=""/>
+                                    </div>
+                                    <div class=" bottom-in bottom-grid2">
+                                        <img class="img-responsive " src="{{asset('external_css/images/s3.jpg')}}"
+                                             alt=""/>
+                                    </div>
+                                    <div class=" bottom-in bottom-grid3">
+                                        <img class="img-responsive " src="{{asset('external_css/images/s4.jpg')}}"
+                                             alt=""/>
+                                    </div>
+                                    <div class="clearfix"></div>
                                 </div>
-                                <div class=" bottom-in bottom-grid1">
-                                    <img class="img-responsive" src="{{asset('external_css/images/s2.jpg')}}" alt="" />
+                            </li>
+                            <li>
+                                <div class="bottom">
+                                    <div class=" bottom-in bottom-grid">
+                                        <img class="img-responsive " src="{{asset('external_css/images/s3.jpg')}}"
+                                             alt=""/>
+                                    </div>
+                                    <div class=" bottom-in bottom-grid1">
+                                        <img class="img-responsive" src="{{asset('external_css/images/s4.jpg')}}"
+                                             alt=""/>
+                                    </div>
+                                    <div class=" bottom-in bottom-grid2">
+                                        <img class="img-responsive " src="{{asset('external_css/images/s1.jpg')}}"
+                                             alt=""/>
+                                    </div>
+                                    <div class=" bottom-in bottom-grid3">
+                                        <img class="img-responsive " src="{{asset('external_css/images/s2.jpg')}}"
+                                             alt=""/>
+                                    </div>
+                                    <div class="clearfix"></div>
                                 </div>
-                                <div class=" bottom-in bottom-grid2">
-                                    <img class="img-responsive " src="{{asset('external_css/images/s3.jpg')}}" alt="" />
+                            </li>
+                            <li>
+                                <div class="bottom">
+                                    <div class=" bottom-in bottom-grid">
+                                        <img class="img-responsive " src="{{asset('external_css/images/s2.jpg')}}"
+                                             alt=""/>
+                                    </div>
+                                    <div class=" bottom-in bottom-grid1">
+                                        <img class="img-responsive" src="{{asset('external_css/images/s1.jpg')}}"
+                                             alt=""/>
+                                    </div>
+                                    <div class=" bottom-in bottom-grid2">
+                                        <img class="img-responsive " src="{{asset('external_css/images/s4.jpg')}}"
+                                             alt=""/>
+                                    </div>
+                                    <div class=" bottom-in bottom-grid3">
+                                        <img class="img-responsive " src="{{asset('external_css/images/s3.jpg')}}"
+                                             alt=""/>
+                                    </div>
+                                    <div class="clearfix"></div>
                                 </div>
-                                <div class=" bottom-in bottom-grid3">
-                                    <img class="img-responsive " src="{{asset('external_css/images/s4.jpg')}}" alt="" />
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bottom">
-                                <div class=" bottom-in bottom-grid">
-                                    <img class="img-responsive " src="{{asset('external_css/images/s3.jpg')}}" alt="" />
-                                </div>
-                                <div class=" bottom-in bottom-grid1">
-                                    <img class="img-responsive" src="{{asset('external_css/images/s4.jpg')}}" alt="" />
-                                </div>
-                                <div class=" bottom-in bottom-grid2">
-                                    <img class="img-responsive " src="{{asset('external_css/images/s1.jpg')}}" alt="" />
-                                </div>
-                                <div class=" bottom-in bottom-grid3">
-                                    <img class="img-responsive " src="{{asset('external_css/images/s2.jpg')}}" alt="" />
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bottom">
-                                <div class=" bottom-in bottom-grid">
-                                    <img class="img-responsive " src="{{asset('external_css/images/s2.jpg')}}" alt="" />
-                                </div>
-                                <div class=" bottom-in bottom-grid1">
-                                    <img class="img-responsive" src="{{asset('external_css/images/s1.jpg')}}" alt="" />
-                                </div>
-                                <div class=" bottom-in bottom-grid2">
-                                    <img class="img-responsive " src="{{asset('external_css/images/s4.jpg')}}" alt="" />
-                                </div>
-                                <div class=" bottom-in bottom-grid3">
-                                    <img class="img-responsive " src="{{asset('external_css/images/s3.jpg')}}" alt="" />
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <script>window.jQuery || document.write('<script src="{{asset('external_css/js/libs/jquery-1.7.min.js')}}">\x3C/script>')</script> <!--**********>
-            <!--flexslider-->
-            <link rel="stylesheet" href="{{asset('external_css/css/flexslider.css')}}" type="text/css" media="screen" />
-            <script defer src="{{asset('external_css/js/jquery.flexslider.js')}}"></script>
-            <script type="text/javascript">
-                $(function(){
-                    SyntaxHighlighter.all();
-                });
-                $(window).load(function(){
-                    $('.flexslider').flexslider({
-                        animation: "slide",
-                        start: function(slider){
-                            $('body').removeClass('loading');
-                        }
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <script>window.jQuery || document.write('<script src="{{asset('external_css/js/libs/jquery-1.7.min.js')}}">\x3C/script>')</script>
+                <!--**********>
+                           <!--flexslider-->
+                <link rel="stylesheet" href="{{asset('external_css/css/flexslider.css')}}" type="text/css"
+                      media="screen"/>
+                <script defer src="{{asset('external_css/js/jquery.flexslider.js')}}"></script>
+                <script type="text/javascript">
+                    $(function () {
+                        SyntaxHighlighter.all();
                     });
-                });
-            </script>
+                    $(window).load(function () {
+                        $('.flexslider').flexslider({
+                            animation: "slide",
+                            start: function (slider) {
+                                $('body').removeClass('loading');
+                            }
+                        });
+                    });
+                </script>
 
+            </div>
         </div>
     </div>
-</div>
-<!--/services-->
-<div class="services">
-    <div class="container">
-        <h3 class="tittle">Our Services</h3>
-        <div class="serve-top">
-            <div class="col-md-6 serve-section grid">
-                <div class="col-md-6 serve-grid">
-                    <figure class="effect-goliath">
-                        <img class="img-responsive " src="{{asset('external_css/images/ser1.jpg')}}" alt="" />
-                        <figcaption>
-                            <h2>weeke<span>nd</span></h2>
-                            <a href="#">View more</a>
-                            <p>Happy Life...</p>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="col-md-6 serve-grid">
-                    <figure class="effect-goliath">
-                        <img class="img-responsive " src="{{asset('external_css/images/ser2.jpg')}}" alt="" />
-                        <figcaption>
-                            <h2>weeke<span>nd</span></h2>
-                            <a href="#">View more</a>
-                            <p>Happy Life...</p>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="col-md-6 serve-grid">
-                    <figure class="effect-goliath">
-                        <img class="img-responsive " src="{{asset('external_css/images/ser3.jpg')}}" alt="" />
-                        <figcaption>
-                            <h2>weeke<span>nd</span></h2>
-                            <a href="#">View more</a>
-                            <p>Happy Life...</p>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="col-md-6 serve-grid">
-                    <figure class="effect-goliath">
-                        <img class="img-responsive " src="{{asset('external_css/images/ser4.jpg')}}" alt="" />
-                        <figcaption>
-                            <h2>weeke<span>nd</span></h2>
-                            <a href="#">View more</a>
-                            <p>Happy Life...</p>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="col-md-6 serve-icons">
-                <h4 class="sub">How to Plan for your Weekend...</h4>
-                <div class="s-sub">
-                    <div class="col-md-2 icon">
-                        <a href="www.google.com">
-                            <i class="glyphicon glyphicon-globe"></i>
+
+    <!--start-success-stories-->
+    <div class="news">
+        <div class="container">
+            <h3 class="tittle">Success Stories</h3>
+
+            <div class="news-article">
+                <div class="col-md-6 article-post"> <!--first success story-->
+                    <div class="col-md-3 post-meta">
+                        <div class="meta-icon">
+                            <div class="pic">
+                                <a href="view_story/{{ @$stories['story1']->id }}"> <i
+                                            class="glyphicon glyphicon-picture"></i></a>
+                            </div>
+                        </div>
+                        <ul class="ad-info">
+                            <li>{{ @$stories['story1']->firstname }}.{{ @$stories['story1']->lastname }}</li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="col-md-9 post-details" style="height: 150px;">
+                        <a href="view_story/{{ @$stories['story1']->id }}" class="mask">
+                            <img src="{{ asset('internal_css/images/photos/'.@$stories['story1']->image) }}" alt="image"
+                                 class="img-responsive zoom-img">
                         </a>
-                    </div>
-                    <div class="col-md-10 serve-text">
-                        <p> Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus. </p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="s-sub">
-                    <div class="col-md-2 icon">
-                        <i class="glyphicon glyphicon-ice-lolly-tasted"></i>
-                    </div>
-                    <div class="col-md-10 serve-text">
-                        <p> Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus. </p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="s-sub">
-                    <div class="col-md-2 icon">
-                        <i class="glyphicon glyphicon-send"></i>
-                    </div>
-                    <div class="col-md-10 serve-text">
-                        <p> Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus.</p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div><div class="s-sub">
-                    <div class="col-md-2 icon">
-                        <i class="glyphicon glyphicon-briefcase"></i>
-                    </div>
-                    <div class="col-md-10 serve-text">
-                        <p> Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus.</p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-    </div>
-</div>
-<!--start-events-->
-<div class="news">
-    <div class="container">
-        <h3 class="tittle">News & Events</h3>
-        <div class="news-article">
-            <div class="col-md-6 article-post">
-                <div class="col-md-3 post-meta">
-                    <div class="meta-icon">
-                        <div class="pic">
-                            <a href="{{URL::to('view_story')}}" > <i class="glyphicon glyphicon-picture"></i></a>
+                        <a href="view_story/{{ @$stories['story1']->id }}"><h4>{{ @$stories['story1']->title }}</h4></a>
+
+                        <div class="read">
+                            <a class="button" href="/view_story/{{ @$stories['story1']->id }}"><img
+                                        src="{{asset('external_css/images/read.png')}}" alt=""/></a>
                         </div>
                     </div>
-                    <ul class="ad-info">
-                        <li>21 Aug'15</li>
-                        <li> <a href="#">Author</a></li>
-                        <li> <a href="#">24 Comments</a></li>
-                    </ul>
-                    <div class="clearfix"> </div>
+                    <!--post-details-->
+                    <div class="clearfix"></div>
                 </div>
-                <div class="col-md-9 post-details">
-                    <a href="{{URL::to('view_story')}}" class="mask"><img src="{{asset('external_css/images/b2.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
-<<<<<<< HEAD
-                    <a href="single.html"><h4>News tittle Lorem Ipsump</h4></a>
-=======
-                    <a href="{{URL::to('view_story')}}"><h4>News tittle Lorem Ipsump</h4></a>
->>>>>>> bdb84b0dba0cd2894c6ddd57a5e48e1e0aaebd03
-                    <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
-                    <div class="read">
-                        <a class="button" href="{{URL::to('view_story')}}"><img src="{{asset('external_css/images/read.png')}}" alt="" /></a>
+                <div class="col-md-6 article-post"><!--second story-->
+                    <div class="col-md-3 post-meta">
+                        <div class="meta-icon">
+                            <div class="pic">
+                                <a href="view_story/{{ @$stories['story2']->id }}"> <i
+                                            class="glyphicon glyphicon-picture"></i></a>
+                            </div>
+                        </div>
+                        <ul class="ad-info">
+                            <li>{{ @$stories['story2']->firstname }}.{{ @$stories['story2']->lastname }}</li>
+                        </ul>
+                        <div class="clearfix"></div>
                     </div>
-                </div>
-                <!--post-details-->
-                <div class="clearfix"> </div>
-            </div>
-            <div class="col-md-6 article-post">
-                <div class="col-md-3 post-meta">
-                    <div class="meta-icon">
-                        <div class="pic">
-                            <a href="{{URL::to('view_story')}}" > <i class="glyphicon glyphicon-picture"></i></a>
+                    <div class="col-md-9 post-details">
+                        <a href="view_story/{{ @$stories['story2']->id }}" class="mask"><img
+                                    src="{{ asset('internal_css/images/photos/'.@$stories['story2']->image) }}"
+                                    alt="image" class="img-responsive zoom-img"></a>
+
+                        <a href="view_story/{{ @$stories['story2']->id }}"><h4>{{ @$stories['story2']->title }}</h4></a>
+
+                        <p></p>
+
+                        <div class="read">
+                            <a class="button" href="view_story/{{ @$stories['story2']->id }}"><img
+                                        src="{{asset('external_css/images/read.png')}}" alt=""/></a>
                         </div>
                     </div>
-                    <ul class="ad-info">
-                        <li>21 Aug'15</li>
-                        <li> <a href="#">Author</a></li>
-                        <li> <a href="#">24 Comments</a></li>
-                    </ul>
-                    <div class="clearfix"> </div>
+                    <!--post-details-->
+                    <div class="clearfix"></div>
                 </div>
-                <div class="col-md-9 post-details">
-                    <a href="{{URL::to('view_story')}}" class="mask"><img src="{{asset('external_css/images/b1.jpg')}}" alt="image" class="img-responsive zoom-img"></a>
-
-                    <a href="{{URL::to('view_story')}}"><h4>News tittle Lorem Ipsump</h4></a>
-                    <p>Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>
-                    <div class="read">
-                        <a class="button" href="{{URL::to('view_story')}}"><img src="{{asset('external_css/images/read.png')}}" alt="" /></a>
-                    </div>
-                </div>
-                <!--post-details-->
-                <div class="clearfix"> </div>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-    </div>
-</div>
-
-<!--/team-->
-<div class="testi-m">
-    <div class="container">
-        <h3 class="tittle three">Testimonials</h3>
-        <div class="test">
-            <img src="{{asset('external_css/images/t1.jpg')}}" alt="name" />
-            <div class="test-text">
-                <h4>David son</h4>
-                <p><span> </span>Duis quis risus a nunc ultricies varius.Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus.</p>
+                <div class="clearfix"></div>
             </div>
         </div>
     </div>
-</div>
-<!--contact-->
-<div class="contact">
-    <div class="col-md-6 contact-top">
-        <div class="point"> <i class="glyphicon glyphicon-map-marker"></i></div>
-        <h3 class="tittle two">Find Us</h3>
-        <h4>For Any questions, Please feel free to Contact us by mail.</h4>
-        <div class="contact-ad">
-            <p>Address:Newyork Still Road.756 gt globel Place.<p>
-            <p>Phone:Newyork Still Road.756 gt globel Place.<p>
-            <p>E-mail :<a href="mailto:info@example.com">mail@example.com</a></p>
 
+    <!--end success stories-->
+
+    <!--advertisements-->
+
+    <!--contact-->
+    <div class="contact">
+        <div class="col-md-6 contact-top">
+            <div class="point"><i class="glyphicon glyphicon-map-marker"></i></div>
+            <a href="contact_us"><h3 class="tittle two">Contact us</h3></a>
+            <h4>For Any questions, Please feel free to Contact us by mail.</h4>
+
+            <div class="contact-ad">
+                <p>Address:Newyork Still Road.756 gt globel Place.
+
+                <p>
+
+                <p>Phone:Newyork Still Road.756 gt globel Place.
+
+                <p>
+
+                <p>E-mail :<a href="mailto:info@example.com">mail@example.com</a></p>
+
+            </div>
         </div>
-    </div>
-    <div class="col-md-6 map">
-        <iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Purwokerto,+Central+Java,+Indonesia&amp;aq=0&amp;oq=purwo&amp;sll=37.0625,-95.677068&amp;sspn=50.291089,104.238281&amp;ie=UTF8&amp;hq=&amp;hnear=Purwokerto,+Banyumas,+Central+Java,+Indonesia&amp;ll=-7.431391,109.24783&amp;spn=0.031022,0.050898&amp;t=m&amp;z=14&amp;output=embed"></iframe>
-        <div class="black">
-            <div class="map-l"> <i class="glyphicon glyphicon-map-marker"></i></div>
+        <div class="col-md-6 map">
+            <iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Purwokerto,+Central+Java,+Indonesia&amp;aq=0&amp;oq=purwo&amp;sll=37.0625,-95.677068&amp;sspn=50.291089,104.238281&amp;ie=UTF8&amp;hq=&amp;hnear=Purwokerto,+Banyumas,+Central+Java,+Indonesia&amp;ll=-7.431391,109.24783&amp;spn=0.031022,0.050898&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+            <div class="black">
+                <div class="map-l"><i class="glyphicon glyphicon-map-marker"></i></div>
+            </div>
         </div>
+        <div class="clearfix"></div>
     </div>
-    <div class="clearfix"> </div>
-</div>
-<!--//contact-->
+    <!--//contact-->
 
-<!--/footer-->
-<div class="copy">
-    <p>&copy; 2015 Weekend. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p>
-</div>
-<!--start-smoth-scrolling-->
-<script type="text/javascript">
-    $(document).ready(function() {
-        /*
-         var defaults = {
-         containerID: 'toTop', // fading element id
-         containerHoverID: 'toTopHover', // fading element hover id
-         scrollSpeed: 1200,
-         easingType: 'linear'
-         };
-         */
+    <!--/footer-->
+    <div class="copy">
+        <p>&copy; MatchMaker</p>
+    </div>
+    <!--start-smoth-scrolling-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+             var defaults = {
+             containerID: 'toTop', // fading element id
+             containerHoverID: 'toTopHover', // fading element hover id
+             scrollSpeed: 1200,
+             easingType: 'linear'
+             };
+             */
 
-        $().UItoTop({ easingType: 'easeOutQuart' });
+            $().UItoTop({easingType: 'easeOutQuart'});
 
-    });
-</script>
-<a href="#house" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+        });
+    </script>
+    <a href="#house" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover"
+                                                                              style="opacity: 1;"> </span></a>
 
-</body>
-</html>
+    </body>
+    </html>
 
 
 @stop
 
 
 @section('js_ref')
+    <script src="{{ asset('internal_css/lib/select2/select2.js') }}"></script>
+    <script src="{{ asset('internal_css/lib/jquery/jquery.js') }}"></script>
+    <script src="{{ asset('internal_css/lib/bootstrap/js/bootstrap.js') }}"></script>
+
     @parent
 
 @stop

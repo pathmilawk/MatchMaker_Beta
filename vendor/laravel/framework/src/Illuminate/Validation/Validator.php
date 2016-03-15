@@ -2615,4 +2615,6 @@ class Validator implements ValidatorContract {
 		throw new BadMethodCallException("Method [$method] does not exist.");
 	}
 
+
 }
+

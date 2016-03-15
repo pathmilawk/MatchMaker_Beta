@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use DB;
+use App\Story;
 
 class WelcomeController extends Controller {
 
@@ -31,18 +32,37 @@ class WelcomeController extends Controller {
 	 * @return Response
 	 */
 
+	public function storyContent(){
+		$story1=DB::table('storys')->where('published',1)->get();
+		$story2=DB::table('storys')->where('published',2)->get();
+		$stories = array();
+		$stories['story1']=$story1;
+		$stories['story2']=$story2;
 
-	public function pageContent()
-	{
-		$result=DB::table('gallery_contents')->where('publishStatus',1)->get();
-		/*$result= DB::table('gallery_contents')->where('contentType','=','image')->get();*/
-		return $result;
+		return $stories;
 	}
 
 	public function index()
 	{
-		$result = $this->pageContent();
-		return view('client.index')->with('result',$result);
+		/*$result = $this->pageContent();*/
+		/*$stories=$this->storyContent();*/
+
+		/*$result= DB::table('gallery_contents')->where('contentType','=','image')->get();*/
+		/*$result1=DB::table('gallery_contents')->where('publishStatus',1)->get();
+		$result2=DB::table('gallery_contents')->where('publishStatus',2)->get();
+		$result3=DB::table('gallery_contents')->where('publishStatus',3)->get();
+		$result4=DB::table('gallery_contents')->where('publishStatus',4)->get();*/
+		/*$result1 = $this->pageContent();
+		$result2 = $this->pageContent();
+		$result3 = $this->pageContent();
+		$result4 = $this->pageContent();*/
+
+
+		$stories=Story::getStories();
+		return view('client.index')->/*with('result1',$result1)
+			->with('result2',$result2)
+			->with('result3',$result3)
+			->with('result4',$result4)->*/with('stories',$stories)/*->with('result',$result)*/;
 	}
 
 }
