@@ -92,12 +92,11 @@ Route::get('admin_panel','AdminController@adminPanel');
 
 //Savidya's
 Route::post('search_social','searchController@searchSocial');
-Route::post('login','searchController@login');
 Route::post('search_appearence','searchController@searchAppearence');
-Route::post('search_result','searchController@searchResult');
+Route::post('Results','searchController@searchResult');
 Route::post('register','searchController@Register');
 Route::post('connectSearch','searchController@connectSearch');
-Route::get('search_main2','searchController@searchMain2');
+Route::get('Search','searchController@searchMain2');
 
 
 

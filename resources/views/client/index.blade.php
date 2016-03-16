@@ -58,11 +58,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <body class="cbp-spmenu-push">
     <div class="banner">
         <div class="logo">
+            <br>
+            <br>
             <!-- Search Box Starts -->
             <div class="searchBox">
                 <h1 style=" margin-top: 30px; ">Find Your Soulmate Here...</h1>
                 <br>
-                {!! Form::open( ['url' => 'register']) !!}
+                {!! Form::open( ['url' => '/auth/register']) !!}
                 <div class="form-group mt15">
                     {!! Form::label('gender','I am looking for a :', ['class' => 'col-sm-6 control-label']) !!}
                     <div class="col-sm-6">
