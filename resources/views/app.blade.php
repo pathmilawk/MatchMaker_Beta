@@ -36,18 +36,16 @@
 
             <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
 
-            <form action="http://<?php echo $_SERVER['SERVER_NAME']; ?>/search" method="post">
                 <div class="searchpanel">
                     <div class="input-group">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="text" name="name" class="form-control" placeholder="Search for..." required>
+                        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="text" name="name" class="form-control" placeholder="Search for..." required>--}}
               <span class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                <a href="Search"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></a>
               </span>
                     </div>
                     <!-- input-group -->
                 </div>
-            </form>
 
             <div class="header-right">
                 <ul class="headermenu">
