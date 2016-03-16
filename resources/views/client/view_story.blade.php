@@ -133,7 +133,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <script>
 
-        function commentPublish(id) {
+        function commentPublish(storyid) {
 
 
             var name = document.getElementById("name").value;
@@ -144,7 +144,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 url: 'http://localhost/MatchMaker_Beta/public/commentAjax',
                 type: 'post',
                 data: {
-                    name: name, email: email, comment: comment, storyid: id
+                    name: name, email: email, comment: comment, storyid: storyid
 
                 },
                 success: function (data) {

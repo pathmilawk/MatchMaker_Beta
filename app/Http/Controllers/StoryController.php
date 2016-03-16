@@ -66,6 +66,7 @@ class StoryController extends Controller {
         return redirect('admin_panel');
     }
 
+
     public  function  commentAjax(CommentRequest $request){
 
         $input=$request->all();

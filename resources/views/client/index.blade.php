@@ -58,6 +58,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <body class="cbp-spmenu-push">
     <div class="banner">
         <div class="logo">
+            <br>
+            <br>
             <!-- Search Box Starts -->
             <div class="searchBox">
                 <h1 style=" margin-top: 30px; ">Find Your Soulmate Here...</h1>
