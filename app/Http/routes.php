@@ -24,18 +24,41 @@ Route::get('view_Selected_messages{id}','MessageController@view');
 Route::get('deleteMessage{id}','MessageController@deleteMessage');
 
 
-//Images-----
+//Advertistments---------------------------------------------------
 Route::get('test','imagecontroller@test');
 Route::post('upload','imagecontroller@upload');
 Route::post('viewUploadImage','imagecontroller@viewUpload');
 Route::get('editUploadImage','imagecontroller@editUpload');
 Route::get('deleteImage{id}','imagecontroller@delete');
 Route::post('viewUploadmenu','imagecontroller@menu');//only for displaying the menu
-Route::get('SetUploadedImage{id}','imagecontroller@setUpload');
 
-//Mingling----
+//to upload ADs
+Route::get('SetUploadedImageone{id}','imagecontroller@setUploadone');
+Route::get('SetUploadedImagetwo{id}','imagecontroller@setUploadtwo');
+Route::get('SetUploadedImagethree{id}','imagecontroller@setUploadthree');
+Route::get('SetUploadedImagefour{id}','imagecontroller@setUploadfour');
+
+
+//---------------------------------------------------------------------------------
+//Route::get('test','mingleController@test');
+Route::get('t','mingleController@t');
+Route::post('t','mingleController@t');
+Route::get('x','mingleController@x');
+
+
+
+//Mingling---------------------------------------------------------------------
 Route::get('viewMingle','mingleController@getView');
 Route::post('getnext{id}','mingleController@getnext');
+Route::get('mingle_fav_view{id}','mingleController@get_nex_fav');
+Route::get('viewMingle_table','mingleController@viewMingle');
+Route::get('saveMessages','mingleController@savemsg');
+Route::get('startmingle','mingleController@start');
+
+//to retrive to the correct page after liking
+
+Route::get('get{id}','mingleController@returnpage');
+
 
 
 

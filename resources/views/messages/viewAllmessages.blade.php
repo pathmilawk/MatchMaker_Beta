@@ -4,14 +4,25 @@
 @stop
 
 @section('content')
+<!--Confirmation box-->
+  <script>
+    function del(){
+      var x = confirm("Are you sure you want to delete?");
+      if (x)
+        return true;
+      else
+        return false;
+    }
+  </script>
 
 <div class="panel">
-
+      <!--start of pannel-->
         <div class="panel-heading">
 
         </div>
         <div class="panel-body">
           <div class="table-responsive">
+            <!--start of table-->
             <table class="table table-hover nomargin">
               <thead>
                 <tr>
@@ -32,7 +43,7 @@
               <tbody>
 
 
-
+                <!--loop to show table-->
               <?php  if ($result){ foreach($result as $row){
               ?>
 
@@ -44,7 +55,7 @@
                     </label>
                   </td>
 
-
+                  <!--navigate through table-->
                   <td><?php echo $row->name ?></td>
                   <td><?php echo $row->subject ?></td>
                     <td ><?php echo $row->message ?></td>
@@ -53,9 +64,11 @@
 
                     <td>
                     <ul class="table-options">
-                      <li><a href="view_Selected_messages{{$row->id}}"><i class="fa fa-pencil"></i></a></li>
 
-                      <li><a href="deleteMessage{{$row->id}}"><i class="fa fa-trash"></i></a></li>
+                      <!--button to view each messahe-->
+                      <li><a href="view_Selected_messages{{$row->id}}"><i class="fa fa-pencil"></i></a></li>
+                      <!--delete Button-->
+                      <li><a href="deleteMessage{{$row->id}}"><i class="fa fa-trash" onclick="return del()"></i></a></li>
                     </ul>
                   </td>
                   <?php }}?>
