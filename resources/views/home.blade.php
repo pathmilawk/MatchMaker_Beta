@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <body class="cbp-spmenu-push">
     <div class="banner">
         <div class="logo">
-            <h1>Sri Lankan no 1 Dating Site(Wena namk hithanna)</h1>
+            <h1>Sri Lankan no 1 Dating Site</h1>
         </div>
     </div>
 
