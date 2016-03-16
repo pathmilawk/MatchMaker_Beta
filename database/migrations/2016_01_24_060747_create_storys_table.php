@@ -19,8 +19,10 @@ class CreateStorysTable extends Migration {
 			$table->string('phone');
 			$table->string('email');
 			$table->string('address');
+			$table->string('title');
 			$table->longtext('story');
 			$table->string('image');
+			$table->integer('published')->default(0);
 			$table->timestamps();
 		});
 	}

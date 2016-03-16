@@ -1072,5 +1072,4 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
 
 		$this->loadedProviders = [];
 	}
-
 }

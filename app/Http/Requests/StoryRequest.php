@@ -27,6 +27,7 @@ class StoryRequest extends Request {
 			'phone' => 'required|digits:10|numeric',
 			'email' => 'required|email',
 			'address' => 'required|max:255',
+			'title'	=> 'required',
 			'story' => 'required',
 			'image' => 'image',
 		];

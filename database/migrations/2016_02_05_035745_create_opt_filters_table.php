@@ -16,11 +16,20 @@ class CreateOptFiltersTable extends Migration {
 		{
 			$table->increments('id');
 
-
-			//To Savidya = Add your table columns here
-			//Also refer user migration, so you can prevent duplicates
-
-
+			$table->integer('user_id')->unsigned();
+			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+			$table->String('gender');
+			$table->integer('age');
+			$table->String('district');
+			$table->String('religion');
+			$table->String('motherTongue');
+			$table->float('height');
+			$table->String('complexion');
+			$table->String('hair');
+			$table->String('bodyType');
+			$table->String('occupation',50);
+			$table->String('drinking');
+			$table->String('smoking');
 
 			$table->timestamps();
 		});

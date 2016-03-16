@@ -62,46 +62,94 @@ Route::get('get{id}','mingleController@returnpage');
 
 
 
-//================================
+//==================
 
-//pathmila's
+//pathmila's=============
 Route::get('abc', 'AbcController@index');
-Route::get('view_story','StoryController@viewStory');
-Route::post('commentFormSubmit','StoryController@commentFormSubmit');
+Route::get('view_story/{id}','StoryController@viewStory');
+Route::get('commentFormSubmit','StoryController@commentFormSubmit');
 Route::get('submit_story','StoryController@submitStory');
 Route::post('storyFormSubmit','StoryController@storyFormSubmit');
 Route::get('contact_us','ContactController@contactUs');
-//---------------
-
-Route::post('/testDamindu', function(){
-    return view('testD');
-});
+Route::post('contactFormSubmit','ContactController@contactFormSubmit');
+Route::post('commentAjax','StoryController@commentAjax');
 
 
-Route::get('/testDamindu', function(){
-    return view('testD');
-});
 
+Route::get('set_story1/{id}','StoryController@setStory1');
+Route::get('set_story2/{id}','StoryController@setStory2');
+Route::get('delete_story/{id}','StoryController@deleteStory');
+
+
+
+//admin
+Route::get('admin_panel','AdminController@adminPanel');
+
+
+
+
+//====================
+
+//Savidya's
+Route::post('search_social','searchController@searchSocial');
+Route::post('search_appearence','searchController@searchAppearence');
+Route::post('Results','searchController@searchResult');
+Route::post('register','searchController@Register');
+Route::post('connectSearch','searchController@connectSearch');
+Route::get('Search','searchController@searchMain2');
+
+
+
+
+//==================
+
+//Damindu's=========
 // Authentication routes...
+Route::get('registerTest', function(){ return view('auth.registerTest'); });
 Route::get('auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
 
+
+
+
 // Registration routes...
-//Route::get('auth/register', ['as' => 'register', 'uses' => 'Auth\AuthController@Register']);
-
-
-//Route::get('auth/register', function(){
-//    return view('auth/register');
-//});
-//Route::post('auth/register', 'Auth\AuthController@postRegister') ;
-
-
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);
 
 
-Route::get('addMyProfileInformation', 'UserController@showAddPage');
+
+//profile routes...
+Route::get('addMyProfileInformation/{id}', 'UserProfileController@showAddPage');
 Route::post('addinfo','UserProfileController@store');
+Route::get('profile/{id}', 'UserProfileController@showProfile');
+Route::post('profile/upload', function() {
+    return view('user.upload');
+});
+
+Route::get('manageUsers', 'UserController@showManage');
+Route::get('userdelete/{id}', 'UserController@userdelete');
+
+
+
+
+
+// Password reset link request routes...
+Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+
+
+// Password reset routes...
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');
+Route::post('search', 'UserProfileController@search');
+
+
+
+//Preview of the blank page
+Route::get('blank', function(){
+    return view('blank');
+});

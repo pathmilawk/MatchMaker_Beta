@@ -1926,7 +1926,10 @@ var defaults = $.fn.steps.defaults = {
      * @default function (event, currentIndex) { return true; }
      * @for defaults
      **/
-    onFinishing: function (event, currentIndex) { return true; },
+    onFinishing: function (event, currentIndex) {
+
+       // window.location.href = "C:\wamp\www\MatchMaker_Beta\resources\views\client\search_result.blade.php";
+        return true; },
 
     /**
      * Fires after completion. 
