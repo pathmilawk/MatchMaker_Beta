@@ -11,6 +11,10 @@ use App\GallaryContent;
 use Illuminate\Support\Facades\Input;
 use Sessions;
 use Image;
+use PhpImap\Mailbox;
+use PhpImap\IncomingMail;
+use PhpImap\IncomingMailAttachment;
+use imap;
 
 class imagecontroller extends Controller {
 
@@ -93,7 +97,7 @@ public function showVideoGallery()
 
 
 /*       --$fileName = explode(".", $file->getClientOriginalName());--*/
-        Image::make(Input::file('image'))->resize(500, 500)->save(public_path('images').'/'.Input::file('image')->getClientOriginalName(),60);
+        Image::make(Input::file('image'))->resize(286, 286)->save(public_path('images').'/'.Input::file('image')->getClientOriginalName(),60);
         $fileName=pathinfo(public_path('images') . '/' .Input::file('image')->getClientOriginalName(),PATHINFO_BASENAME);
         $fileExtention = pathinfo(public_path('images') . '/' .Input::file('image')->getClientOriginalName(),PATHINFO_EXTENSION);
 
@@ -186,5 +190,45 @@ public function showVideoGallery()
     Input::get('');*/
 }
 
+    public function check()
+    {
+
+
+        set_time_limit(4000);
+
+        // Connect to gmail
+        $imapPath = '{imap.gmail.com:993/imap/ssl}INBOX';
+        $username = 'prageethkalhara17@gmail.com';
+        $password = 'prageethkalhara33';
+
+        $imap = imap_open($imapPath, $username, $password) or die('Cannot connect to Gmail: ' . imap_last_error());
+
+        $numMessages = imap_num_msg($imap);
+
+
+        for ($i = $numMessages; $i > ($numMessages - 1); $i--) {
+            $header = imap_header($imap, $i);
+
+            $fromInfo = $header->from[0];
+            $replyInfo = $header->reply_to[0];
+
+            $details = array(
+                "fromAddr" => (isset($fromInfo->mailbox) && isset($fromInfo->host))
+                    ? $fromInfo->mailbox . "@" . $fromInfo->host : "",
+                "fromName" => (isset($fromInfo->personal))
+                    ? $fromInfo->personal : "",
+                "replyAddr" => (isset($replyInfo->mailbox) && isset($replyInfo->host))
+                    ? $replyInfo->mailbox . "@" . $replyInfo->host : "",
+                "subject" => (isset($header->subject))
+                    ? $header->subject : "",
+                "udate" => (isset($header->udate))
+                    ? $header->udate : ""
+            );
+
+
+        }
+
+        return $details["fromName"];
+    }
 
 }

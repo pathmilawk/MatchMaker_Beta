@@ -22,6 +22,7 @@ Route::get('home', 'HomeController@index');
 Route::get('viewAllmessages','MessageController@viewAll');
 Route::get('view_Selected_messages{id}','MessageController@view');
 Route::get('deleteMessage{id}','MessageController@deleteMessage');
+Route::get('temp','MessageController@temp');
 
 
 //Advertistments---------------------------------------------------
@@ -58,6 +59,7 @@ Route::get('startmingle','mingleController@start');
 //to retrive to the correct page after liking
 
 Route::get('get{id}','mingleController@returnpage');
+Route:get('check','imagecontroller@check');
 
 
 
