@@ -75,7 +75,9 @@ Route::post('storyFormSubmit','StoryController@storyFormSubmit');
 Route::get('contact_us','ContactController@contactUs');
 Route::post('contactFormSubmit','ContactController@contactFormSubmit');
 Route::post('commentAjax','StoryController@commentAjax');
-
+Route::post('showCommentAjax','StoryController@showCommentAjax');
+Route::post('refreshNotifications','NotificationController@refreshNotifications');
+Route::post('sendDateRequest','AbcController@sendDateRequest');
 
 
 Route::get('set_story1/{id}','StoryController@setStory1');

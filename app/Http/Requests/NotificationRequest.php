@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class StoryRequest extends Request {
+class NotificationRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class StoryRequest extends Request {
 	public function rules()
 	{
 		return [
-
+			//
 		];
 	}
 
