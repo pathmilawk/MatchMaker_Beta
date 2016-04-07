@@ -1,4 +1,5 @@
-@extends('master_page')
+@extends('app')
+@section('pageTitle','Submit Story')
 @section('css_ref')
     @parent
     <link rel="stylesheet" href="{{asset('internal_css/lib/jquery.steps/jquery.steps.css')}}">

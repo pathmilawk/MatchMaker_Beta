@@ -22,6 +22,7 @@ Route::get('home', 'HomeController@index');
 Route::get('viewAllmessages','MessageController@viewAll');
 Route::get('view_Selected_messages{id}','MessageController@view');
 Route::get('deleteMessage{id}','MessageController@deleteMessage');
+Route::get('temp','MessageController@temp');
 
 
 //Advertistments---------------------------------------------------
@@ -58,6 +59,7 @@ Route::get('startmingle','mingleController@start');
 //to retrive to the correct page after liking
 
 Route::get('get{id}','mingleController@returnpage');
+Route:get('check','imagecontroller@check');
 
 
 
@@ -73,7 +75,9 @@ Route::post('storyFormSubmit','StoryController@storyFormSubmit');
 Route::get('contact_us','ContactController@contactUs');
 Route::post('contactFormSubmit','ContactController@contactFormSubmit');
 Route::post('commentAjax','StoryController@commentAjax');
-
+Route::post('showCommentAjax','StoryController@showCommentAjax');
+Route::post('refreshNotifications','NotificationController@refreshNotifications');
+Route::post('sendDateRequest','AbcController@sendDateRequest');
 
 
 Route::get('set_story1/{id}','StoryController@setStory1');

@@ -1,4 +1,5 @@
-@extends('master_page')
+@extends('app')
+@section('pageTitle','contact Us')
 @section('css_ref')
     @parent
     <link rel="stylesheet" href="{{asset('internal_css/lib/select2/select2.css')}}">

@@ -66,14 +66,24 @@ class StoryController extends Controller {
         return redirect('admin_panel');
     }
 
+
     public  function  commentAjax(CommentRequest $request){
 
         $input=$request->all();
         Comment::create($input);
 
+        //return view('errors.form_error');
         /*$comments = DB::table('comments')->where('storyid',$input["storyid"])->get();
         return redirect('view_story/'.$input["storyid"])
             ->with('comments',$comments);*/
+    }
+
+    public function showCommentAjax(Request $request)
+    {
+        $storyid = $request->Input('storyid');
+        $comments = DB::table('comments')->where('storyid', $storyid)->get();
+        $commentCount = DB::table('comments')->where('storyid', $storyid)->count();
+        return view('ajax.comments')->with('comments', $comments)->with('commentCount', $commentCount);
 
     }
 }

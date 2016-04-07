@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Story;
+use DB;
+
 class HomeController extends Controller {
 
 	/*
@@ -61,14 +63,13 @@ class HomeController extends Controller {
 		$result3 = $this->pageContent();
 		$result4 = $this->pageContent();*/
 
+
 		$stories=Story::getStories();
-		return view('home')->/*with('result1',$result1)
+		return view('home')/*
+			->with('result1',$result1)
 			->with('result2',$result2)
 			->with('result3',$result3)
-			->with('result4',$result4)->*/with('stories',$stories)/*->with('result',$result)*/;
-
-
-//		return view('client.index')->with('result',$result);
+			->with('result4',$result4)*/->with('stories',$stories)/*->with('result',$result)*/;
 	}
 
 }

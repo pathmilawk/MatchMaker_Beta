@@ -377,6 +377,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!--advertisements-->
 
+
     <!--contact-->
     <div class="contact">
         <div class="col-md-6 contact-top">

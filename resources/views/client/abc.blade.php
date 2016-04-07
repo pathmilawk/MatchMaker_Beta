@@ -1,10 +1,22 @@
-@extends('master_page')
+@extends('app')
+@section('pageTitle','Admin Panel')
 @section('css_ref')
     @parent
 @stop
-
 @section('content')
+    <div id="dom-target" style="display: none;">
+        <?php
+        echo htmlspecialchars(Auth::user()->username);
+        ?>
+    </div>
+<form id="myForm" name="myForm">
+    <button type="button" class="btn btn-primary btn-lg" onclick="return sendDateReq()" style="margin-left: 20px;">
+        Send a date request
+    </button>
+</form>
 
+
+{{--
     <div class="row">
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -66,6 +78,7 @@
             </div>
         </div>
     </div>
+--}}
 
 
 @stop
@@ -73,4 +86,31 @@
 
 @section('js_ref')
     @parent
+    <script>
+        function sendDateReq() {
+            var div = document.getElementById("dom-target");
+            var username = div.textContent;
+
+            $.ajax({
+                url: '/sendDateRequest',
+                type: 'post',
+                data: {
+                    username: username
+                },
+                dataType: 'json',
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (err, req) {
+                    alert(arr);
+                },
+            });
+
+            return false;
+        }
+
+
+
+
+    </script>
 @stop

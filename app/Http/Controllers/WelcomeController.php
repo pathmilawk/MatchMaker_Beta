@@ -59,10 +59,10 @@ class WelcomeController extends Controller {
 
 
 		$stories=Story::getStories();
-		return view('client.index')->/*with('result1',$result1)
+		return view('client.index')/*->with('result1',$result1)
 			->with('result2',$result2)
 			->with('result3',$result3)
-			->with('result4',$result4)->*/with('stories',$stories)/*->with('result',$result)*/;
+			->with('result4',$result4)*/->with('stories',$stories)/*->with('result',$result)*/;
 	}
 
 }

@@ -1,5 +1,5 @@
 @extends('app')
-@section('pageTitle','Home')
+@section('pageTitle','home')
 @section('css_ref')
     @parent
 @stop
@@ -180,6 +180,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 
     <!--start-success-stories-->
+    <!--start-success-stories-->
     <div class="news">
         <div class="container">
             <h3 class="tittle">Success Stories</h3>
@@ -251,6 +252,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--end success stories-->
 
     <!--advertisements-->
+
 
     <!--contact-->
     <div class="contact">
