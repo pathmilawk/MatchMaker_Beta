@@ -206,7 +206,7 @@
                     <li>
                         <div class="btn-group">
                             <button type="button" class="btn btn-logged" data-toggle="dropdown">
-                                <img src="images/photos/loggeduser.png" alt=""/>
+                                <img src="{{asset('uploads/'.Auth::user()->username.'/'.Auth::user()->id.'.png')}}" alt=""/>
                                 {{ Auth::user()->name }}
                                 <span class="caret"></span>
                             </button>
@@ -244,7 +244,7 @@
             <div class="media leftpanel-profile">
                 <div class="media-left">
                     <a href="#">
-                        <img src="../images/photos/loggeduser.png" alt="" class="media-object img-circle">
+                        <img src="{{asset('uploads/'.Auth::user()->username.'/'.Auth::user()->id.'.png')}}" alt="" class="media-object img-circle">
                     </a>
                 </div>
                 <div class="media-body">

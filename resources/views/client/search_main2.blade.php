@@ -1,4 +1,5 @@
 @extends('app')
+@section('pageTitle','Search')
 @section('css_ref')
     <link rel="stylesheet" href="{{asset('external_css/css/searchMain2.css')}}">
     @parent
