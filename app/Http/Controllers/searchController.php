@@ -133,14 +133,20 @@ class searchController extends Controller {
         //checking age
 
         $currentDate = Carbon::now();
-        $currentYear = (int)str_limit($currentDate,4); //GET THE CURRENT YEAR
+
+        //GET THE CURRENT YEAR
+        $currentYear = (int)str_limit($currentDate,4);
         $count =0;
 
         foreach($results as $raw)
         {
             $bdy=$raw->birthday;
-            $bYear = (int)str_limit($bdy,4); //GET THE BIRTH YEAR
-            $age = $currentYear - $bYear; // CALCULATE THE AGE
+
+            //GET THE BIRTH YEAR
+            $bYear = (int)str_limit($bdy,4);
+
+            // CALCULATE THE AGE
+            $age = $currentYear - $bYear;
 
             //CHECK THE AGE
             if(($age >= $ageStart)&&($age < $ageEnd))
@@ -154,10 +160,14 @@ class searchController extends Controller {
         if(count($final)<1)
         {
             $final = "No Result";
-            return view('client.search_result')->with('final',$final); //if query does not have any result return this
+
+            //if query does not have any result return this
+            return view('client.search_result')->with('final',$final);
         }
 
-       return view('client.search_result')->with('final',$final);//if query has values return this
+
+        //if query has values return this
+       return view('client.search_result')->with('final',$final);
 
 
     }
@@ -182,10 +192,13 @@ class searchController extends Controller {
         if(count($final)<1)
         {
             $final = "No Result";
-            return view('client.search_result')->with('final',$final); //if query does not have any result return this
+
+            //if query does not have any result return this
+            return view('client.search_result')->with('final',$final);
         }
 
-        return view('client.search_result')->with('final',$final);//if query has values return this
+        //if query has values return this
+        return view('client.search_result')->with('final',$final);
     }
 
     /*
@@ -213,10 +226,13 @@ class searchController extends Controller {
         if(count($final)<1)
         {
             $final = "No Result";
-            return view('client.search_result')->with('final',$final); //if query does not have any result return this
+
+            //if query does not have any result return this
+            return view('client.search_result')->with('final',$final);
         }
 
-        return view('client.search_result')->with('final',$final); //if query has values return this
+        //if query has values return this
+        return view('client.search_result')->with('final',$final);
 
     }//End of the searchAppearance function
 
@@ -232,7 +248,9 @@ class searchController extends Controller {
     public function SendRequest($id)
     {
         $x = Carbon::now();
-        $uid =  Auth::user()->id ; //USER ID OF THE SENDER IS TAKEN FROM THE LOGGING DETAILS
+
+        //USER ID OF THE SENDER IS TAKEN FROM THE LOGGING DETAILS
+        $uid =  Auth::user()->id ;
 
         $check=DB::table('requests')
             ->where('userID','=',$id)
@@ -296,7 +314,9 @@ class searchController extends Controller {
     public function showInterest($id)
     {
         $x = Carbon::now();
-        $uid =  Auth::user()->id ; //USER ID OF THE SENDER IS TAKEN FROM THE LOGGING DETAILS
+
+        //USER ID OF THE SENDER IS TAKEN FROM THE LOGGING DETAILS
+        $uid =  Auth::user()->id ;
 
         $check=DB::table('show_interested')
             ->where('user_id','=',$id)
