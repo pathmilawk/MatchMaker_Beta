@@ -13,8 +13,7 @@ return [
 	|
 	*/
 
-	'debug' => true,
-
+	'debug' => env('APP_DEBUG'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -113,7 +112,6 @@ return [
 
 		/*
 		 * Laravel Framework Service Providers...
-		 *
 		 */
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',

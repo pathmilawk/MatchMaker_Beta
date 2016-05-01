@@ -252,129 +252,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--end success stories-->
 
     <!--advertisements-->
-    <div class="services" style="margin-left: 100px">
-        <div class="container">
-            <h3 class="tittle"></h3>
-            <div class="serve-top">
-                <div class="col-md-6 serve-section grid">
-                    <div class="col-md-6 serve-grid">
-                        <figure class="effect-goliath">
-                            <?php foreach($result1 as $row){
-                            ?>
 
-                            <img  src="{{asset('images/'.$row->contentName )}}" alt="" />
-                            {{--
-                            This will show the First Image
-                            --}}
 
-                            <?php }?>
-                            <figcaption>
-                                <h2>weeke<span>nd</span></h2>
-                                <a href="#">View more</a>
-                                <p>Happy Life...</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="col-md-6 serve-grid">
-                        <figure class="effect-goliath">
-                            <?php foreach($result2 as $row2){
-                            ?>
+    <!--contact-->
+    <div class="contact">
+        <div class="col-md-6 contact-top">
+            <div class="point"><i class="glyphicon glyphicon-map-marker"></i></div>
+            <a href="contact_us"><h3 class="tittle two">Contact us</h3></a>
+            <h4>For Any questions, Please feel free to Contact us by mail.</h4>
 
-                            <img  src="{{asset('images/'.$row2->contentName )}}" alt="" />
+            <div class="contact-ad">
+                <p>Address:Newyork Still Road.756 gt globel Place.
 
-                            {{--
-                            This will show the Second Image
-                            --}}
-                            <?php }?>
-                            <figcaption>
-                                <h2>weeke<span>nd</span></h2>
-                                <a href="#">View more</a>
-                                <p>Happy Life...</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="col-md-6 serve-grid">
-                        <figure class="effect-goliath">
-                            <?php foreach($result3 as $row3){
-                            ?>
+                <p>
 
-                            <img  src="{{asset('images/'.$row3->contentName )}}" alt="" />
-                            {{--
-                            This will show the Thred Image
-                            --}}
+                <p>Phone:Newyork Still Road.756 gt globel Place.
 
-                            <?php }?>
-                            <figcaption>
-                                <h2>weeke<span>nd</span></h2>
-                                <a href="#">View more</a>
-                                <p>Happy Life...</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="col-md-6 serve-grid">
-                        <figure class="effect-goliath">
-                            <?php foreach($result4 as $row4){
-                            ?>
+                <p>
 
-                            <img  src="{{asset('images/'.$row4->contentName )}}" alt="" />
-                            {{--
-                            This will show the Fourth Image
-                            --}}
+                <p>E-mail :<a href="mailto:info@example.com">mail@example.com</a></p>
 
-                            <?php }?>
-                            <figcaption>
-                                <h2>weeke<span>nd</span></h2>
-                                <a href="#">View more</a>
-                                <p>Happy Life...</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                {{--   <div class="col-md-6 serve-icons">
-                       <h4 class="sub">How to Plan for your Weekend...</h4>
-                       <div class="s-sub">
-                           <div class="col-md-2 icon">
-                               <a href="www.google.com">
-                                   <i class="glyphicon glyphicon-globe"></i>
-                               </a>
-                           </div>
-                           <div class="col-md-10 serve-text">
-                               <p> Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus. </p>
-                           </div>
-                           <div class="clearfix"> </div>
-                       </div>
-                       <div class="s-sub">
-                           <div class="col-md-2 icon">
-                               <i class="glyphicon glyphicon-ice-lolly-tasted"></i>
-                           </div>
-                           <div class="col-md-10 serve-text">
-                               <p> Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus. </p>
-                           </div>
-                           <div class="clearfix"> </div>
-                       </div>
-                       <div class="s-sub">
-                           <div class="col-md-2 icon">
-                               <i class="glyphicon glyphicon-send"></i>
-                           </div>
-                           <div class="col-md-10 serve-text">
-                               <p> Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus.</p>
-                           </div>
-                           <div class="clearfix"> </div>
-                       </div><div class="s-sub">
-                           <div class="col-md-2 icon">
-                               <i class="glyphicon glyphicon-briefcase"></i>
-                           </div>
-                           <div class="col-md-10 serve-text">
-                               <p> Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus.</p>
-                           </div>
-                           <div class="clearfix"> </div>
-                       </div>
-                   </div>--}}
-                <div class="clearfix"> </div>
             </div>
         </div>
-    </div>    <!--//contact-->
+        <div class="col-md-6 map">
+            <iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Purwokerto,+Central+Java,+Indonesia&amp;aq=0&amp;oq=purwo&amp;sll=37.0625,-95.677068&amp;sspn=50.291089,104.238281&amp;ie=UTF8&amp;hq=&amp;hnear=Purwokerto,+Banyumas,+Central+Java,+Indonesia&amp;ll=-7.431391,109.24783&amp;spn=0.031022,0.050898&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+            <div class="black">
+                <div class="map-l"><i class="glyphicon glyphicon-map-marker"></i></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!--//contact-->
 
     <!--/footer-->
     <div class="copy">

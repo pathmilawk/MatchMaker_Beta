@@ -84,27 +84,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <div class="clearfix"></div>
             </div>
-            <div class="top-comments">
-                <h3>10 Comments</h3>
+            <div class="top-comments" id="comments">
 
-                <div id="cmnts">
-
-                </div>
 
 
             </div>
-
+            <div id="dom-target" style="display: none;">
+                <?php
+                echo htmlspecialchars($story->id);
+                ?>
+            </div>
 
             <!--post comments-->
             <div class="leave">
                 <h3>Leave a comment</h3>
-                @if($errors->any())
-                    <ul class="alert alert-danger">
-                        @foreach($errors->all() as $error)
-                            <li>{{$error}}</li>
-                        @endforeach
-                    </ul>
-                @endif
+                <ul class="alert alert-danger">
+
+                </ul>
                 <form id="myform" name="myform" action="{{ action('StoryController@commentFormSubmit',$story->id) }}"
                       method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -124,24 +120,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 </div>
+
 </body>
 </html>
 @stop
 @section('js_ref')
 
     @parent
-
-    <script>
+        <script>
 
         function commentPublish(storyid) {
-
 
             var name = document.getElementById("name").value;
             var email = document.getElementById("email").value;
             var comment = document.getElementById("comment").value;
 
+            var info=$('.info');
             $.ajax({
-                url: 'http://localhost/MatchMaker_Beta/public/commentAjax',
+                url: '/commentAjax',
                 type: 'post',
                 data: {
                     name: name, email: email, comment: comment, storyid: storyid
@@ -149,15 +145,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 },
                 success: function (data) {
 
-
                     $("#name").val('');
                     $("#email").val('');
                     $("#comment").val('');
-
+                    document.getElementById("errors").innerHTML = data;
 
                 },
-                error: function (err, req) {
-                    alert(err);
+                error: function (data) {
+                    var errors=$.parseJSON(data.responseText);
+                    console.log(errors);
+
+                    $.each(errors, function(index, value) {
+                        info.find('ul').append('<li>' + value + '</li>');
+                    });
+                    info.slideDown();
                 },
             });
             return false;
@@ -165,26 +166,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
         function showcomment() {
-
+            var div = document.getElementById("dom-target");
+            var storyid = div.textContent;
 
             $.ajax({
-                url: 'http://localhost/MatchMaker_Beta/public/commentAjax',
+                url: '/showCommentAjax',
                 type: 'post',
-                data: {},
+                data: {
+                    storyid: storyid
+                },
+                dataType: 'html',
                 success: function (data) {
+                    //if (data != "same") {
+                        document.getElementById("comments").innerHTML = data;
+                    //alert(data);
 
-                    if (data != "same") {
-
-
-                        document.getElementById("cmnts").innerHTML = data;
-
-
-                    }
-
-
+                   // }
                 },
                 error: function (err, req) {
-                    alert(err);
+                    alert(arr);
                 },
             });
 
@@ -192,7 +192,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
 
-        onload = showcomment;
+        onload = showcomment();
 
 
     </script>

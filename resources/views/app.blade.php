@@ -21,7 +21,6 @@
                 return false;
         }
     </script>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
@@ -57,178 +56,31 @@
 
             <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
 
-                <div class="searchpanel">
-                    <div class="input-group">
-                        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="text" name="name" class="form-control" placeholder="Search for..." required>--}}
-              <span class="input-group-btn">
-                <a href="Search"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></a>
+            <div class="searchpanel">
+                <div class="input-group">
+                    {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="text" name="name" class="form-control" placeholder="Search for..." required>--}}
+                    <span class="input-group-btn">
+                <a href="Search">
+                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                </a>
               </span>
-                    </div>
-                    <!-- input-group -->
                 </div>
+                <!-- input-group -->
+            </div>
 
             <div class="header-right">
                 <ul class="headermenu">
                     <li>
                         <div id="noticePanel" class="btn-group">
-                            <button class="btn btn-notice alert-notice" data-toggle="dropdown">
-                                <i class="fa fa-globe"></i>
-                            </button>
-                            <div id="noticeDropdown" class="dropdown-menu dm-notice pull-right">
-                                <div role="tabpanel">
-                                    <!-- Nav tabs -->
-                                    <ul class="nav nav-tabs nav-justified" role="tablist">
-                                        <li class="active"><a data-target="#notification" data-toggle="tab">Notifications
-                                                (2)</a></li>
-                                        <li><a data-target="#reminders" data-toggle="tab">Reminders (4)</a></li>
-                                    </ul>
 
-                                    <!-- Tab panes -->
-                                    <div class="tab-content">
-                                        <div role="tabpanel" class="tab-pane active" id="notification">
-                                            <ul class="list-group notice-list">
-                                                <li class="list-group-item unread">
-                                                    <div class="row">
-                                                        <div class="col-xs-2">
-                                                            <i class="fa fa-envelope"></i>
-                                                        </div>
-                                                        <div class="col-xs-10">
-                                                            <h5><a href="">New message from Weno Carasbong</a></h5>
-                                                            <small>June 20, 2015</small>
-                                                            <span>Soluta nobis est eligendi optio cumque...</span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item unread">
-                                                    <div class="row">
-                                                        <div class="col-xs-2">
-                                                            <i class="fa fa-user"></i>
-                                                        </div>
-                                                        <div class="col-xs-10">
-                                                            <h5><a href="">Renov Leonga is now following you!</a></h5>
-                                                            <small>June 18, 2015</small>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <div class="row">
-                                                        <div class="col-xs-2">
-                                                            <i class="fa fa-user"></i>
-                                                        </div>
-                                                        <div class="col-xs-10">
-                                                            <h5><a href="">Zaham Sindil is now following you!</a></h5>
-                                                            <small>June 17, 2015</small>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <div class="row">
-                                                        <div class="col-xs-2">
-                                                            <i class="fa fa-thumbs-up"></i>
-                                                        </div>
-                                                        <div class="col-xs-10">
-                                                            <h5><a href="">Rey Reslaba likes your post!</a></h5>
-                                                            <small>June 16, 2015</small>
-                                                            <span>HTML5 For Beginners Chapter 1</span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <div class="row">
-                                                        <div class="col-xs-2">
-                                                            <i class="fa fa-comment"></i>
-                                                        </div>
-                                                        <div class="col-xs-10">
-                                                            <h5><a href="">Socrates commented on your post!</a></h5>
-                                                            <small>June 16, 2015</small>
-                                                            <span>Temporibus autem et aut officiis debitis...</span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            <a class="btn-more" href="">View More Notifications <i
-                                                        class="fa fa-long-arrow-right"></i></a>
-                                        </div>
-                                        <!-- tab-pane -->
-
-                                        <div role="tabpanel" class="tab-pane" id="reminders">
-                                            <h1 id="todayDay" class="today-day">...</h1>
-
-                                            <h3 id="todayDate" class="today-date">...</h3>
-
-                                            <h5 class="today-weather"><i class="wi wi-hail"></i> Cloudy 77 Degree</h5>
-
-                                            <p>Thunderstorm in the area this afternoon through this evening</p>
-
-                                            <h4 class="panel-title">Upcoming Events</h4>
-                                            <ul class="list-group">
-                                                <li class="list-group-item">
-                                                    <div class="row">
-                                                        <div class="col-xs-2">
-                                                            <h4>20</h4>
-
-                                                            <p>Aug</p>
-                                                        </div>
-                                                        <div class="col-xs-10">
-                                                            <h5><a href="">HTML5/CSS3 Live! United States</a></h5>
-                                                            <small>San Francisco, CA</small>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <div class="row">
-                                                        <div class="col-xs-2">
-                                                            <h4>05</h4>
-
-                                                            <p>Sep</p>
-                                                        </div>
-                                                        <div class="col-xs-10">
-                                                            <h5><a href="">Web Technology Summit</a></h5>
-                                                            <small>Sydney, Australia</small>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <div class="row">
-                                                        <div class="col-xs-2">
-                                                            <h4>25</h4>
-
-                                                            <p>Sep</p>
-                                                        </div>
-                                                        <div class="col-xs-10">
-                                                            <h5><a href="">HTML5 Developer Conference 2015</a></h5>
-                                                            <small>Los Angeles CA United States</small>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <div class="row">
-                                                        <div class="col-xs-2">
-                                                            <h4>10</h4>
-
-                                                            <p>Oct</p>
-                                                        </div>
-                                                        <div class="col-xs-10">
-                                                            <h5><a href="">AngularJS Conference 2015</a></h5>
-                                                            <small>Silicon Valley CA, United States</small>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            <a class="btn-more" href="">View More Events <i
-                                                        class="fa fa-long-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </li>
                     <li>
                         <div class="btn-group">
                             <button type="button" class="btn btn-logged" data-toggle="dropdown">
                                 <img src="images/photos/loggeduser.png" alt=""/>
-                                    {{ Auth::user()->name }}
+                                {{ Auth::user()->name }}
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu pull-right">
@@ -393,9 +245,9 @@
 
                     <h5 class="sidebar-title">Mailboxes</h5>
                     <ul class="nav nav-pills nav-stacked nav-quirk nav-mail">
-                        <li><a href="viewAllmessages"><i class="fa fa-inbox"></i> <span>Inbox (3)</span></a></li>
+                        <li><a href="email.html"><i class="fa fa-inbox"></i> <span>Inbox (3)</span></a></li>
                         <li><a href="email.html"><i class="fa fa-pencil"></i> <span>Draft (2)</span></a></li>
-                        <li><a href=""><i class="fa fa-paper-plane"></i> <span>Sent</span></a></li>
+                        <li><a href="email.html"><i class="fa fa-paper-plane"></i> <span>Sent</span></a></li>
                     </ul>
 
                     <h5 class="sidebar-title">Tags</h5>
@@ -572,7 +424,13 @@
                                 <div class="leftpanel-toggle toggle-light success"></div>
                             </div>
                         </li>
-
+                        <li class="list-group-item">
+                            <h5>Phone Approvals</h5>
+                            <small>Use your phone when login as an extra layer of security.</small>
+                            <div class="toggle-wrapper">
+                                <div class="leftpanel-toggle toggle-light success"></div>
+                            </div>
+                        </li>
                         <li class="list-group-item">
                             <h5>Accounts Settings</h5>
                             {{--<small>Turn off if you want to Deactivte</small>--}}
@@ -581,7 +439,7 @@
                             </div>--}}
                             <br>
 
-                           <a href="DeactivateUser"> <button class="btn btn-danger btn-xs" onclick="return con()">Deactivate</button></a>
+                            <a href="DeactivateUser"> <button class="btn btn-danger btn-xs" onclick="return con()">Deactivate</button></a>
                             <a href="DeleteUserFeedBack"> <button class="btn btn-danger btn-xs" onclick="return delcon()">Delete Account</button></a>
 
 
@@ -598,18 +456,21 @@
         <!-- leftpanelinner -->
     </div>
     <!-- leftpanel -->
-
+    <div id="dom-target" style="display: none;">
+        <?php
+        echo htmlspecialchars(Auth::user()->username);
+        ?>
+    </div>
     <div class="mainpanel">
 
         <div class="contentpanel">
-
+            <?php if(strcmp((pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME)), "home") != 0){ ?>
             <ol class="breadcrumb breadcrumb-quirk">
                 <li><a href="/MatchMaker_Beta/public/"><i class="fa fa-home mr5"></i> Home</a></li>
-                <li><a href="#">Pages</a></li>
                 <li class="#"><?php echo pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME); ?></li>
             </ol>
-
-            <!-- content goes here... -->
+            <?php }?>
+                    <!-- content goes here... -->
             @yield('content')
 
         </div>
@@ -623,6 +484,38 @@
     <script src="{{asset('internal_css/lib/bootstrap/js/bootstrap.js')}}"></script>
     <script src="{{asset('internal_css/lib/jquery-toggles/toggles.js')}}"></script>
     <script src="{{asset('internal_css/js/quirk.js')}}"></script>
+
+    <script>
+
+
+        function refreshNotifications() {
+            var div = document.getElementById("dom-target");
+            var receiver_username = div.textContent;
+
+            $.ajax({
+                url: '/refreshNotifications',
+                type: 'post',
+                data: {
+                    receiver_username: receiver_username
+                },
+                dataType: 'html',
+                success: function (data) {
+                    //if (data != "same") {
+                    document.getElementById("noticePanel").innerHTML = data;
+                    $(".make-switch").bootstrapSwitch();
+                    //alert(data);
+
+                    // }
+                },
+                error: function (err, req) {
+                    Console.log(err);
+                },
+            });
+
+            setTimeout("refreshNotifications()", 3000)
+        }
+        onload = refreshNotifications();
+    </script>
 @show
 
 

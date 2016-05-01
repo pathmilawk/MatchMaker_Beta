@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <!--<link rel="shortcut icon" href="../images/favicon.png" type="image/png">-->
 
-    <title>Quirk Responsive Admin Templates</title>
+    <title>MatchMaker sign up</title>
 
     <link rel="stylesheet" href="{{ asset('internal_css/lib/fontawesome/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ asset('internal_css/lib/select2/select2.css') }}">
@@ -24,20 +24,18 @@
 
 <body class="signwrapper">
 
-<div class="sign-overlay"></div>
-<div class="signpanel"></div>
+<div class="sign-overlay" style="background-image: url({{ asset('/internal_css/images/photos/loginBack.jpg') }}); background-repeat: no-repeat;background-size: cover;"></div>
+<div class="signpanel" ></div>
 
-<div class="signup">
+<div class="signup" style="margin-top: 75px;">
     <div class="row">
-        <div class="col-sm-5">
+        <div class="col-sm-5" style="margin-top: 30px;">
             <div class="panel">
                 <div class="panel-heading">
-                    <h1>Quirk</h1>
+                    <h1>MatchMaker</h1>
                     <h4 class="panel-title">Create an Account!</h4>
                 </div>
                 <div class="panel-body">
-                    <button class="btn btn-primary btn-quirk btn-fb btn-block">Sign Up Using Facebook</button>
-                    <div class="or">or</div>
                     <form action="http://<?php echo $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']; ?>/auth/register"
                           method="post"><input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -61,55 +59,8 @@
                                    placeholder="Enter Your email">
                         </div>
 
-                        <div class="row mb15">
-                            <div class="col-xs-5">
-                                <div class="form-group">
-                                    <select name="bdayM" id="bdayM" class="form-control" style="width: 100%"
-                                            data-placeholder="Birth Month">
-                                        <option value="">&nbsp;</option>
-                                        <option value="January">January</option>
-                                        <option value="February">February</option>
-                                        <option value="March">March</option>
-                                        <option value="April">April</option>
-                                        <option value="May">May</option>
-                                        <option value="June">June</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-xs-3">
-                                <div class="form-group">
-                                    <select name="bdayD" id="bdayD" class="form-control" style="width: 100%"
-                                            data-placeholder="Birth Day">
-                                        <option value="">&nbsp;</option>
-                                        <option value="01">01</option>
-                                        <option value="02">02</option>
-                                        <option value="03">03</option>
-                                        <option value="04">04</option>
-                                        <option value="05">05</option>
-                                        <option value="06">06</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="form-group">
-                                    <select name="bdayY" id="bdayY" class="form-control" style="width: 100%"
-                                            data-placeholder="Birth Year">
-                                        <option value="">&nbsp;</option>
-                                        <option value="1986">1986</option>
-                                        <option value="1987">1987</option>
-                                        <option value="1988">1988</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="form-group mb20">
-                            <label class="ckbox">
-                                <input type="checkbox" name="checkbox">
-                                <span>Accept terms and conditions</span>
-                            </label>
-                        </div>
-                        <div class="form-group">
+                        <div class="form-group" style="margin-top: 50px;">
                             <button type="submit" class="btn btn-success btn-quirk btn-block">Create Account</button>
                         </div>
                     </form>
@@ -121,28 +72,26 @@
         <!-- col-sm-5 -->
         <div class="col-sm-7">
             <div class="sign-sidebar">
-                <h3 class="signtitle mb20">Two Good Reasons to Love Quirk</h3>
+                <h3 class="signtitle mb20">Your perfect match is searching for you</h3>
 
-                <p>When it comes to websites or apps, one of the first impression you consider is the design. It needs
-                    to be high quality enough otherwise you will lose potential users due to bad design.</p>
+                <p>MatchMaker is an online matchmaking service for a more mature audience. Join our free matchmaking
+                    dating site today and find true love, search through millions of singles in your area don't let love
+                    pass you by.</p>
 
-                <p>Below are some of the reasons why you love Quirk.</p>
+                <p>Below are some of the reasons why you love MatchMaker.</p>
 
-                <br>
+                <h4 class="reason">1. Reliable</h4>
 
-                <h4 class="reason">1. Attractive</h4>
-
-                <p>When your website or app is attractive to use, your users will not simply be using it, they’ll look
-                    forward to using it. This means that you should fashion the look and feel of your interface for your
-                    users.</p>
+                <p>Matchmaker.com is the premier online dating website with thousands of success stories from connected
+                    singles who looked for friendships, romance, love and marriage.</p>
 
                 <br>
 
-                <h4 class="reason">2. Responsive</h4>
+                <h4 class="reason">2. Fast</h4>
 
-                <p>Responsive Web design is the approach that suggests that design and development should respond to the
-                    user’s behavior and environment based on screen size, platform and orientation. This would eliminate
-                    the need for a different design and development phase for each new gadget on the market.</p>
+                <p>Our unique scientific matching system calculates perfect matches by comparing your profile with over
+                    10 million active members. To determine your best match, we take your profile and match it with what
+                    you're looking for in a partner.</p>
 
                 <hr class="invisible">
 

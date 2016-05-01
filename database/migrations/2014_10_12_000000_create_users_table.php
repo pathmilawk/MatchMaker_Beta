@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateUsersTable extends Migration {
 
@@ -20,7 +20,8 @@ class CreateUsersTable extends Migration {
 			$table->string('password', 60);
 			$table->string('bday');
 			$table->string('username');
-			$table->string('admin_activate_state')->default("active");
+			$table->boolean('is_admin');
+			$table->boolean('is_verified');
 			$table->rememberToken();
 			$table->timestamps();
 
