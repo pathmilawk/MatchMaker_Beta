@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Story;
+use DB;
 
 class HomeController extends Controller {
 

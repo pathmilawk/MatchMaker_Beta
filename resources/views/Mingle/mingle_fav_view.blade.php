@@ -1,4 +1,4 @@
-@extends('master_page')
+@extends('app')
 @section('css_ref')
     @parent
 @stop
@@ -75,20 +75,20 @@
                                                             <div class="panel-body">
                                                                 <h4>Message</h4>
                                                                 <hr>
-                                                                <form id="basicForm" action="saveMessages" class="form-horizontal">
-                                                                    <div class="form-group">
+                                                                <form id="basicForm" action="saveMessages<?php echo $row->id; ?>" class="form-horizontal">
+                                                                    {{--<div class="form-group">
                                                                         <label class="col-sm-9 control-label">Name <span class="text-danger">*</span></label>
                                                                         <div class="col-sm-9">
                                                                             <input type="text" name="name" class="form-control" placeholder="Type your name..." required />
                                                                         </div>
-                                                                    </div>
+                                                                    </div>--}}
 
-                                                                    <div class="form-group">
+                                                                   {{-- <div class="form-group">
                                                                         <label class="col-sm-9 control-label">Email <span class="text-danger">*</span></label>
                                                                         <div class="col-sm-9">
                                                                             <input type="email" name="email" class="form-control" placeholder="Type your email..." required />
                                                                         </div>
-                                                                    </div>
+                                                                    </div>--}}
 
 
 
@@ -110,12 +110,12 @@
 
                                                                 </form>
                                                                 <!--scrppt for save the data from the modal-->
-                                                                <script>
+                                                                {{--<script>
                                                                     $(function(){
                                                                         $('basicForm').on('submit', function(e){
                                                                             e.preventDefault();
                                                                             $.ajax({
-                                                                                url: "saveMessages",
+                                                                                url: "saveMessages.$row->id",
                                                                                 type: "POST",
                                                                                 data: $("basicForm").serialize(),
                                                                                 success: function(data){
@@ -125,7 +125,7 @@
                                                                         });
                                                                     });
                                                                 </script>
-
+--}}
                                                             </div><!-- panel-body -->
                                                         </div><!-- panel -->
 
@@ -139,7 +139,7 @@
                                         <li><a href=""><i class="fa fa-trash"></i></a></li>
                             </ul>
                         </td>
-                        <?php }?>
+                        <?php unset($row->id); }?>
 
 
                     </tr>

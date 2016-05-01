@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use Session;
 use Illuminate\Http\Request;
+use Auth;
 
 
 class MessageController extends Controller {
@@ -16,7 +17,11 @@ class MessageController extends Controller {
     {
         $result=DB::table('messages')->get();
 
+
+
         return view('messages.viewAllmessages')->with('result',$result);
+
+
     }
 
 
@@ -95,5 +100,22 @@ class MessageController extends Controller {
 
        // return view('messages.che')->with('body',$body);
     }
+
+
+    public function viewAllSentMessages(){
+
+
+
+        $user=Auth::user()->id;
+        $result=DB::table('sentmsg_mingle_table')->where('user_id',$user)->get();
+
+
+
+       // var_dump($result);
+      return view('messages.viewAllSentMessages')->with('result',$result);
+
+
+    }
+
 
 }

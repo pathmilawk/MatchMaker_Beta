@@ -1,27 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <script>
-        function con(){
-            var x = confirm("Are you sure you want to Deactivate ?");
-            if (x)
-                return true;
-            else
-                return false;
-        }
-    </script>
-
-    <script>
-        function delcon(){
-            var x = confirm("Are you sure you want to Delete the Account ?");
-            if (x)
-                return true;
-            else
-                return false;
-        }
-    </script>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
@@ -57,24 +36,24 @@
 
             <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
 
-                <div class="searchpanel">
-                    <div class="input-group">
-                        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="text" name="name" class="form-control" placeholder="Search for..." required>--}}
-              <span class="input-group-btn">
+           {{-- <div class="searchpanel">
+                <div class="input-group">
+                    --}}{{--<input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="text" name="name" class="form-control" placeholder="Search for..." required>--}}{{--
+                    <span class="input-group-btn">
                 <a href="Search"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></a>
               </span>
-                    </div>
-                    <!-- input-group -->
                 </div>
+                <!-- input-group -->
+            </div>--}}
 
             <div class="header-right">
                 <ul class="headermenu">
                     <li>
                         <div id="noticePanel" class="btn-group">
-                            <button class="btn btn-notice alert-notice" data-toggle="dropdown">
+                            {{--<button class="btn btn-notice alert-notice" data-toggle="dropdown">
                                 <i class="fa fa-globe"></i>
-                            </button>
+                            </button>--}}
                             <div id="noticeDropdown" class="dropdown-menu dm-notice pull-right">
                                 <div role="tabpanel">
                                     <!-- Nav tabs -->
@@ -227,8 +206,8 @@
                     <li>
                         <div class="btn-group">
                             <button type="button" class="btn btn-logged" data-toggle="dropdown">
-                                <img src="images/photos/loggeduser.png" alt=""/>
-                                    {{ Auth::user()->name }}
+                                <img src="images/adminuser.png" alt=""/>
+                                {{ Auth::user()->name }}
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu pull-right">
@@ -241,10 +220,10 @@
                         </div>
                     </li>
                     <li>
-                        <button id="chatview" class="btn btn-chat alert-notice">
+                        {{--<button id="chatview" class="btn btn-chat alert-notice">
                             <span class="badge-alert"></span>
                             <i class="fa fa-comments-o"></i>
-                        </button>
+                        </button>--}}
                     </li>
                 </ul>
             </div>
@@ -265,7 +244,7 @@
             <div class="media leftpanel-profile">
                 <div class="media-left">
                     <a href="#">
-                        <img src="../images/photos/loggeduser.png" alt="" class="media-object img-circle">
+                        <img src="/images/adminuser.png" alt="" class="media-object img-circle">
                     </a>
                 </div>
                 <div class="media-body">
@@ -333,11 +312,11 @@
                 <!-- ################# MAIN MENU ################### -->
 
                 <div class="tab-pane active" id="mainmenu">
-                    <h5 class="sidebar-title">Favorites</h5>
+                    <h5 class="sidebar-title">Admin</h5>
                     <ul class="nav nav-pills nav-stacked nav-quirk">
-                        <li><a href="index.html"><i class="fa fa-home"></i> <span>Add Topic</span></a></li>
-                        <li><a href="widgets.html"><span class="badge pull-right">10+</span><i class="fa fa-cube"></i>
-                                <span>Add Topic</span></a></li>
+                        <li><a href="userAdmin"><i class="fa fa-home"></i> <span>Users Admin Pannel</span></a></li>
+                        <li><a href="test"><span class="badge pull-right"></span><i class="fa fa-cube"></i>
+                                <span>Advertisments</span></a></li>
                         <li><a href="maps.html"><i class="fa fa-map-marker"></i> <span>Add Topic</span></a></li>
                     </ul>
 
@@ -572,19 +551,12 @@
                                 <div class="leftpanel-toggle toggle-light success"></div>
                             </div>
                         </li>
-
                         <li class="list-group-item">
-                            <h5>Accounts Settings</h5>
-                            {{--<small>Turn off if you want to Deactivte</small>--}}
-                            {{--<div class="toggle-wrapper">
+                            <h5>Phone Approvals</h5>
+                            <small>Use your phone when login as an extra layer of security.</small>
+                            <div class="toggle-wrapper">
                                 <div class="leftpanel-toggle toggle-light success"></div>
-                            </div>--}}
-                            <br>
-
-                           <a href="DeactivateUser"> <button class="btn btn-danger btn-xs" onclick="return con()">Deactivate</button></a>
-                            <a href="DeleteUserFeedBack"> <button class="btn btn-danger btn-xs" onclick="return delcon()">Delete Account</button></a>
-
-
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -604,7 +576,7 @@
         <div class="contentpanel">
 
             <ol class="breadcrumb breadcrumb-quirk">
-                <li><a href="/MatchMaker_Beta/public/"><i class="fa fa-home mr5"></i> Home</a></li>
+                <li><a href="AdminDashBoard"><i class="fa fa-home mr5"></i> Home</a></li>
                 <li><a href="#">Pages</a></li>
                 <li class="#"><?php echo pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME); ?></li>
             </ol>

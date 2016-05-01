@@ -6,6 +6,8 @@ use DB;
 use Input;
 use Session;
 use imap;
+use Auth;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -39,9 +41,10 @@ class mingleController extends Controller {
 
         $path=$result->image_path;
         $name=$result->name;
+        $user=Auth::user()->id;
 
          DB::table('mingle_faviourite')->insertGetId(
-            array('path' => $path, 'name' => $name)
+            array('path' => $path, 'name' => $name , 'User_id' => $user)
         );
 
         return redirect('viewMingle');
@@ -51,29 +54,43 @@ class mingleController extends Controller {
 
     public function viewMingle()
     {
-           $id=1; //Auth::user('id');
+        $id=Auth::user()->id;
+
+
             /*$result=DB::table('users')->where('id',$id)->get();*/
 
-            $result=DB::table('mingle_faviourite')->where('User_id',$id)->get();
+        $result=DB::table('mingle_faviourite')->where('User_id',$id)->get();
 
-                return view('Mingle.mingle_fav_view')->with('result',$result);
+        return view('Mingle.mingle_fav_view')->with('result',$result);
 
 
 
     }
 
-    public function savemsg()
+    public function savemsg($id)
     {
-        $name=Input::get('name');
-        $email=Input::get('email');
-        $mesg=Input::get('msg');
+        //$name=Input::get('name');
+        //$email=Input::get('email');
 
+        $mesg=Input::get('msg');
+        $user=Auth::user()->id;
+        $mingle_table_id=$id;
+        $time=Carbon::now();
+
+
+        //to get the name to whome i am going to message
+        $to=DB::table('mingle_faviourite')->where('id',$id)->first();
+        $toWhome=$to->name;
 
 
 
         DB::table('sentmsg_mingle_table')->insert(
-            array('name' => $name, 'email' => $email,'message' =>$mesg)
+            array('user_id' => $user,'min_table_id' => $mingle_table_id, 'message' =>$mesg,'to' =>$toWhome ,'time' => $time)
         );
+
+
+
+        unset($id);
 
 
         Session::flash('messagesucessmingl','Successfully Sent..!!');

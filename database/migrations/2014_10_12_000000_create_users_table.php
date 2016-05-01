@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration {
 			$table->string('password', 60);
 			$table->string('bday');
 			$table->string('username');
+			$table->string('admin_activate_state')->default("active");
 			$table->rememberToken();
 			$table->timestamps();
 
