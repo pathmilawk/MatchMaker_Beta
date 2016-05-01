@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration {
 			$table->string('username');
 			$table->boolean('is_admin');
 			$table->boolean('is_verified');
+			$table->string('admin_activate_state')->default('activate');
+			$table->string('user_activate_state')->default('activate');
 			$table->rememberToken();
 			$table->timestamps();
 

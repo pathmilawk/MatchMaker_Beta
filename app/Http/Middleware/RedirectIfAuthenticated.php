@@ -32,7 +32,7 @@ class RedirectIfAuthenticated {
 
 		$stat = DB::table('users')
 			->where('email', $x)
-			->update(['admin_activate_state' => 'activate']);
+			->update(['user_activate_state' => 'activate']);
 
 
 		//to loged users log

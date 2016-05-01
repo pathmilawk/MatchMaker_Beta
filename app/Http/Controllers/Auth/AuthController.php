@@ -48,7 +48,7 @@ class AuthController extends Controller {
 
    public function  redirectPath(){
        if(Auth::user()->is_admin){
-            return '/admin_panel';
+            return '/AdminDashBoard';
        }
        else{
            return '/home';

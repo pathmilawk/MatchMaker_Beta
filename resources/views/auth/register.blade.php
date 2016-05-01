@@ -59,6 +59,47 @@
                                    placeholder="Enter Your email">
                         </div>
 
+                        <div class="row mb15">
+                            <div class="col-xs-5">
+                                <div class="form-group">
+                                    <select name="bdayM" id="bdayM" class="form-control" style="width: 100%"
+                                            data-placeholder="Birth Month">
+                                        <option value="">&nbsp;</option>
+                                        <option value="January">January</option>
+                                        <option value="February">February</option>
+                                        <option value="March">March</option>
+                                        <option value="April">April</option>
+                                        <option value="May">May</option>
+                                        <option value="June">June</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="form-group">
+                                    <select name="bdayD" id="bdayD" class="form-control" style="width: 100%"
+                                            data-placeholder="Birth Day">
+                                        <option value="">&nbsp;</option>
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <select name="bdayY" id="bdayY" class="form-control" style="width: 100%"
+                                            data-placeholder="Birth Year">
+                                        <option value="">&nbsp;</option>
+                                        <option value="1986">1986</option>
+                                        <option value="1987">1987</option>
+                                        <option value="1988">1988</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="form-group" style="margin-top: 50px;">
                             <button type="submit" class="btn btn-success btn-quirk btn-block">Create Account</button>
@@ -66,6 +107,13 @@
                     </form>
                 </div>
                 <!-- panel-body -->
+                @if($errors->any())<!--retrieving errors from validations-->
+                <ul class="text-danger" style="margin-top: 5px;margin-bottom: 0px;">
+                    @foreach($errors->all() as $error)
+                        <li style="font-size: small">{{$error}}</li>
+                    @endforeach
+                </ul>
+                @endif
             </div>
             <!-- panel -->
         </div>

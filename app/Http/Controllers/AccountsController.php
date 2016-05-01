@@ -87,7 +87,7 @@ class AccountsController extends Controller {
 
 		DB::table('users')
 			->where('id', $id)
-			->update(['admin_activate_state' => 'deactivate']);
+			->update(['user_activate_state' => 'deactivate']);
 
 		return redirect('auth/logout');
 
