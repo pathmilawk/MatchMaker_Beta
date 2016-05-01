@@ -15,6 +15,7 @@ use PhpImap\Mailbox;
 use PhpImap\IncomingMail;
 use PhpImap\IncomingMailAttachment;
 use imap;
+use Carbon\Carbon;
 
 class imagecontroller extends Controller {
 
@@ -84,7 +85,10 @@ public function showVideoGallery()
 
     public function test()
     {
-           return view('messages.imageform');
+
+        $result=DB::table('gallery_contents')->orderBy('id','desc')->take(5)->get();
+
+           return view('messages.imageform')->with('result',$result);
 
     }
 
@@ -103,11 +107,13 @@ public function showVideoGallery()
 
         $fileType = 'image';
 /*       --$fileDescription = $request->input('demo');--*/
+        $time=Carbon::now();
 
-        DB::table('gallery_contents')->insert(['contentType' =>$fileType,'contentName' =>$fileName,'contentFileExtension' => $fileExtention, 'title' =>$title]);
+        DB::table('gallery_contents')->insert(['contentType' =>$fileType,'contentName' =>$fileName,'contentFileExtension' => $fileExtention, 'title' =>$title ,'time' => $time]);
         \Session::flash('message','successfully saved.');
 
-        return view('messages.imageform');
+        $result=DB::table('gallery_contents')->orderBy('id','desc')->take(5)->get();
+        return view('messages.imageform')->with('result',$result);
 
 
 

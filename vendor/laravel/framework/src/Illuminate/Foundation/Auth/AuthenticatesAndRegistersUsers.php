@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
+use Illuminate\Foundation\Auth\Auth;
 
 trait AuthenticatesAndRegistersUsers {
 
@@ -95,7 +96,7 @@ trait AuthenticatesAndRegistersUsers {
 	 */
 	protected function getFailedLoginMessage()
 	{
-		return 'These credentials do not match our records.';
+		return 'Invalid credentials.';
 	}
 
 	/**
@@ -122,7 +123,8 @@ trait AuthenticatesAndRegistersUsers {
 			return $this->redirectPath;
 		}
 
-		return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+			return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+
 	}
 
 	/**

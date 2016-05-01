@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <script>
+        function con(){
+            var x = confirm("Are you sure you want to Deactivate ?");
+            if (x)
+                return true;
+            else
+                return false;
+        }
+    </script>
+
+    <script>
+        function delcon(){
+            var x = confirm("Are you sure you want to Delete the Account ?");
+            if (x)
+                return true;
+            else
+                return false;
+        }
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
@@ -36,16 +56,18 @@
 
             <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
 
-                <div class="searchpanel">
-                    <div class="input-group">
-                        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="text" name="name" class="form-control" placeholder="Search for..." required>--}}
-              <span class="input-group-btn">
-                <a href="Search"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></a>
+            <div class="searchpanel">
+                <div class="input-group">
+                    {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="text" name="name" class="form-control" placeholder="Search for..." required>--}}
+                    <span class="input-group-btn">
+                <a href="Search">
+                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                </a>
               </span>
-                    </div>
-                    <!-- input-group -->
                 </div>
+                <!-- input-group -->
+            </div>
 
             <div class="header-right">
                 <ul class="headermenu">
@@ -57,16 +79,13 @@
                     <li>
                         <div class="btn-group">
                             <button type="button" class="btn btn-logged" data-toggle="dropdown">
-                                <img src="{{asset('Profile_Pictures'.Auth::user()->name.'/'.Auth::user()->id.'.png')}}" alt=""/>
-                                    {{ Auth::user()->name }}
+                                <img src="images/photos/loggeduser.png" alt=""/>
+                                {{ Auth::user()->name }}
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu pull-right">
-                                <li>
-                                    <a href='{!! Auth::user()->id !!}'>
-                                        <i class="glyphicon glyphicon-user"></i> My Profile
-                                    </a>
-                                </li>
+                                <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/addMyProfileInformation"><i
+                                                class="glyphicon glyphicon-user"></i> My Profile</a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Account Settings</a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> Help</a></li>
                                 <li><a href="auth/logout"><i class="glyphicon glyphicon-log-out"></i> Log Out</a></li>
@@ -97,8 +116,8 @@
 
             <div class="media leftpanel-profile">
                 <div class="media-left">
-                    <a href="{!! Auth::user()->id !!}">
-                        <img src="{{asset('Profile_Pictures'.Auth::user()->name.'/'.Auth::user()->id.'.png')}}" alt="" class="media-object img-circle">
+                    <a href="#">
+                        <img src="../images/photos/loggeduser.png" alt="" class="media-object img-circle">
                     </a>
                 </div>
                 <div class="media-body">
@@ -412,6 +431,19 @@
                                 <div class="leftpanel-toggle toggle-light success"></div>
                             </div>
                         </li>
+                        <li class="list-group-item">
+                            <h5>Accounts Settings</h5>
+                            {{--<small>Turn off if you want to Deactivte</small>--}}
+                            {{--<div class="toggle-wrapper">
+                                <div class="leftpanel-toggle toggle-light success"></div>
+                            </div>--}}
+                            <br>
+
+                            <a href="DeactivateUser"> <button class="btn btn-danger btn-xs" onclick="return con()">Deactivate</button></a>
+                            <a href="DeleteUserFeedBack"> <button class="btn btn-danger btn-xs" onclick="return delcon()">Delete Account</button></a>
+
+
+                        </li>
                     </ul>
                 </div>
                 <!-- tab-pane -->
@@ -432,14 +464,13 @@
     <div class="mainpanel">
 
         <div class="contentpanel">
-
+            <?php if(strcmp((pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME)), "home") != 0){ ?>
             <ol class="breadcrumb breadcrumb-quirk">
                 <li><a href="/MatchMaker_Beta/public/"><i class="fa fa-home mr5"></i> Home</a></li>
-                <li><a href="#">Pages</a></li>
                 <li class="#"><?php echo pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME); ?></li>
             </ol>
-
-            <!-- content goes here... -->
+            <?php }?>
+                    <!-- content goes here... -->
             @yield('content')
 
         </div>

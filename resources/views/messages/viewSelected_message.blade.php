@@ -1,5 +1,5 @@
 
-@extends('master_page')
+@extends('app')
 @section('css_ref')
     @parent
 @stop
