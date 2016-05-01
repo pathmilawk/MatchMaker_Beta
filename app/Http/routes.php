@@ -23,6 +23,7 @@ Route::get('viewAllmessages','MessageController@viewAll');
 Route::get('view_Selected_messages{id}','MessageController@view');
 Route::get('deleteMessage{id}','MessageController@deleteMessage');
 Route::get('temp','MessageController@temp');
+Route::get('viewAllSentMessages','MessageController@viewAllSentMessages');
 
 
 //Advertistments---------------------------------------------------
@@ -53,13 +54,28 @@ Route::get('viewMingle','mingleController@getView');
 Route::post('getnext{id}','mingleController@getnext');
 Route::get('mingle_fav_view{id}','mingleController@get_nex_fav');
 Route::get('viewMingle_table','mingleController@viewMingle');
-Route::get('saveMessages','mingleController@savemsg');
+Route::get('saveMessages{id}','mingleController@savemsg');
 Route::get('startmingle','mingleController@start');
 
 //to retrive to the correct page after liking
 
 Route::get('get{id}','mingleController@returnpage');
 Route:get('check','imagecontroller@check');
+
+//Admin Pannel
+
+Route::get('AdminDashBoard','AdminPannelController@AdminDashBoard');
+Route::get('userAdmin','AdminPannelController@index');
+Route::get('DeleteUsers_{id}','AdminPannelController@DeleteUsers');
+Route::post('SearchUsers','AdminPannelController@SearchUsers');
+Route::post('SearchDeletedUsers','AdminPannelController@SearchDeletedUsers');
+Route::get('DelteDelUsers_{id}','AdminPannelController@DelteDelUsers');
+
+
+//Account Deactivate Routes
+Route::get('DeactivateUser','AccountsController@DeactivateUser');
+Route::get('DeleteUserFeedBack','AccountsController@Delete');
+Route::post('submitFeedBack','AccountsController@submitFeedBack');
 
 
 

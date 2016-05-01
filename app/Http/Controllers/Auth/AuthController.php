@@ -4,6 +4,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use DB;
+use session;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller {
 
@@ -39,6 +43,25 @@ class AuthController extends Controller {
 //	public function register(){
 //		return view('auth/register');
 //	}
+
+   public function  redirectPath(){
+       if(Auth::user()->is_admin){
+            return '/admin_panel';
+       }
+       else{
+           return '/home';
+       }
+   }
+
+	protected function validator(array $data)
+	{
+		return Validator::make($data, [
+			'name' => 'required|max:255',
+			'username' => 'required|unique:users',
+			'email' => 'required|email|max:255|unique:users',
+			'password' => 'required|confirmed|min:6'
+		]);
+	}
 
 
 }
