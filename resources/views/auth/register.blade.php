@@ -27,9 +27,9 @@
 <div class="sign-overlay" style="background-image: url({{ asset('/internal_css/images/photos/loginBack.jpg') }}); background-repeat: no-repeat;background-size: cover;"></div>
 <div class="signpanel" ></div>
 
-<div class="signup" style="margin-top: 75px;">
+<div class="signup" style="margin-top: 40px;">
     <div class="row">
-        <div class="col-sm-5" style="margin-top: 30px;">
+        <div class="col-sm-5">
             <div class="panel">
                 <div class="panel-heading">
                     <h1>MatchMaker</h1>
@@ -50,13 +50,28 @@
                         </div>
                         <div class="form-group mb15">
                             <input name="name" id="name" type="text" class="form-control"
-                                   placeholder="Enter Your Full Name">
+                                   placeholder="Enter Your First Name">
                         </div>
-
+                        <div class="form-group mb15">
+                            <input name="lastname" id="lastname" type="text" class="form-control"
+                                   placeholder="Enter Your Last Name">
+                        </div>
 
                         <div class="form-group mb15">
                             <input name="email" id="email" type="text" class="form-control"
                                    placeholder="Enter Your email">
+                        </div>
+
+                        <div class="row mb15">
+                                <div class="form-group">
+                                    <select name="gender" id="gender" class="form-control" style="width: 100%"
+                                            data-placeholder="Gender">
+                                        <option value="">&nbsp;</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+
                         </div>
 
                         <div class="row mb15">
@@ -71,6 +86,12 @@
                                         <option value="April">April</option>
                                         <option value="May">May</option>
                                         <option value="June">June</option>
+                                        <option value="July">June</option>
+                                        <option value="August">June</option>
+                                        <option value="Semtember">June</option>
+                                        <option value="October">June</option>
+                                        <option value="November">June</option>
+                                        <option value="December">June</option>
                                     </select>
                                 </div>
                             </div>
@@ -85,6 +106,33 @@
                                         <option value="04">04</option>
                                         <option value="05">05</option>
                                         <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+
                                     </select>
                                 </div>
                             </div>
@@ -93,15 +141,30 @@
                                     <select name="bdayY" id="bdayY" class="form-control" style="width: 100%"
                                             data-placeholder="Birth Year">
                                         <option value="">&nbsp;</option>
+                                        <option value="1988">1980</option>
+                                        <option value="1988">1981</option>
+                                        <option value="1988">1982</option>
+                                        <option value="1988">1983</option>
+                                        <option value="1988">1984</option>
+                                        <option value="1988">1985</option>
                                         <option value="1986">1986</option>
                                         <option value="1987">1987</option>
                                         <option value="1988">1988</option>
+                                        <option value="1988">1989</option>
+                                        <option value="1988">1990</option>
+                                        <option value="1988">1991</option>
+                                        <option value="1988">1992</option>
+                                        <option value="1988">1993</option>
+                                        <option value="1988">1994</option>
+                                        <option value="1988">1995</option>
+                                        <option value="1988">1996</option>
+
                                     </select>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-group" style="margin-top: 50px;">
+                        <div class="form-group" style="margin-top: 30px;">
                             <button type="submit" class="btn btn-success btn-quirk btn-block">Create Account</button>
                         </div>
                     </form>
@@ -118,7 +181,7 @@
             <!-- panel -->
         </div>
         <!-- col-sm-5 -->
-        <div class="col-sm-7">
+        <div class="col-sm-7" style="margin-top: 30px">
             <div class="sign-sidebar">
                 <h3 class="signtitle mb20">Your perfect match is searching for you</h3>
 
@@ -128,6 +191,7 @@
 
                 <p>Below are some of the reasons why you love MatchMaker.</p>
 
+                <br>
                 <h4 class="reason">1. Reliable</h4>
 
                 <p>Matchmaker.com is the premier online dating website with thousands of success stories from connected

@@ -28,7 +28,7 @@ class RedirectIfAuthenticated {
 
 
 		//to update deactivate state to activate
-		$x = Input::get('email');
+		/*$x = Input::get('email');
 
 		$stat = DB::table('users')
 			->where('email', $x)
@@ -49,7 +49,7 @@ class RedirectIfAuthenticated {
 				['user_id' => $id, 'name' => $name,'time' => $time]
 			);
 
-		}
+		}*/
 	}
 
 	/**
