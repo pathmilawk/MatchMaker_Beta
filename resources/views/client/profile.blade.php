@@ -10,8 +10,15 @@
             <div class="row profile-wrapper">
                 <div class="col-xs-12 col-md-3 col-lg-2 profile-left">
                     <div class="profile-left-heading">
-
-                        <a href="" class="profile-photo"><img class="img-circle img-responsive" src="{{asset('uploads/'.$key->first_name.'/'.$key->user_id.'.png')}}" alt=""></a>
+                        @if($key->profile_picture)
+                            <a href="{!! $key->user_id !!}" class="profile-photo"><img class="img-circle img-responsive" src="{{asset('Profile_Pictures'.$key->first_name.'/'.$key->user_id.'.png')}}" alt=""></a>
+                        @else
+                            @if($key->gender == "Male")
+                                <a href="{!! $key->user_id !!}" class="profile-photo"><img class="img-circle img-responsive" src="{{asset('Profile_Pictures/defaultMale.png')}}" alt=""></a>
+                            @else
+                                <a href="{!! $key->user_id !!}" class="profile-photo"><img class="img-circle img-responsive" src="{{asset('Profile_Pictures/defaultFemale.png')}}" alt=""></a>
+                            @endif
+                        @endif
                         <h2 class="profile-name">{{ $key->first_name }} {{ $key->last_name }}</h2>
                         <h4 class="profile-designation">{{ $key->occupation }}</h4>
 
@@ -21,8 +28,13 @@
                             <li class="list-group-item"> <p>Religion</p> <p align="right">{{$key->religion}}</p> </li>
                         </ul>
 
-                        <button class="btn btn-danger btn-quirk btn-block profile-btn-follow" onclick="sendRequest({{$key->user_id}})">Send Request</button>
-                    </div>
+                        @if(Auth::user()->id == $key->user_id)
+                            <button class="btn btn-danger btn-quirk btn-block profile-btn-follow" onclick="editProfile({{$key->user_id}})">Edit Profile</button>
+                        @else
+                            <button class="btn btn-danger btn-quirk btn-block profile-btn-follow" onclick="sendRequest({{$key->user_id}})">Send Request</button>
+                        @endif
+                    </div>{{--end of profile-left-heading--}}
+
                     <div class="profile-left-body">
                         <h4 class="panel-title">About Me</h4>
                         <p>{{ $key->about }}</p>
@@ -43,7 +55,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-8 profile-right">
-                    <div class="profile-right-body">
+                    <div class="profile-right-body" id="profile-right-body">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs nav-justified nav-line">
                             <li class="active"><a href="#presonalinfo" data-toggle="tab"><strong>Personal Information</strong></a></li>
@@ -53,31 +65,104 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div class="tab-pane active" id="presonalinfo">
-                                @if($key->allowNonFriendDetails)
+                                {{--if the viewer is owner of the profile or owner has given the permission to view personal details--}}
+                                @if(Auth::user()->id == $key->user_id || $key->allowNonFriendDetails)
                                     <div class="panel panel-post-item">
-                                        <div class="panel panel-post-item">
-                                            <p>You have permission to see this person's details!</p>
-                                        </div>
-                                    </div><!-- panel panel-post -->
+                                        <h4>Contact Information</h4>
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td style="padding: 10px; width: 25%;"><i class="fa fa-envelope"></i>  Email</td>
+                                                <td style="padding: 10px;">{{Auth::user()->email}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px;"><i class="fa fa-list-alt"></i>  Address </td>
+                                                <td style="padding: 10px;">{{$key->address}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px;"><i class="fa fa-phone"></i> Contact No </td>
+                                                <td style="padding: 10px;">{{$key->telephone}}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="panel panel-post-item">
+                                        <h4>Appearance</h4>
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td style="padding: 10px; width: 25%;"><i class="fa fa-info-circle"></i>  Height</td>
+                                                <td style="padding: 10px;">{{$key->height}} feet</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px;"><i class="fa fa-info-circle"></i>  Complexion </td>
+                                                <td style="padding: 10px;">{{$key->complexion}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px;"><i class="fa fa-info-circle"></i> Hair Type </td>
+                                                <td style="padding: 10px;">{{$key->hair}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px;"><i class="fa fa-info-circle"></i> Body Type </td>
+                                                <td style="padding: 10px;">{{$key->bodyType}}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="panel panel-post-item">
+                                        <h4><i class="fa fa-mortar-board"></i> Education</h4>
+                                        <br>
+                                        <table style="width: 100%;">
+                                            <tr style="padding: 10px;">{{$key->education}}</tr>
+                                        </table>
+                                    </div>
+                                    <div class="panel panel-post-item">
+                                        <h4>Other Information</h4>
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td style="padding: 10px; width: 50%;"><i class="fa fa-info-circle"></i>  Sign</td>
+                                                <td style="padding: 10px;">{{$key->sign}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px; width: 50%;"><i class="fa fa-info-circle"></i>  Mother Tongue</td>
+                                                <td style="padding: 10px;">{{$key->motherTongue}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px;"><i class="fa fa-info-circle"></i> Languages that can speak </td>
+                                                <td style="padding: 10px;">{{$key->languages}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px;"><i class="fa fa-info-circle"></i>  Interested in </td>
+                                                <td style="padding: 10px;">{{$key->interested_in}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px;"><i class="fa fa-info-circle"></i> Smoking </td>
+                                                <td style="padding: 10px;">{{$key->smoking}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 10px;"><i class="fa fa-info-circle"></i> Drinking </td>
+                                                <td style="padding: 10px;">{{$key->drinking}}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 @else
                                     <div class="panel panel-post-item">
                                         <p>You have no permission to see this person's personal details!</p>
                                     </div>
                                 @endif
+                            </div><!-- tab-1 -->
 
-                            </div><!-- tab-pane -->
-
-                            <div class="tab-pane" id="photos">
-                                @if($key->allowNonFriendPhotos)
+                            <div class="tab-pane " id="photos">
+                                @if(Auth::user()->id == $key->user_id || $key->allowNonFriendPhotos)
                                     <div class="panel panel-post-item">
-                                        <p>You have permission to see this person's photos!</p>
+                                        <div style="width: 300px; height: 300px;">
+
+
+
+                                        </div>
                                     </div>
                                 @else
                                     <div class="panel panel-post-item">
                                         <p>You have no permission to see this person's photos!</p>
                                     </div>
                                 @endif
-                            </div>
+                            </div><!-- tab-2 -->
                         </div>
                     </div>
                 </div>
@@ -250,6 +335,49 @@
                 }
             });
         }
+
+        {{--Load editProfile.blade using ajax--}}
+        function editProfile(id) {
+
+            $.ajax({
+                url: 'editProfile_'+id,
+                type: "POST",
+                data: {
+
+                },
+                dataType: 'html',
+                success: function (data) {
+                    document.getElementById("presonalinfo").innerHTML = data;
+
+                },
+                error: function (err) {
+                    alert(err);
+                },
+            });
+        }
+
+        /*****************************************************************************/
+        /*Java Scripts for editProfile.blade page*/
+        /*****************************************************************************/
+
+        {{--Change the profile picture--}}
+        function changeProfilePicture(id)
+        {
+             $.ajax({
+
+                 type: "POST",
+                 url: 'changeProfilePicture_'+id,
+                 data: {
+                 },
+                 dataType: 'json',
+                 success: function (data) {
+                 //console.log(data);
+                 alert(data);
+                 }
+             });
+        }
+
+
     </script>
     @parent
 @stop

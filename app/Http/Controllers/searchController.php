@@ -350,11 +350,19 @@ class searchController extends Controller {
 
 
     /*
-     *
-     *
-    */
-    public function uploadProfile()
+    *function for load the editProfile blade
+    *
+   */
+    public function EditProfile($userID)
     {
-        return view('user.addProfileInfo');
-    }//
+        $user = DB::table('profiles')
+            ->where('user_id','=',$userID)
+            ->get();
+
+        return view('ajax.editProfile')->with('user',$user);
+
+    }//End of the EditProfile function
+
+
+
 }

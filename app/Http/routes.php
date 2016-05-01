@@ -106,8 +106,10 @@ Route::get('Search','searchController@searchMain2');
 Route::get('uploadProfile','searchController@uploadProfile');
 Route::post('sendRequest_{id}','searchController@SendRequest');
 Route::post('showInterest_{id}','searchController@showInterest');
-Route::post('Profile/sendRequest_{id}','searchController@SendRequest');
-Route::get('Profile/{id}','searchController@ProfileLoad');
+Route::get('{id}','searchController@ProfileLoad');
+Route::post('editProfile_{id}','searchController@EditProfile');
+
+Route::post('changeProfilePicture_{id}','EditProfileController@changeProfilePicture_');
 
 
 
