@@ -94,7 +94,7 @@ Route::post('commentAjax','StoryController@commentAjax');
 Route::post('showCommentAjax','StoryController@showCommentAjax');
 Route::post('refreshNotifications','NotificationController@refreshNotifications');
 Route::post('sendDateRequest','AbcController@sendDateRequest');
-
+Route::get('loadForgot','StoryController@loadForgot');
 
 Route::get('set_story1/{id}','StoryController@setStory1');
 Route::get('set_story2/{id}','StoryController@setStory2');

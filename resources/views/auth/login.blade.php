@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <!--<link rel="shortcut icon" href="../images/favicon.png" type="image/png">-->
 
-    <title>Quirk Responsive Admin Templates</title>
+    <title>Login</title>
 
     <link rel="stylesheet" href="{{asset('internal_css/lib/fontawesome/css/font-awesome.css')}}">
     <link rel="stylesheet" href="{{asset('internal_css/css/quirk.css')}}">
@@ -106,7 +106,8 @@
             <div class="form-group mb10">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input name="email" id="email" type="text" class="form-control" placeholder="Enter Email">
+                    <input name="email" id="email" type="text" class="form-control" placeholder="Enter Email"
+                           value="{{ old('email') }}">
 
                 </div>
                 <div class="text-danger" id="emailError" style="font-size: small"></div>
@@ -117,7 +118,7 @@
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                     <input name="password" id="password" type="password" class="form-control"
-                           placeholder="Enter Password">
+                           placeholder="Enter Password" value="{{ old('password') }}">
                 </div>
             </div>
             <div class="text-danger" id="passwordError" style="font-size: small"></div>
@@ -130,7 +131,7 @@
             </ul>
             @endif
 
-            <div><a href="" class="forgot">Forgot password?</a></div>
+            <div><a href="/password/email" class="forgot">Forgot password?</a></div>
             <div class="form-group">
                 <button type="submit" class="btn btn-success btn-quirk btn-block" onclick="return validateFields()">Sign In</button>
             </div>

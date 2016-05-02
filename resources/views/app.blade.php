@@ -79,12 +79,12 @@
                     <li>
                         <div class="btn-group">
                             <button type="button" class="btn btn-logged" data-toggle="dropdown">
-                                <img src="{{asset('Profile_Pictures/'. Auth::user()->id.'.png')}}" alt=""/>
-                                {{ Auth::user()->name }}
+                                <img src="images/photos/loggeduser.png" alt=""/>
+                                {{ Auth::user()->name." "}} {{ Auth::user()->lastname  }}
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu pull-right">
-                                <li><a href="{{Auth::user()->id}}"><i
+                                <li><a href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/addMyProfileInformation"><i
                                                 class="glyphicon glyphicon-user"></i> My Profile</a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Account Settings</a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> Help</a></li>
@@ -116,8 +116,8 @@
 
             <div class="media leftpanel-profile">
                 <div class="media-left">
-                    <a href="{{Auth::user()->id}}">
-                        <img src="{{asset('Profile_Pictures/'. Auth::user()->id.'.png')}}" alt="" class="media-object img-circle">
+                    <a href="#">
+                        <img src="../images/photos/loggeduser.png" alt="" class="media-object img-circle">
                     </a>
                 </div>
                 <div class="media-body">

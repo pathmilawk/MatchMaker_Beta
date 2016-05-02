@@ -8,6 +8,7 @@ use DB;
 use session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class AuthController extends Controller {
 
@@ -55,23 +56,26 @@ class AuthController extends Controller {
        }
    }
 
-    public function validator(array $data)
+
+
+
+    protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'lastname' => 'required|max:255',
+            'name' => 'required|max:2',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
             'bdayM' => 'required',
             'bdayD' => 'required',
             'bdayY' => 'required',
+            'lastname' => 'required|max:255',
             'username' => 'required',
-            'gender' => 'required',
+            'gender' => 'required'
 
         ]);
     }
 
-    public function create(array $data)
+    protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],
@@ -84,5 +88,47 @@ class AuthController extends Controller {
             'bdayY' => $data['bdayY'],
             'gender' => $data['gender'],
         ]);
+    }
+
+    public function postRegister(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6',
+            'birthMonth' => 'required',
+            'birthDate' => 'required',
+            'birthYear' => 'required',
+            'lastname' => 'required|max:255',
+            'username' => 'required',
+            'gender' => 'required'
+        ]);
+
+        $data=$request->all();
+        User::create([
+            'name' => $data['name'],
+            'lastname' => $data['lastname'],
+            'email' => $data['email'],
+            'username' => $data['username'],
+            'password' => bcrypt($data['password']),
+            'birthMonth' => $data['birthMonth'],
+            'birthDate' => $data['birthDate'],
+            'birthYear' => $data['birthYear'],
+            'gender' => $data['gender'],
+            'remember_tokern' => $data['_token'],
+        ]);
+
+        $credentials = $request->only('email', 'password');
+
+        if ($this->auth->attempt($credentials, $request->has('remember')))
+        {
+            return redirect()->intended($this->redirectPath());
+        }
+
+        return redirect($this->loginPath())
+            ->withInput($request->only('email', 'remember'))
+            ->withErrors([
+                'email' => $this->getFailedLoginMessage(),
+            ]);
     }
 }

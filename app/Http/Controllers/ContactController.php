@@ -6,13 +6,21 @@ use App\Http\Requests\ContactRequest;
 use App\Contact;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ContactController extends Controller {
 
     public function contactUs(){
         $contacts=DB::table('contacts')->whereNotNull('answer')->get();
         $count=DB::table('contacts')->whereNotNull('answer')->count();
-        return view('client.contact')->with('contacts',$contacts)->with('count',$count);
+
+        if(Auth::check()) {
+            return view('client.contact')->with('contacts', $contacts)->with('count', $count);
+        }
+        else{
+            return view('client.contact1')->with('contacts', $contacts)->with('count', $count);
+        }
 
     }
 
