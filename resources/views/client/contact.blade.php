@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{asset('internal_css/lib/jquery-toggles/toggles-full.css')}}">
 
     <link rel="stylesheet" href="{{asset('internal_css/css/quirk.css')}}">
-    <script src="{{asset('internal_css/lib/modernizr/modernizr.js')}}"></script>
+
     @stop
 
     @section('content')
@@ -24,29 +24,33 @@
 
                     <div class="col-md-10" style="font-size: medium">
                         <div class="form-group">
-                            {!! Form::label('name','Name') !!}
-                            <div class="input-group mb20">
+                            {!! Form::label('nameText','Name') !!}
+                            <div class="input-group mb15">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
-                                {!! Form::text('name',null,['class' => 'form-control']) !!}
+                                {!! Form::text('name',Auth::user()->name.' '.Auth::user()->lastname,['class' => 'form-control','disabled']) !!}
                             </div>
+                            <div class="text-danger" id="nameError" style="font-size: small">{{ $errors->first('name')}}</div>
                         </div>
                         <div class="form-group">
-                            {!! Form::label('phone','Phone') !!}
-                            <div class="input-group mb20">
+                            {!! Form::label('phoneText','Phone') !!}
+                            <div class="input-group mb15">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
                                 {!! Form::text('phone',null,['class' => 'form-control']) !!}
                             </div>
+                            <div class="text-danger" id="phoneError" style="font-size: small">{{ $errors->first('phone')}}</div>
                         </div>
                         <div class="form-group">
-                            {!! Form::label('email','Email Address') !!}
+                            {!! Form::label('emailText','Email Address') !!}
                             <div class="input-group mb20">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                {!! Form::text('email',null,['class' => 'form-control']) !!}
+                                {!! Form::text('email', Auth::user()->email,['class' => 'form-control','disabled']) !!}
                             </div>
+                            <div class="text-danger" id="emailError" style="font-size: small">{{ $errors->first('email')}}</div>
                         </div>
                         <div class="form-group">
-                            {!! Form::label('question',' Question/Suggestion') !!}
+                            {!! Form::label('questionText',' Question/Suggestion') !!}
                             {!! Form::textarea('question',null,['class' => 'form-control']) !!}
+                            <div class="text-danger" id="questionError" style="font-size: small">{{ $errors->first('question')}}</div>
                         </div>
                         <div class="form-group">
                             {!! Form::submit('Submit',['class' => 'btn btn-success btn-quirk']) !!}
@@ -54,6 +58,7 @@
                     </div>
                     {!! Form::close() !!}
                             <!--end of contact form-->
+
                 </div>
             </div>
         </div>

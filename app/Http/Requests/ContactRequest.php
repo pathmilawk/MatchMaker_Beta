@@ -22,9 +22,7 @@ class ContactRequest extends Request {
 	public function rules()
 	{
 		return [
-			'name' => 'required',
 			'phone' => 'required|digits:10|numeric',
-			'email' => 'required|email',
 			'question'=> 'required',
 		];
 	}

@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Image;
 use Session;
 use App\Comment;
+use Illuminate\Support\Facades\Auth;
 
 class StoryController extends Controller {
 
@@ -19,8 +20,14 @@ class StoryController extends Controller {
         $story = Story::find($id);
         $comments = DB::table('comments')->where('storyid',$id)->get();
 
-        return view('client.view_story')
-            ->with('comments',$comments)->with('story',$story);
+        if(Auth::check()) {
+            return view('client.view_story1')
+                ->with('comments', $comments)->with('story', $story);
+        }
+        else{
+            return view('client.view_story')
+                ->with('comments', $comments)->with('story', $story);
+        }
     }
 
     public function commentFormSubmit(CommentRequest $request,$id){
@@ -39,13 +46,23 @@ class StoryController extends Controller {
     }
 
     public function storyFormSubmit(StoryRequest $request){
-        Image::make ($request->file('photo'))->resize(600,400)->save(public_path('internal_css\images\photos').'/'.$request->file('photo')->getClientOriginalName(),60);
-        $input = $request->except(['photo']);
-        $input['image']=pathinfo(public_path('internal_css\images\photos') . '/' .$request->file('photo')->getClientOriginalName(),PATHINFO_BASENAME);
-        /*$request->file('photo')->move(public_path('images'), $request->file('photo')->getClientOriginalName());*/
+        $success='false';
+        $data=$request->all();
+        try {
+            Image::make($request->file('photo'))->resize(600, 400)->save(public_path('internal_css\images\photos') . '/' . $request->file('photo')->getClientOriginalName(), 60);
+            $input = $request->except(['photo']);
+            $input['image'] = pathinfo(public_path('internal_css\images\photos') . '/' . $request->file('photo')->getClientOriginalName(), PATHINFO_BASENAME);
+            /*$request->file('photo')->move(public_path('images'), $request->file('photo')->getClientOriginalName());*/
+            $input['firstname']=Auth::user()->name;
+            $input['lastname']=Auth::user()->lastname;
+            $input['email']=Auth::user()->email;
+            Story::create($input);
+            $success='true';
+        }
+        catch(\Exception $e){
 
-        Story::create($input);
-        $success='true';
+        }
+
         return view('client.submit_story')->with('success',$success);
     }
 
@@ -80,7 +97,17 @@ class StoryController extends Controller {
 
     public function showCommentAjax(Request $request)
     {
-        $storyid = $request->Input('storyid');
+        //$storyid = $request->Input('storyid');
+        $comments = DB::table('comments')->where('storyid', 3)->get();
+        $commentCount = DB::table('comments')->where('storyid', 3)->count();
+        return view('ajax.comments')->with('comments', $comments)->with('commentCount', $commentCount);
+        //return json_encode("hbhbh");
+
+    }
+
+    public function showCommentAjax1($id)
+    {
+        $storyid = $id;
         $comments = DB::table('comments')->where('storyid', $storyid)->get();
         $commentCount = DB::table('comments')->where('storyid', $storyid)->count();
         return view('ajax.comments')->with('comments', $comments)->with('commentCount', $commentCount);

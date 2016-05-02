@@ -28,32 +28,36 @@
 
                     <div class="col-md-10" style="font-size: medium">
                         <div class="form-group">
-                            {!! Form::label('name','Name') !!}
-                            <div class="input-group mb20">
+                            {!! Form::label('nameText','Name') !!}
+                            <div class="input-group mb15">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
                                 {!! Form::text('name',null,['class' => 'form-control']) !!}
                             </div>
+                            <div class="text-danger" id="nameError" style="font-size: small">{{ $errors->first('name')}}</div>
                         </div>
                         <div class="form-group">
-                            {!! Form::label('phone','Phone') !!}
-                            <div class="input-group mb20">
+                            {!! Form::label('phoneText','Phone') !!}
+                            <div class="input-group mb15">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
                                 {!! Form::text('phone',null,['class' => 'form-control']) !!}
                             </div>
+                            <div class="text-danger" id="phoneError" style="font-size: small">{{ $errors->first('phone')}}</div>
                         </div>
                         <div class="form-group">
-                            {!! Form::label('email','Email Address') !!}
+                            {!! Form::label('emailText','Email Address') !!}
                             <div class="input-group mb20">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                                 {!! Form::text('email',null,['class' => 'form-control']) !!}
                             </div>
+                            <div class="text-danger" id="emailError" style="font-size: small">{{ $errors->first('email')}}</div>
                         </div>
                         <div class="form-group">
-                            {!! Form::label('question',' Question/Suggestion') !!}
+                            {!! Form::label('questionText',' Question/Suggestion') !!}
                             {!! Form::textarea('question',null,['class' => 'form-control']) !!}
+                            <div class="text-danger" id="questionError" style="font-size: small">{{ $errors->first('question')}}</div>
                         </div>
                         <div class="form-group">
-                            {!! Form::submit('Submit',['class' => 'btn btn-success btn-quirk'],['onclick' => 'return validateFields()']) !!}
+                            {!! Form::submit('Submit',['class' => 'btn btn-success btn-quirk']) !!}
                         </div>
                     </div>
                     {!! Form::close() !!}
@@ -108,64 +112,8 @@
     <script src="{{ asset('internal_css/lib/jquery/jquery.js') }}"></script>
     <script src="{{ asset('internal_css/lib/bootstrap/js/bootstrap.js') }}"></script>
 
-    <script>
-        function validateFields(){
-
-            /*var email = $("#email").val();
-            var password = $("#password").val();
-
-            var valid=validateRequest();
-            if(valid){
-                return true;
-            }
-            else{
-                return false;
-            }
-
-            function validateRequest(){
-
-                var emailEmpty = isEmpty("emailError", email, "Email");
-                var passwordEmpty = isEmpty("passwordError", password, "Password");
-                var validEmail=validateEmail("emailError", email, "Email");
-
-                if(emailEmpty && passwordEmpty && validEmail){
-                    return true;
-                }
-                else{
-                    return false;
-                }
 
 
-                function isEmpty(errorCls, val, field) {
-                    if (val == "") {
-                        $("#" + errorCls).text("*"+field + " field cannot be empty!");
-                        return false;
-                    }
-                    else {
-                        $("#" + errorCls).text("");
-                        return true;
-                    }
-                }
-
-                function validateEmail(errorCls, val, field) {
-                    if (isEmpty(errorCls, val, field)) {
-                        var isEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-                        if (!(isEmail.test(val))) {
-                            $("#" + errorCls).text("Please enter a valid"+field);
-                            return false;
-                        }
-                        else {
-                            $("#" + errorCls).text("");
-                            return true;
-                        }
-                    }
-                }
-            } //end of validate request
-*/
-            return false;
-        }
-
-    </script>
 
     @parent
 

@@ -92,6 +92,7 @@ Route::get('contact_us','ContactController@contactUs');
 Route::post('contactFormSubmit','ContactController@contactFormSubmit');
 Route::post('commentAjax','StoryController@commentAjax');
 Route::post('showCommentAjax','StoryController@showCommentAjax');
+Route::post('showCommentAjax1{id}','StoryController@showCommentAjax1');
 Route::post('refreshNotifications','NotificationController@refreshNotifications');
 Route::post('sendDateRequest','AbcController@sendDateRequest');
 Route::get('loadForgot','StoryController@loadForgot');
