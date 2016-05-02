@@ -123,8 +123,16 @@ Route::get('Search','searchController@searchMain2');
 Route::get('uploadProfile','searchController@uploadProfile');
 Route::post('sendRequest_{id}','searchController@SendRequest');
 Route::post('showInterest_{id}','searchController@showInterest');
-Route::post('Profile/sendRequest_{id}','searchController@SendRequest');
-Route::get('Profile/{id}','searchController@ProfileLoad');
+Route::get('{id}','searchController@ProfileLoad');
+Route::post('editProfile_{id}','searchController@EditProfile');
+
+//Edit Profile routes (Savidya)
+Route::post('changeProfilePicture','EditProfileController@changeProfilePicture');
+Route::post('updateBasicInfo','EditProfileController@updateBasicInfo');
+Route::post('updateContactInfo','EditProfileController@updateContactInfo');
+Route::post('updateAppearance','EditProfileController@updateAppearance');
+Route::post('updateEducation','EditProfileController@updateEducation');
+Route::post('updateOther','EditProfileController@updateOther');
 
 
 
