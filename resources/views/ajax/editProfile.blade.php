@@ -1,9 +1,11 @@
 @foreach($user as $key)
     <div class="panel panel-post-item">
         Change the profile picture
-            <img class="img-circle img-responsive" src="{{asset('Profile_Pictures/'.$key->user_id.'.png')}}" alt="" style="left: 100px;">
+        <img class="img-circle img-responsive" src="{{asset('Profile_Pictures/'.$key->user_id.'.png')}}" alt="" style="left: 100px;">
+        {!! Form::open(array('action' => 'EditProfileController@changeProfilePicture','files'=>true)) !!}
             <input type="file" class="form-group" id="profilePic" name="profilePic">
-            <button class="btn btn-danger" style="padding:10px; float: right;" onclick="changeProfilePicture({{$key->user_id}})">Change</button>
+            <input type="submit" class="btn btn-danger" style="padding:10px; float: right;" value="Change">
+        {!! Form::close() !!}
     </div>
     <div class="panel panel-post-item">
         <h4>Basic Information</h4>
@@ -126,14 +128,18 @@
         </table>
         <button class="btn btn-danger" style="padding:10px; float: right;" onclick="updateAppearance({{$key->user_id}})">Update</button>
     </div>
+
     <div class="panel panel-post-item">
         <h4><i class="fa fa-mortar-board"></i> Education</h4>
         <br>
         <table style="width: 100%;">
-            <tr style="padding: 10px;">{{$key->education}}</tr>
+            <tr style="padding: 10px;">
+                <textarea rows="4" cols="90" id="education">@if($key->education != null){{$key->education}}@endif</textarea>
+            </tr>
         </table>
-        <button class="btn btn-danger" style="padding:10px; float: right;">Update</button>
+        <button class="btn btn-danger" style="padding:10px; float: right;" onclick="updateEducation({{$key->user_id}})">Update</button>
     </div>
+
     <div class="panel panel-post-item">
         <h4>Other Information</h4>
         <table style="width: 100%;">
@@ -141,6 +147,9 @@
                 <td style="padding: 10px;"><i class="fa fa-info-circle"></i> Birthday </td>
                 <td style="padding: 10px;">
                     <select id="day">
+                        @if(Auth::user()->birthDate != null)
+                            <option value="{{Auth::user()->birthDate}}">{{Auth::user()->birthDate}}</option>
+                        @endif
                         <option value="1">1</option><option value="2">2</option><option value="3">3</option>
                         <option value="4">4</option><option value="5">5</option><option value="6">6</option>
                         <option value="7">7</option><option value="8">8</option><option value="9">9</option>
@@ -154,12 +163,18 @@
                         <option value="31">31</option>
                     </select>
                     <select id="month">
+                        @if(Auth::user()->birthMonth != null)
+                            <option value="{{Auth::user()->birthMonth}}">{{Auth::user()->birthMonth}}</option>
+                        @endif
                         <option value="January">January</option><option value="February">February</option><option value="March">March</option>
                         <option value="April">April</option><option value="May">May</option><option value="June">June</option>
                         <option value="July">July</option><option value="August">August</option><option value="September">September</option>
                         <option value="October">October</option><option value="November">November</option><option value="December">December</option>
                     </select>
                     <select id="year">
+                        @if(Auth::user()->birthYear != null)
+                            <option value="{{Auth::user()->birthYear}}">{{Auth::user()->birthYear}}</option>
+                        @endif
                         <option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option>
                         <option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option>
                         <option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option>
@@ -168,40 +183,116 @@
             </tr>
             <tr>
                 <td style="padding: 10px;"><i class="fa fa-info-circle"></i> About me </td>
-                <td style="padding: 10px;"><input type="text" value="{{$key->about}}"></td>
+                <td style="padding: 10px;">
+                    <textarea rows="4" cols="65" id="about">@if($key->about != null){{$key->about}}@endif</textarea>
+                </td>
             </tr>
             <tr>
                 <td style="padding: 10px; width: 50%;"><i class="fa fa-info-circle"></i>  Sign</td>
-                <td style="padding: 10px;">{{$key->sign}}</td>
+                <td style="padding: 10px;">
+                    <select id="sign">
+                        @if($key->sign != null)
+                            <option value="{{$key->sign}}">{{$key->sign}}</option>
+                        @endif
+                        <option value="Aquarius">Aquarius</option>
+                        <option value="Pisces">Pisces</option>
+                        <option value="Aries">Aries</option>
+                        <option value="Taurus">Taurus</option>
+                        <option value="Gemini">Gemini</option>
+                        <option value="Cancer">Cancer</option>
+                        <option value="Leo">Leo</option>
+                        <option value="Virgo">Virgo</option>
+                        <option value="Libra">Libra</option>
+                        <option value="Scorpio">Scorpio</option>
+                        <option value="Sagittarius">Sagittarius</option>
+                        <option value="Capricorn">Capricorn</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td style="padding: 10px;"><i class="fa fa-info-circle"></i> Religion </td>
-                <td style="padding: 10px;"><input type="text" value="{{$key->religion}}"></td>
+                <td style="padding: 10px;">
+                    <select id="religion">
+                        @if($key->sign != null)
+                            <option value="{{$key->religion}}">{{$key->religion}}</option>
+                        @endif
+                        <option value="Buddhist">Buddhist</option>
+                        <option value="Christian">Christian</option>
+                        <option value="Muslim">Muslim</option>
+                        <option value="Hindu">Hindu</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td style="padding: 10px; width: 50%;"><i class="fa fa-info-circle"></i>  Mother Tongue</td>
-                <td style="padding: 10px;">{{$key->motherTongue}}</td>
+                <td style="padding: 10px;">
+                    <select id="mLan">
+                        @if($key->motherTongue != null)
+                            <option value="{{$key->motherTongue}}">{{$key->motherTongue}}</option>
+                        @endif
+                        <option value="Sinhala">Sinhala</option>
+                        <option value="Tamil">Tamil</option>
+                        <option value="English">English</option>
+                        <option value="Hindi">Hindi</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td style="padding: 10px;"><i class="fa fa-info-circle"></i> Languages that can speak </td>
-                <td style="padding: 10px;">{{$key->languages}}</td>
+                <td style="padding: 10px;">
+                    <select id="lan">
+                        @if($key->languages != null)
+                            <option value="{{$key->languages}}">{{$key->languages}}</option>
+                        @endif
+                        <option value="Sinhala">Sinhala</option>
+                        <option value="Tamil">Tamil</option>
+                        <option value="English">English</option>
+                        <option value="Hindi">Hindi</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td style="padding: 10px;"><i class="fa fa-info-circle"></i>  Interested in </td>
-                <td style="padding: 10px;">{{$key->interested_in}}</td>
+                <td style="padding: 10px;">
+                    <select id="in">
+                        @if($key->interested_in != null)
+                            <option value="{{$key->interested_in}}">{{$key->interested_in}}</option>
+                        @endif
+                        <option value="Men">Men</option>
+                        <option value="Women">Women</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td style="padding: 10px;"><i class="fa fa-info-circle"></i> Smoking </td>
-                <td style="padding: 10px;">{{$key->smoking}}</td>
+                <td style="padding: 10px;">
+                    <select id="smoking">
+                        @if($key->smoking != null)
+                            <option value="{{$key->smoking}}">{{$key->smoking}}</option>
+                        @endif
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                        <option value="Occasionally">Occasionally</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td style="padding: 10px;"><i class="fa fa-info-circle"></i> Drinking </td>
-                <td style="padding: 10px;">{{$key->drinking}}</td>
+                <td style="padding: 10px;">
+                    <select id="drinking">
+                        @if($key->drinking != null)
+                            <option value="{{$key->drinking}}">{{$key->drinking}}</option>
+                        @endif
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                        <option value="Occasionally">Occasionally</option>
+                    </select>
+                </td>
             </tr>
         </table>
-        <button class="btn btn-danger" style="padding:10px; float: right;">Update</button>
+        <button class="btn btn-danger" style="padding:10px; float: right;" onclick="updateOther({{$key->user_id}})">Update</button>
     </div>
     <div class="panel panel-post-item" style="text-align: center;">
-        <button class="btn btn-danger" style="padding:10px;">Finish Editing</button>
+        <button class="btn btn-danger" style="padding:10px;" onclick="{{$key->user_id}}">Finish Editing</button>
     </div>
 @endforeach

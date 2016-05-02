@@ -126,10 +126,12 @@ Route::get('{id}','searchController@ProfileLoad');
 Route::post('editProfile_{id}','searchController@EditProfile');
 
 //Edit Profile routes (Savidya)
-Route::post('changeProfilePicture','EditProfileController@changeProfilePicture_');
+Route::post('changeProfilePicture','EditProfileController@changeProfilePicture');
 Route::post('updateBasicInfo','EditProfileController@updateBasicInfo');
 Route::post('updateContactInfo','EditProfileController@updateContactInfo');
 Route::post('updateAppearance','EditProfileController@updateAppearance');
+Route::post('updateEducation','EditProfileController@updateEducation');
+Route::post('updateOther','EditProfileController@updateOther');
 
 
 

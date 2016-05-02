@@ -23,13 +23,14 @@
                         <h4 class="profile-designation">{{ $key->occupation }}</h4>
 
                         <ul class="list-group">
-                            <li class="list-group-item"> <p>Birthday</p> <p align="right">1995.01.19</p> </li>
+                            <li class="list-group-item"> <p>Birthday</p> <p align="right">{{Auth::user()->birthDate}} {{Auth::user()->birthMonth}} {{Auth::user()->birthYear}}</p> </li>
                             <li class="list-group-item"> <p>Hometown</p> <p align="right">{{$key->hometown}}</p> </li>
                             <li class="list-group-item"> <p>Religion</p> <p align="right">{{$key->religion}}</p> </li>
                         </ul>
 
                         @if(Auth::user()->id == $key->user_id)
                             <button class="btn btn-danger btn-quirk btn-block profile-btn-follow" onclick="editProfile({{$key->user_id}})">Edit Profile</button>
+                            <button class="btn btn-danger btn-quirk btn-block profile-btn-follow" onclick="change({{$key->user_id}})">Change Profile Picture</button>
                         @else
                             <button class="btn btn-danger btn-quirk btn-block profile-btn-follow" onclick="sendRequest({{$key->user_id}})">Send Request</button>
                         @endif
@@ -348,7 +349,6 @@
                 dataType: 'html',
                 success: function (data) {
                     document.getElementById("presonalinfo").innerHTML = data;
-
                 },
                 error: function (err) {
                     alert(err);
@@ -363,19 +363,18 @@
         {{--Change the profile picture--}}
         function changeProfilePicture(id)
         {
-             var file = document.getElementById("profilePic").value;
+             var profilePic = document.getElementById("profilePic");
 
              $.ajax({
 
                  type: "POST",
                  url: 'changeProfilePicture',
                  data: {
-                     file: file, id:id
+                     profilePic:profilePic, id:id
                  },
-                 dataType: 'json',
+                 dataType: 'html',
                  success: function (data) {
-                     //document.getElementById("presonalinfo").innerHTML = data;
-                    alert(data);
+                     document.getElementById("presonalinfo").innerHTML = data;
                  },
                  error: function (err) {
                      alert("error");
@@ -471,7 +470,7 @@
             var body = document.getElementById("bodyType").value;
             var complexion = document.getElementById("complexion").value;
 
-            //to check if the string contains numbers
+            //to check if contains Strings
             var heightCk =  /^[0-9.]+$/;
 
             if(heightCk.test(height))
@@ -501,6 +500,65 @@
 
             }
         }
+
+        {{--Change the Education details--}}
+        function updateEducation(id)
+        {
+            var des = document.getElementById("education").value;
+
+                $.ajax({
+
+                    type: "POST",
+                    url: 'updateEducation',
+                    data: {
+                        id:id, des:des
+                    },
+                    dataType: 'html',
+                    success: function (data) {
+                        document.getElementById("presonalinfo").innerHTML = data;
+                        // alert(data);
+                    },
+                    error: function (err) {
+                        alert("error");
+                    }
+                });
+
+        }
+
+        {{--Change the other details--}}
+        function updateOther(id)
+        {
+            var d = document.getElementById("day").value;
+            var y = document.getElementById("year").value;
+            var m = document.getElementById("month").value;
+            var about = document.getElementById("about").value;
+            var sign = document.getElementById("sign").value;
+            var religion = document.getElementById("religion").value;
+            var la = document.getElementById("lan").value;
+            var mt = document.getElementById("mLan").value;
+            var inter = document.getElementById("in").value;
+            var drinking = document.getElementById("drinking").value;
+            var smoking = document.getElementById("smoking").value;
+
+            $.ajax({
+
+                type: "POST",
+                url: 'updateOther',
+                data: {
+                    id:id, d:d, m:m, y:y, about:about, sign:sign, religion:religion, la:la, mt:mt, inter:inter, drinking:drinking, smoking:smoking
+                },
+                dataType: 'html',
+                success: function (data) {
+                    document.getElementById("presonalinfo").innerHTML = data;
+                    // alert(data);
+                },
+                error: function (err) {
+                    alert("error");
+                }
+            });
+
+        }
+
 
 
     </script>
