@@ -86,4 +86,9 @@ class StoryController extends Controller {
         return view('ajax.comments')->with('comments', $comments)->with('commentCount', $commentCount);
 
     }
+
+    public function loadForgot(){
+        //return view('auth.password');
+        return json_encode('fsfsfsf');
+    }
 }

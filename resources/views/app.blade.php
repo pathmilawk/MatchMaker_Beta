@@ -80,7 +80,7 @@
                         <div class="btn-group">
                             <button type="button" class="btn btn-logged" data-toggle="dropdown">
                                 <img src="images/photos/loggeduser.png" alt=""/>
-                                {{ Auth::user()->name }}
+                                {{ Auth::user()->name." "}} {{ Auth::user()->lastname  }}
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu pull-right">
