@@ -10,8 +10,8 @@
             <div class="row profile-wrapper">
                 <div class="col-xs-12 col-md-3 col-lg-2 profile-left">
                     <div class="profile-left-heading">
-                        @if($key->profile_picture)
-                            <a href="{!! $key->user_id !!}" class="profile-photo"><img class="img-circle img-responsive" src="{{asset('Profile_Pictures'.$key->first_name.'/'.$key->user_id.'.png')}}" alt=""></a>
+                        @if($key->profile_picture == 1)
+                            <a href="{!! $key->user_id !!}" class="profile-photo"><img class="img-circle img-responsive" src="{{asset('Profile_Pictures/'.$key->user_id.'.png')}}" alt=""></a>
                         @else
                             @if($key->gender == "Male")
                                 <a href="{!! $key->user_id !!}" class="profile-photo"><img class="img-circle img-responsive" src="{{asset('Profile_Pictures/defaultMale.png')}}" alt=""></a>
@@ -363,18 +363,143 @@
         {{--Change the profile picture--}}
         function changeProfilePicture(id)
         {
+             var file = document.getElementById("profilePic").value;
+
              $.ajax({
 
                  type: "POST",
-                 url: 'changeProfilePicture_'+id,
+                 url: 'changeProfilePicture',
                  data: {
+                     file: file, id:id
                  },
                  dataType: 'json',
                  success: function (data) {
-                 //console.log(data);
-                 alert(data);
+                     //document.getElementById("presonalinfo").innerHTML = data;
+                    alert(data);
+                 },
+                 error: function (err) {
+                     alert("error");
                  }
              });
+
+        }
+
+        {{--Change the Basic info--}}
+        function updateBasicInfo(id)
+        {
+            var home = document.getElementById("Hometown").value;
+            var loc = document.getElementById("Location").value;
+            var con = document.getElementById("Country").value;
+
+            //to check if the string contains numbers
+            var stringCk = /^[A-Za-z ]+$/;
+
+            if((stringCk.test(home))&&(stringCk.test(con)))
+            {
+                document.getElementById('errorhome').style.display = 'none';
+                document.getElementById('errorcon').style.display = 'none';
+
+                $.ajax({
+
+                    type: "POST",
+                    url: 'updateBasicInfo',
+                    data: {
+                        home:home, loc:loc, con:con, id:id
+                    },
+                    dataType: 'html',
+                    success: function (data) {
+                        document.getElementById("presonalinfo").innerHTML = data;
+                        // alert(data);
+                    },
+                    error: function (err) {
+                        alert("error");
+                    }
+                });
+            }
+            else {
+                if (!(stringCk.test(home)))
+                    document.getElementById('errorhome').style.display = 'inline';
+
+                if (!(stringCk.test(con)))
+                    document.getElementById('errorcon').style.display = 'inline';
+            }
+        }
+
+
+        {{--Change the Contact info--}}
+        function updateContactInfo(id)
+        {
+            var address = document.getElementById("Address").value;
+            var tp = document.getElementById("ContactNo").value;
+
+            //alert(tp);
+            //to check if the string contains numbers
+            var phoneCk = /^\d{10}$/;
+
+            if(phoneCk.test(tp))
+            {
+                document.getElementById('errortel').style.display = 'none';
+
+                $.ajax({
+
+                    type: "POST",
+                    url: 'updateContactInfo',
+                    data: {
+                        id:id, address:address, tp:tp
+                    },
+                    dataType: 'html',
+                    success: function (data) {
+                        document.getElementById("presonalinfo").innerHTML = data;
+                        // alert(data);
+                    },
+                    error: function (err) {
+                        alert("error");
+                    }
+                });
+            }
+            else
+                document.getElementById('errortel').style.display = 'inline';
+
+        }
+
+
+        {{--Change the Appearence--}}
+        function updateAppearance(id)
+        {
+            var height = document.getElementById("height").value;
+            var hair = document.getElementById("hair").value;
+            var body = document.getElementById("bodyType").value;
+            var complexion = document.getElementById("complexion").value;
+
+            //to check if the string contains numbers
+            var heightCk =  /^[0-9.]+$/;
+
+            if(heightCk.test(height))
+            {
+                document.getElementById('errorheight').style.display = 'none';
+
+                $.ajax({
+
+                    type: "POST",
+                    url: 'updateAppearance',
+                    data: {
+                        id:id, height:height, hair:hair, complexion:complexion, body:body
+                    },
+                    dataType: 'html',
+                    success: function (data) {
+                        document.getElementById("presonalinfo").innerHTML = data;
+                        // alert(data);
+                    },
+                    error: function (err) {
+                        alert("error");
+                    }
+                });
+            }
+            else {
+                if (!(heightCk.test(height)))
+                    document.getElementById('errorheight').style.display = 'inline';
+
+            }
         }
 
 
