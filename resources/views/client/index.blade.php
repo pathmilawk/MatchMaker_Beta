@@ -5,10 +5,10 @@
 @section('BarButtons')
     <div class="header-right paddingtop10">
         <h4>
-            <i><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']; ?>/auth/login"><span
-                            class="label label-primary">Sign In</span></a></i>&nbsp;&nbsp;&nbsp;
-            <i><a href="http://<?php echo $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']; ?>/auth/register"><span
-                            class="label label-primary">Register</span></a></i>
+            <a href="http://<?php echo $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']; ?>/auth/login"><button
+                            class="btn btn-primary btn-quirk">Sign In</button></a>&nbsp;&nbsp;&nbsp;
+            <a href="http://<?php echo $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']; ?>/auth/register"><button
+                            class="btn btn-primary btn-quirk">Register</button></a>
         </h4>
     </div>
 @show
@@ -55,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </script>
     </head>
     <!--start-home-->
-    <body class="cbp-spmenu-push">
+    <body class="cbp-spmenu-push" style="margin-top: 63px">
     <div class="banner">
         <div class="logo">
             <br>
@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="searchBox">
                 <h1 style=" margin-top: 30px; ">Find Your Soulmate Here...</h1>
                 <br>
-                {!! Form::open( ['url' => '/auth/register']) !!}
+                {!! Form::open( ['url' => 'beforeRegister']) !!}
                 <div class="form-group mt15">
                     {!! Form::label('gender','I am looking for a :', ['class' => 'col-sm-6 control-label']) !!}
                     <div class="col-sm-6">

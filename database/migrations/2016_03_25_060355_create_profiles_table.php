@@ -22,6 +22,7 @@ class CreateProfilesTable extends Migration {
 			$table->string('last_name');
 			$table->String('gender');
 			$table->string('birthday'); // format- 1995.01.04
+			$table->integer('age');//filled by a trigger
 			$table->String('religion'); // Buddhist, Christian, Muslim, Hindu
 			$table->String('motherTongue');// Language she/he speak
 			$table->longText('about');
@@ -39,7 +40,8 @@ class CreateProfilesTable extends Migration {
 			$table->string('languages'); // one extra language they can speak id any- Sinhala, English, Tamil, Hindi
 			$table->string('education'); // to select-> 'Degree Holder','High school Graduate',
 			$table->string('sign');
-			$table->integer('profile_picture');
+			$table->boolean('profile_picture');
+			$table->string('picture');
 
 			$table->string('address'); // home address
 			$table->string('telephone'); // one phone number

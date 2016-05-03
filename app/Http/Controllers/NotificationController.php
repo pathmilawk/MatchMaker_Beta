@@ -9,6 +9,11 @@ use Session;
 
 class NotificationController extends Controller {
 
+    /**
+     * regresh notification panel and icon
+     * @param Request $request
+     * @return $this
+     */
     public function refreshNotifications(Request $request)
     {
 

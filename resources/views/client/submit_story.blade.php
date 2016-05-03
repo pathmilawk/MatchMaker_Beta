@@ -29,13 +29,7 @@
                         </div>
                         @endif
                         @endif
-                        @if($errors->any())<!--retrieving errors from validations-->
-                        <ul class="alert alert-danger">
-                            @foreach($errors->all() as $error)
-                                <li>{{$error}}</li>
-                            @endforeach
-                        </ul>
-                        @endif
+
 
                                 <!--start of story submit form-->
                         {!! Form::open(array('action' => 'StoryController@storyFormSubmit','files'=>true)) !!}
@@ -46,16 +40,18 @@
                                 <div class="input-group mb20">
                                     <span class="input-group-addon"><i
                                                 class="glyphicon glyphicon-align-justify"></i></span>
-                                    {!! Form::text('firstname',null,['class' => 'form-control']) !!}
+                                    {!! Form::text('firstname',Auth::user()->name,['class' => 'form-control','disabled']) !!}
                                 </div>
+                                <div class="text-danger" id="firstnameError" style="font-size: small">{{ $errors->first('firstname')}}</div>
                             </div>
                             <div class="form-group">
                                 {!! Form::label('lastname','Last Name') !!}
                                 <div class="input-group mb20">
                                     <span class="input-group-addon"><i
                                                 class="glyphicon glyphicon-align-justify"></i></span>
-                                    {!! Form::text('lastname',null,['class' => 'form-control']) !!}
+                                    {!! Form::text('lastname',Auth::user()->lastname,['class' => 'form-control','disabled']) !!}
                                 </div>
+                                <div class="text-danger" id="lastnameError" style="font-size: small">{{ $errors->first('lastname')}}</div>
                             </div>
                             <div class="form-group">
                                 {!! Form::label('phone','Phone') !!}
@@ -63,13 +59,15 @@
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
                                     {!! Form::text('phone',null,['class' => 'form-control']) !!}
                                 </div>
+                                <div class="text-danger" id="phoneError" style="font-size: small">{{ $errors->first('phone')}}</div>
                             </div>
                             <div class="form-group">
                                 {!! Form::label('email','Email Address') !!}
                                 <div class="input-group mb20">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                    {!! Form::text('email',null,['class' => 'form-control']) !!}
+                                    {!! Form::text('email',Auth::user()->email,['class' => 'form-control','disabled']) !!}
                                 </div>
+                                <div class="text-danger" id="emailError" style="font-size: small">{{ $errors->first('email')}}</div>
                             </div>
                             <div class="form-group">
                                 {!! Form::label('address','Address') !!}
@@ -77,6 +75,7 @@
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
                                     {!! Form::text('address',null,['class' => 'form-control']) !!}
                                 </div>
+                                <div class="text-danger" id="addressError" style="font-size: small">{{ $errors->first('address')}}</div>
                             </div>
                             <div class="form-group">
                                 {!! Form::label('title','Title for your story!') !!}
@@ -85,16 +84,18 @@
                                                 class="glyphicon glyphicon-align-justify"></i></span>
                                     {!! Form::text('title',null,['class' => 'form-control']) !!}
                                 </div>
+                                <div class="text-danger" id="titleError" style="font-size: small">{{ $errors->first('title')}}</div>
                             </div>
 
                             <div class="form-group">
                                 {!! Form::label('story',' Write your story here:',['class' => 'fa fa-smile-o']) !!}
                                 {!! Form::textarea('story',null,['class' => 'form-control']) !!}
+                                <div class="text-danger" id="storyError" style="font-size: small">{{ $errors->first('story')}}</div>
                             </div>
                             <div class="form-group">
                                 {!! Form::label('photo','Upload your wedding photo here:',['class' => 'fa fa-smile-o']) !!}
                                 {!! Form::file('photo',null,['class' => 'form-control']) !!}
-
+                                <div class="text-danger" id="photoError" style="font-size: small">{{ $errors->first('photo')}}</div>
                             </div>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -116,7 +117,7 @@
     @parent
     <script src="{{asset('internal_css/lib/jquery/jquery.js')}}"></script>
     <script src="{{asset('internal_css/lib/jquery-ui/jquery-ui.js')}}"></script>
-    <script src="{{asset('internal_css/lib/bootstrap/js/bootstrap.js')}}"></script>
+
     <script src="{{asset('internal_css/lib/jquery-toggles/toggles.js')}}"></script>
 
     <script src="{{asset('internal_css/js/quirk.js')}}"></script>

@@ -20,6 +20,7 @@ class CreateContactsTable extends Migration {
 			$table->string('email');
 			$table->string('question');
 			$table->longtext('answer')->default(null);
+			$table->boolean('published')->default(false);
 			$table->timestamps();
 		});
 	}

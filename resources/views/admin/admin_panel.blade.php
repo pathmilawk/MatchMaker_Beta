@@ -1,12 +1,12 @@
-@extends('app')
-@section('pageTitle','Admin Panel')
+@extends('admin')
 @section('css_ref')
     @parent
 @stop
+
 @section('content')
     <div class="row">
         <div class="alert alert-info" style="text-align: center;">
-            <strong style="font-size: large;">Admin panel</strong>
+            <strong style="font-size: large;">Manage Success Stories</strong>
         </div>
     </div>
 

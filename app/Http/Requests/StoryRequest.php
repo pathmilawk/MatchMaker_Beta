@@ -22,7 +22,11 @@ class StoryRequest extends Request {
 	public function rules()
 	{
 		return [
-
+			'phone' => 'required|digits:10|numeric',
+			'address'=> 'required',
+			'title'=> 'required',
+			'story'=> 'required',
+			'photo'=> 'required',
 		];
 	}
 

@@ -125,18 +125,21 @@ Route::get('contact_us','ContactController@contactUs');
 Route::post('contactFormSubmit','ContactController@contactFormSubmit');
 Route::post('commentAjax','StoryController@commentAjax');
 Route::post('showCommentAjax','StoryController@showCommentAjax');
+Route::post('showCommentAjax1{id}','StoryController@showCommentAjax1');
 Route::post('refreshNotifications','NotificationController@refreshNotifications');
 Route::post('sendDateRequest','AbcController@sendDateRequest');
-
+Route::get('loadForgot','StoryController@loadForgot');
 
 Route::get('set_story1/{id}','StoryController@setStory1');
 Route::get('set_story2/{id}','StoryController@setStory2');
 Route::get('delete_story/{id}','StoryController@deleteStory');
 
-
+Route::post('showAnswer','AdminController@showAnswer');
+Route::post('updateAnswer','AdminController@updateAnswer');
 
 //admin
-Route::get('admin_panel','AdminController@adminPanel');
+Route::get('successStoryPanel','AdminController@adminPanel');
+Route::get('contactPanel','AdminController@contactPanel');
 
 
 
@@ -148,16 +151,39 @@ Route::get('admin_panel','AdminController@adminPanel');
 Route::post('search_social','searchController@searchSocial');
 Route::post('search_appearance','searchController@searchAppearance');
 Route::post('Results','searchController@searchResult');
-Route::post('register','searchController@Register');
-Route::post('connectSearch','searchController@connectSearch');
+Route::post('beforeRegister','searchController@beforeRegister');
 Route::get('Search','searchController@searchMain2');
-
+Route::get('ResultSession','searchController@ResultSession');
 
 Route::get('uploadProfile','searchController@uploadProfile');
 Route::post('sendRequest_{id}','searchController@SendRequest');
 Route::post('showInterest_{id}','searchController@showInterest');
-Route::post('Profile/sendRequest_{id}','searchController@SendRequest');
-Route::get('Profile/{id}','searchController@ProfileLoad');
+Route::get('{id}','searchController@ProfileLoad');
+Route::post('editProfile_{id}','searchController@EditProfile');
+
+//Edit Profile routes (Savidya)
+Route::post('changeProfilePicture_{id}','EditProfileController@changeProfilePicture');
+Route::post('updateBasicInfo','EditProfileController@updateBasicInfo');
+Route::post('updateContactInfo','EditProfileController@updateContactInfo');
+Route::post('updateAppearance','EditProfileController@updateAppearance');
+Route::post('updateEducation','EditProfileController@updateEducation');
+Route::post('updateOther','EditProfileController@updateOther');
+Route::post('chanePro','EditProfileController@changePro');
+
+//request handling routes(savidya)
+Route::get('acceptReq','FriendRequestController@acceptReq');
+
+Route::post('suggestedPartners_{id}','ProfileController@suggestedPartners');
+Route::post('addPhoto','ProfileController@addPhoto');
+Route::post('addPt','ProfileController@addPt');
+Route::post('loadPhoto_{id}','ProfileController@loadPhoto');
+Route::post('deletePhotos','ProfileController@deletePhotos');
+
+//privacy setting
+Route::get('ShowDetails','ProfileController@ShowDetails');
+Route::get('HideDetails','ProfileController@HideDetails');
+Route::get('ShowPhotos','ProfileController@ShowPhotos');
+Route::get('HidePhotos','ProfileController@HidePhotos');
 
 
 

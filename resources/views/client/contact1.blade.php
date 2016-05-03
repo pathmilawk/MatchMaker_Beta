@@ -1,20 +1,24 @@
-@extends('app')
-@section('pageTitle','contact Us')
+@extends('master_page')
 @section('css_ref')
     @parent
-    <link rel="stylesheet" href="{{asset('internal_css/lib/select2/select2.css')}}">
-    <link rel="stylesheet" href="{{asset('internal_css/lib/fontawesome/css/font-awesome.css')}}">
-    <link rel="stylesheet" href="{{asset('internal_css/lib/weather-icons/css/weather-icons.css')}}">
-    <link rel="stylesheet" href="{{asset('internal_css/lib/jquery-toggles/toggles-full.css')}}">
-
-    <link rel="stylesheet" href="{{asset('internal_css/css/quirk.css')}}">
-
-    @stop
-
-    @section('content')
-            <!--start of contact-->
-    <div class="row">
-        <div class="col-md-6 col-lg-6 dash-left">
+@stop
+@section('BarButtons')
+    <div class="header-right paddingtop10">
+        <h4>
+            <a href="http://<?php echo $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']; ?>/auth/login"><button
+                        class="btn btn-primary btn-quirk">Sign In</button></a>&nbsp;&nbsp;&nbsp;
+            <a href="http://<?php echo $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']; ?>/auth/register"><button
+                        class="btn btn-primary btn-quirk">Register</button></a>
+        </h4>
+    </div>
+@stop
+@section('content')
+    <html>
+    <head>
+    </head>
+    <body>
+    <div class="row" style="margin-top: 75px;">
+        <div class="col-md-6 col-lg-6 dash-left" style="margin-left: 44px; margin-right: 30px;">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h2 class="text-success">Contact us</h2>
@@ -35,7 +39,7 @@
                             {!! Form::label('nameText','Name') !!}
                             <div class="input-group mb15">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
-                                {!! Form::text('name',Auth::user()->name.' '.Auth::user()->lastname,['class' => 'form-control','disabled']) !!}
+                                {!! Form::text('name',null,['class' => 'form-control']) !!}
                             </div>
                             <div class="text-danger" id="nameError" style="font-size: small">{{ $errors->first('name')}}</div>
                         </div>
@@ -51,7 +55,7 @@
                             {!! Form::label('emailText','Email Address') !!}
                             <div class="input-group mb20">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                {!! Form::text('email', Auth::user()->email,['class' => 'form-control','disabled']) !!}
+                                {!! Form::text('email',null,['class' => 'form-control']) !!}
                             </div>
                             <div class="text-danger" id="emailError" style="font-size: small">{{ $errors->first('email')}}</div>
                         </div>
@@ -66,13 +70,12 @@
                     </div>
                     {!! Form::close() !!}
                             <!--end of contact form-->
-
                 </div>
             </div>
         </div>
 
         <!--FAQ-->
-        <div class="col-md-6 col-lg-4 dash-right">
+        <div class="col-md-5 col-lg-4 dash-right">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h2 class="text-primary">Top questions</h2>
@@ -106,18 +109,20 @@
         </div>
         <!--end of FAQ-->
     </div>
+</body>
+</html>
+
 @stop
 
+
 @section('js_ref')
+    <script src="{{ asset('internal_css/lib/select2/select2.js') }}"></script>
+    <script src="{{ asset('internal_css/lib/jquery/jquery.js') }}"></script>
+    <script src="{{ asset('internal_css/lib/bootstrap/js/bootstrap.js') }}"></script>
+
+
+
+
     @parent
-    <script src="{{asset('internal_css/lib/jquery/jquery.js')}}"></script>
-    <script src="{{asset('internal_css/lib/jquery-ui/jquery-ui.js')}}"></script>
-    <script src="{{asset('internal_css/lib/bootstrap/js/bootstrap.js')}}"></script>
-    <script src="{{asset('internal_css/lib/jquery-toggles/toggles.js')}}"></script>
-
-    <script src="{{asset('internal_css/js/quirk.js')}}"></script>
-
-
-
 
 @stop

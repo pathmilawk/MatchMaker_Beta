@@ -1,18 +1,18 @@
-@extends('master_page')
+@extends('app')
+@section('pageTitle','View Story')
 @section('css_ref')
-@parent
-@stop
-@section('BarButtons')
-    <div class="header-right paddingtop10">
-        <h4>
-            <a href="http://<?php echo $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']; ?>/auth/login"><button
-                        class="btn btn-primary btn-quirk">Sign In</button></a>&nbsp;&nbsp;&nbsp;
-            <a href="http://<?php echo $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']; ?>/auth/register"><button
-                        class="btn btn-primary btn-quirk">Register</button></a>
-        </h4>
-    </div>
-    @show
-@section('content')
+    @parent
+    <link rel="stylesheet" href="{{asset('internal_css/lib/select2/select2.css')}}">
+    <link rel="stylesheet" href="{{asset('internal_css/lib/fontawesome/css/font-awesome.css')}}">
+    <link rel="stylesheet" href="{{asset('internal_css/lib/weather-icons/css/weather-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('internal_css/lib/jquery-toggles/toggles-full.css')}}">
+
+    <link rel="stylesheet" href="{{asset('internal_css/css/quirk.css')}}">
+
+    @stop
+
+    @section('content')
+
 <html>
 <head>
     <link href="{{asset('external_css/css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
@@ -54,7 +54,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="single">
     <div class="container">
         <h3 class="tittle">Success Stories</h3>
-
+        <a href="{{ action('StoryController@submitStory') }}">
+            <button type="button" class="btn btn-danger btn-quirk" style="float: right;">Submit your story</button>
+        </a>
 
         <div class="article-post two">
             <div class="col-md-3 post-meta">
@@ -90,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <?php
                 echo htmlspecialchars($story->id);
                 ?>
-                    <input type="hidden" value="{{ $story->id }}" id="mmm" name="mmm" />
+                <input type="hidden" value="{{ $story->id }}" id="mmm" name="mmm" />
             </div>
 
             <!--post comments-->
@@ -117,11 +119,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 
 </body>
+
+
 </html>
 @stop
 @section('js_ref')
 
     @parent
+    <script src="{{asset('internal_css/lib/jquery/jquery.js')}}"></script>
+    <script src="{{asset('internal_css/lib/jquery-ui/jquery-ui.js')}}"></script>
+    <script src="{{asset('internal_css/lib/bootstrap/js/bootstrap.js')}}"></script>
+    <script src="{{asset('internal_css/lib/jquery-toggles/toggles.js')}}"></script>
+
+    <script src="{{asset('internal_css/js/quirk.js')}}"></script>
     <script>
 
         function commentPublish(storyid) {
@@ -167,21 +177,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     //if (data != "same") {
                     document.getElementById("comments").innerHTML = data;
                     //alert(data);
-
+                    //console.log(data);
                     // }
                 },
                 error: function (err, req) {
                     alert(arr);
                 },
             });
-
+            //console.log("sss");
             setTimeout("showcomment()", 3000)
         }
 
 
-        //onload = showcomment();
+       // onload = showcomment();
         $(document).ready(function(){
-            showcomment();
+          showcomment();
         })
 
     </script>

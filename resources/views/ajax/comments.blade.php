@@ -4,7 +4,6 @@
 <div class="met">
     <div class="code-in">
         <p class="smith"><a href="#">{{ $comment->name }}</a> <span>{{$comment->created_at}}</span></p>
-        <p class="reply"><a href="#"><i> </i>REPLY</a></p>
         <div class="clearfix"> </div>
     </div>
     <div class="comments-top-top">

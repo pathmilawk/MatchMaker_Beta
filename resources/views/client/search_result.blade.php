@@ -31,7 +31,7 @@
                        <tr>
                            <td>
                                <div class="col-sm-2">
-                                   <img src="{{asset('uploads/'.$raw->first_name.'/'.$raw->user_id.'.png')}}" width="120px" height="120px">
+                                   <img src="{{asset('Profile_Pictures/'.$raw->user_id.'/'.$raw->picture)}}" width="120px" height="120px">
                                </div>
                            </td>
                            <td>
@@ -41,7 +41,7 @@
                            </td>
                            <td>
                                <div class="col-sm-7" style="float: right;">
-                                   <a href='Profile/{!! $raw->user_id !!}'>
+                                   <a href='{!! $raw->user_id !!}'>
                                        <button type="button" class="btn btn-primary" style="width: 100px;margin-top: 4%;margin-bottom: 2%;color: white;">View Profile</button><br>
                                    </a>
                                    <button type="button" class="btn btn-primary" onclick="sendRequest(<?php echo $raw->user_id; ?>)" style="width: 100px;margin-top: 2%;margin-bottom: 2%;color: white;">Send Request</button><br>

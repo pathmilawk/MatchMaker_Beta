@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => 'prageethkalhara17@gmail.com', 'name' => 'Prageeth'],
+	'from' => ['address' => 'pathmila17@gmail.com', 'name' => 'Dumal Kasun'],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
 	|
 	*/
 
-	'username' => 'prageethkalhara17@gmail.com',
+	'username' => env('MAIL_USERNAME'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
 	|
 	*/
 
-	'password' => 'kumarirathnayaka33',
+	'password' => env('MAIL_PASSWORD'),
 
 	/*
 	|--------------------------------------------------------------------------

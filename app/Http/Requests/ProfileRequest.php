@@ -1,8 +1,6 @@
 <?php namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
-
-class ContactRequest extends Request {
+class ProfileRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -22,8 +20,7 @@ class ContactRequest extends Request {
 	public function rules()
 	{
 		return [
-			'phone' => 'required|digits:10|numeric',
-			'question'=> 'required',
+			//
 		];
 	}
 
