@@ -6,10 +6,15 @@
 @section('content')
 
 
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Customer Feedback</strong><a href="" class="alert-link"></a>
+    </div>
 
-        <div class="col-md-8">
 
-            <div class="panel" style="margin-left: 50px">
+        <div class="col-md-12">
+
+            <div class="panel" >
                 <div class="panel-heading nopaddingbottom">
                     <h4 class="panel-title">FeedBack Form</h4>
                 </div>
@@ -45,7 +50,7 @@
 
                         <div class="row">
                             <div class="col-sm-9 col-sm-offset-3">
-                                <button class="btn btn-success btn-quirk btn-wide mr5" type="submit">Inform</button>
+                                <button class="btn btn-danger btn-quirk btn-wide mr5" type="submit">Inform</button>
                                 <button type="reset" class="btn btn-quirk btn-wide btn-default">Back</button>
                             </div>
                         </div>

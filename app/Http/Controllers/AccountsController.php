@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use Input;
+use Mail;
 
 class AccountsController extends Controller {
 
@@ -89,6 +90,23 @@ class AccountsController extends Controller {
 			->where('id', $id)
 			->update(['user_activate_state' => 'deactivate']);
 
+	//Start of the email function
+		$res=DB::table('users')->where('id',$id)->first();
+		$name=$res->name;
+
+		Mail::raw("Hi ".$name.", You have Deactivated Your Matchmaker Accout..", function($message)
+		{
+
+			$id = Auth::user()->id;
+			$res2=DB::table('users')->where('id',$id)->first();
+			$email=$res2->email;
+
+			$message->from('prageethkalhara17@gmail.com', 'Laravel');
+
+			$message->to($email)->cc('pathmila17@gmail.com')->subject('Welcome!');
+		});
+
+	//End of the email function
 		return redirect('auth/logout');
 
 	}
@@ -113,8 +131,24 @@ class AccountsController extends Controller {
 			['name' => $name, 'email' => $email , 'comment' => $comment]
 		);
 
+		//send the email-------
+		Mail::raw("Hi ".$name.", You have Removed Your Account.Thank You For Staying with Matchmaker.", function($message)
+		{
+
+
+			$email=Input::get('email');
+
+			$message->from('prageethkalhara17@gmail.com', 'Laravel');
+
+			$message->to($email)->cc('pathmila17@gmail.com')->subject('Welcome!');
+		});
+		//end of the email function
+
+		//Delete the user
 		$id=Auth::user()->id;
 		DB::table('users')->where('id', '=', $id)->delete();
+
+
 
 		return redirect('auth/logout');
 

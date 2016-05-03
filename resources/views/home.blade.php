@@ -251,9 +251,138 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!--end success stories-->
 
+    <div class="services" style="margin-left: 100px">
+        <div class="container">
+            <h3 class="tittle"></h3>
+            <div class="serve-top">
+                <div class="col-md-6 serve-section grid">
+                    <div class="col-md-6 serve-grid">
+                        <figure class="effect-goliath">
+                            <?php foreach($result1 as $row){
+                            ?>
+
+                            <img  src="{{asset('images/'.$row->contentName )}}" alt="" />
+                            {{--
+                            This will show the First Image
+                            --}}
+
+                            <?php }?>
+                            <figcaption>
+                                <h2>weeke<span>nd</span></h2>
+                                <a href="#">View more</a>
+                                <p>Happy Life...</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-md-6 serve-grid">
+                        <figure class="effect-goliath">
+                            <?php foreach($result2 as $row2){
+                            ?>
+
+                            <img  src="{{asset('images/'.$row2->contentName )}}" alt="" />
+
+                            {{--
+                            This will show the Second Image
+                            --}}
+                            <?php }?>
+                            <figcaption>
+                                <h2>weeke<span>nd</span></h2>
+                                <a href="#">View more</a>
+                                <p>Happy Life...</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-md-6 serve-grid">
+                        <figure class="effect-goliath">
+                            <?php foreach($result3 as $row3){
+                            ?>
+
+                            <img  src="{{asset('images/'.$row3->contentName )}}" alt="" />
+                            {{--
+                            This will show the Thred Image
+                            --}}
+
+                            <?php }?>
+                            <figcaption>
+                                <h2>weeke<span>nd</span></h2>
+                                <a href="#">View more</a>
+                                <p>Happy Life...</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-md-6 serve-grid">
+                        <figure class="effect-goliath">
+                            <?php foreach($result4 as $row4){
+                            ?>
+
+                            <img  src="{{asset('images/'.$row4->contentName )}}" alt="" />
+                            {{--
+                            This will show the Fourth Image
+                            --}}
+
+                            <?php }?>
+                            <figcaption>
+                                <h2>weeke<span>nd</span></h2>
+                                <a href="#">View more</a>
+                                <p>Happy Life...</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class=""> </div>
+                </div>
+                {{--   <div class="col-md-6 serve-icons">
+                       <h4 class="sub">How to Plan for your Weekend...</h4>
+                       <div class="s-sub">
+                           <div class="col-md-2 icon">
+                               <a href="www.google.com">
+                                   <i class="glyphicon glyphicon-globe"></i>
+                               </a>
+                           </div>
+                           <div class="col-md-10 serve-text">
+                               <p> Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus. </p>
+                           </div>
+                           <div class="clearfix"> </div>
+                       </div>
+                       <div class="s-sub">
+                           <div class="col-md-2 icon">
+                               <i class="glyphicon glyphicon-ice-lolly-tasted"></i>
+                           </div>
+                           <div class="col-md-10 serve-text">
+                               <p> Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus. </p>
+                           </div>
+                           <div class="clearfix"> </div>
+                       </div>
+                       <div class="s-sub">
+                           <div class="col-md-2 icon">
+                               <i class="glyphicon glyphicon-send"></i>
+                           </div>
+                           <div class="col-md-10 serve-text">
+                               <p> Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus.</p>
+                           </div>
+                           <div class="clearfix"> </div>
+                       </div><div class="s-sub">
+                           <div class="col-md-2 icon">
+                               <i class="glyphicon glyphicon-briefcase"></i>
+                           </div>
+                           <div class="col-md-10 serve-text">
+                               <p> Duis quis risus a nunc ultricies varius. Aenean aliquam pellentesque magna consectetur hendrerit. Cum sociis natoque penatibus.</p>
+                           </div>
+                           <div class="clearfix"> </div>
+                       </div>
+                   </div>--}}
+                <div class=""> </div>
+            </div>
+        </div>
+    </div>
     <!--advertisements-->
 
 
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br><br><br><br>
     <!--contact-->
     <div class="contact">
         <div class="col-md-6 contact-top">
@@ -280,7 +409,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="map-l"><i class="glyphicon glyphicon-map-marker"></i></div>
             </div>
         </div>
-        <div class="clearfix"></div>
+        <div class=""></div>
     </div>
     <!--//contact-->
 

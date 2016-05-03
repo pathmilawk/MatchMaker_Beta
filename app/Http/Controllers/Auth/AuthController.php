@@ -8,6 +8,9 @@ use DB;
 use session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Mail;
+use Input;
+use Carbon\Carbon;
 
 class AuthController extends Controller {
 
@@ -47,12 +50,14 @@ class AuthController extends Controller {
 //	}
 
    public function  redirectPath(){
-       if(Auth::user()->is_admin){
-            return '/AdminDashBoard';
-       }
-       else{
-           return '/home';
-       }
+
+		   if (Auth::user()->is_admin) {
+
+			   return '/AdminDashBoard';
+		   } else {
+			   return '/home';
+		   }
+
    }
 
 	protected function validator(array $data)
@@ -64,6 +69,81 @@ class AuthController extends Controller {
 			'password' => 'required|confirmed|min:6'
 		]);
 	}
+
+	public function postRegister(Request $request)
+	{
+
+
+
+		$validator = $this->registrar->validator($request->all());
+
+		if ($validator->fails())
+		{
+			$this->throwValidationException(
+				$request, $validator
+			);
+		}
+
+		$this->auth->login($this->registrar->create($request->all()));
+
+		$name=Input::get('username');
+
+		Mail::raw("Hi ".$name.", Now You Have Registered With Match Maker.", function($message)
+		{
+
+
+			$email=Input::get('email');
+
+			$message->from('prageethkalhara17@gmail.com', 'Laravel');
+
+			$message->to($email)->cc('pathmila17@gmail.com')->subject('Welcome!');
+		});
+
+		return redirect($this->redirectPath());
+	}
+
+
+
+	public function postLogin(Request $request)
+	{
+
+		//-----------------------
+		$x = Input::get('email');
+			//to loged users log
+
+
+		if (isset($x)) {
+
+			$res = DB::table('users')->where('email', $x)->first();
+			$id = $res->id;
+			$name=$res->name;
+			$time = Carbon::now();
+
+			DB::table('recentloggedusers')->insertGetId(
+				['user_id' => $id, 'name' => $name,'time' => $time]
+			);
+
+		}
+		//--------------------------
+
+		$this->validate($request, [
+			'email' => 'required|email', 'password' => 'required',
+		]);
+
+		$credentials = $request->only('email', 'password');
+
+		if ($this->auth->attempt($credentials, $request->has('remember')))
+		{
+			return redirect()->intended($this->redirectPath());
+		}
+
+		return redirect($this->loginPath())
+			->withInput($request->only('email', 'remember'))
+			->withErrors([
+				'email' => $this->getFailedLoginMessage(),
+			]);
+	}
+
 
 
 }

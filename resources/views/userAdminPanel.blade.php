@@ -15,6 +15,26 @@
         }
     </script>
 
+    <script>
+        function deac(){
+            var x = confirm("Are you sure you want to Deactivate?");
+            if (x)
+                return true;
+            else
+                return false;
+        }
+    </script>
+
+    <script>
+        function act(){
+            var x = confirm("Are you sure you want to Activate This Account?");
+            if (x)
+                return true;
+            else
+                return false;
+        }
+    </script>
+
 
     <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -108,7 +128,16 @@
                                 <td class="text-center"><?php echo $row->email; ?></td>
                                 <td>
                                     <ul class="table-options">
-                                        <li><a href="DeleteUsers_<?php echo $row->id; ?>"><i class="fa fa-trash" onclick="return del()"></i></a></li><ul>
+                                        <li><a href="DeleteUsers_<?php echo $row->id; ?>"><i class="fa fa-trash" onclick="return del()"></i></a></li>
+
+                                        <?php $x=$row->admin_activate_state; if($x=="activate"){  ?>
+
+                                        <li><a href="DeactivateUsers_<?php echo $row->id; ?>"><i class="fa fa-unlock" onclick="return deac()" ></i></a></li>
+
+                                        <?php }else{ ?>
+                                        <li><a href="ActivateUsersByAd_<?php echo $row->id; ?>"><i class="fa fa-lock" onclick="return act()" ></i></a></li>
+                                        <?php } ?>
+                                        <ul>
                                 </td>
                                 {{--<td class="text-right">2012/03/29</td>
                                 <td class="text-right">$433,060</td>--}}
@@ -205,79 +234,10 @@
 
 
 
-    <div class="alert alert-danger">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Log Activities</strong><a href="" class="alert-link"></a>
-    </div>
 
 
-    <div class="col-sm-4 col-md-12">
-        <div class="panel panel-danger panel-weather">
-            <div class="panel-heading">
-                <h4 class="panel-title">Users Log Activities</h4>
-            </div>
-            <div class="panel-body inverse">
 
-                <div class="col-lg-3" style="margin-left: 10px">
-                    <form method="POST" action="SearchDeletedUsers" id="search">
-                        <div class="input-group mb4">
-                            <input type="text" class="form-control" name="dname" placeholder="Search here">
-                          <span class="input-group-btn">
-                            <button class="btn btn-danger" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                         </span>
-                        </div>
-                    </form>
-                </div>
-                <br>
-                <br>
 
-                <div class="panel-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-danger table-striped nomargin">
-                            <thead>
-                            <tr>
-                                <th class="text-center">
-                                    <label class="ckbox ckbox-danger">
-                                        <input type="checkbox"><span></span>
-                                    </label>
-                                </th>
-                                <th>Name</th>
-                                <th class="text-center">Email</th>
-                                <th class="text-center">Comment</th>
-                                <th class="text-center">Action</th>
-                                {{--<th class="text-right">Salary</th>--}}
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            <?php  foreach($result2 as $row2){
-                            ?>
-                            <tr>
-                                <td class="text-center">
-                                    <label class="ckbox ckbox-danger">
-                                        <input type="checkbox"><span></span>
-                                    </label>
-                                </td>
-                                <td><?php echo $row2->name; ?></td>
-                                <td class="text-center"><?php echo $row2->email; ?></td>
-                                <td class="text-center"><?php echo $row2->comment; ?></td>
-                                <td>
-                                    <ul class="table-options">
-                                        <li><a href="DelteDelUsers_<?php echo $row2->id; ?>"><i class="fa fa-trash" onclick="return del()"></i></a></li><ul>
-                                </td>
-                                {{--<td class="text-right">2012/03/29</td>
-                                <td class="text-right">$433,060</td>--}}
-                            </tr>
-
-                            <?php }?>
-                            </tbody>
-                        </table>
-                    </div><!-- table-responsive -->
-                </div>
-
-            </div>
-        </div>
-    </div>
 
 
 @stop

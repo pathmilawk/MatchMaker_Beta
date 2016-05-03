@@ -17,6 +17,7 @@ class CreateMingleTable extends Migration {
 			$table->increments('id');
 			$table->string('image_path');
 			$table->string('name');
+			$table->string('description');
 		});
 	}
 

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('admin')
 @section('css_ref')
     @parent
 @stop
@@ -32,8 +32,14 @@
                 This will show the Success Mesages
 --}}
                 <!-- sucess message-->
-                <h3 style="color: blue"><?php echo Session::get('addmessage'); ?></h3>
-                <table class="table table-hover nomargin">
+                <?php $x=Session::get('addmessage'); if(isset($x)){ ?>
+                <div class="alert alert-warning">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>Congradulations!</strong><a href="" class="alert-link"><?php echo Session::get('addmessage'); ?></a>.
+                </div>
+                <?php } ?>
+
+                <table class="table table-danger">
                     <thead>
                     <tr>
                         <th class="text-center">
@@ -68,16 +74,25 @@
 --}}
 
 
-                        <td> <img  src="{{asset('images/'.$row->contentName )}}" alt="" /></td>
+                            <div class="thmb">
+                        <div class="thmb-prev">
+                            <td><img  src="{{asset('images/'.$row->contentName )}}" class="img-responsive" alt="" /></td>
+
+                           {{--<td> <img src="../images/mp3.png" class="img-responsive" alt="" /></td>--}}
+                        </div>
+                                </div>
+
+
+
 
 
                         <!--set ad buttons-->
                         <td>
                             <ul class="table-options">
-                                <li><a href="SetUploadedImageone{{$row->id}}"><button class="btn btn-primary btn-quirk btn-stroke">Set as AD 1</button></a></li>
-                                <li><a href="SetUploadedImagetwo{{$row->id}}"><button class="btn btn-primary btn-quirk btn-stroke">Set as AD 2</button></a></li>
-                                <li><a href="SetUploadedImagethree{{$row->id}}"><button class="btn btn-primary btn-quirk btn-stroke">Set as AD 3</button></a></li>
-                                <li><a href="SetUploadedImagefour{{$row->id}}"><button class="btn btn-primary btn-quirk btn-stroke">Set as AD 4</button></a></li>
+                                <li><a href="SetUploadedImageone{{$row->id}}"><button class="btn btn-danger btn-quirk btn-stroke">Set as AD 1</button></a></li>
+                                <li><a href="SetUploadedImagetwo{{$row->id}}"><button class="btn btn-danger btn-quirk btn-stroke">Set as AD 2</button></a></li>
+                                <li><a href="SetUploadedImagethree{{$row->id}}"><button class="btn btn-danger btn-quirk btn-stroke">Set as AD 3</button></a></li>
+                                <li><a href="SetUploadedImagefour{{$row->id}}"><button class="btn btn-danger btn-quirk btn-stroke">Set as AD 4</button></a></li>
 
 {{--
                                 This will delete that add if confirmed
@@ -92,9 +107,14 @@
                         </tr>
                         <!--back button-->
                         <tr>
-                        <form action="viewUploadmenu" method="post">
-                            <td><input type="submit" class="btn btn-success btn-quirk btn-wide mr5" value="Back" ></td>
+                        <form action="test" method="get">
+                            <td><input type="submit" class="btn btn-danger btn-quirk btn-wide mr5" value="Back" ></td>
                         </form>
+
+                            <form action="/" method="get">
+                            <td><input type="submit" class="btn btn-danger btn-quirk btn-wide mr5" value="Test"  ></td>
+                                </form>
+
                     </tr>
                     </tbody>
                 </table>

@@ -59,7 +59,7 @@ class mingleController extends Controller {
 
             /*$result=DB::table('users')->where('id',$id)->get();*/
 
-        $result=DB::table('mingle_faviourite')->where('User_id',$id)->get();
+        $result=DB::table('mingle_faviourite')->where('User_id',$id)->groupBy('path')->distinct()->get();
 
         return view('Mingle.mingle_fav_view')->with('result',$result);
 

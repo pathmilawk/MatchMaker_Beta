@@ -1,9 +1,10 @@
 
 @extends('app')
+@section('pageTitle','Mingle')
 @section('css_ref')
+    <link rel="stylesheet" href="{{asset('external_css/css/minglebackground.css')}}">
     @parent
 @stop
-
 @section('content')
 
 
@@ -18,154 +19,80 @@
     </script>
 
 
-    <div class="col-md-12">
 
-        <h4 class="panel-title mb5"></h4>
-        <p class="mb20"></p>
+    <?php foreach($result as $row){
 
-        <div class="panel panel-map-sidebar" style="background-color: white">
-            <div class="row" style="background-color: white">
-                <div class="col-md-7 main">
-                    <div id="mapShiftWorker2" class="map-wrapper" style="background-color: white">
+    if (Session::has('val'))
+    {
+        $x=Session::get('val');
 
+        if($x>9)
+        {
+            echo "Error";
+        }
+    }
 
-                        {{--
-                        Loop to navigate itteratively
-                        --}}
-                        <?php foreach($result as $row){
+    else{
 
-                        if (Session::has('val'))
-                        {
-                            $x=Session::get('val');
+        $x=1;
+    }
 
-                            if($x>9)
-                            {
-                                echo "Error";
-                            }
-                        }
-
-                        else{
-
-                            $x=1;
-                        }
-
-                        ?>
-                        {{--
-                        navigate itteratively through getnext route
-                        increment x
-                        action perform
-                        Set the Path using sessions
-                        --}}
-                        <img  src="{{asset($row->image_path)}}" alt="" />
-                        <form action="getnext<?php echo $x;$x++;  if($x<9){Session::put('val',$x);} else{$value = Session::pull('val', 1);
-                        }?>" method="post">
+    ?>
 
 
-                            <br>
 
-                            <table>
-                                <tr>
-                                    <div style="background-color: white">
-                                        <td>
-                                            {{--
-                                            Add favaritues to the list
-                                            --}}
-                                            <a href="mingle_fav_view<?php echo $row->id ?>"  class="btn btn-danger btn-quirk" style="margin-left: 70px;width: 110px;height: 40px" onclick="my()"><span class="glyphicon glyphicon-heart"></span>Like
-                                            </a>
-                                        </td>
-                                        <td>
+       {{-- <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Find Your Partner</strong><a href="" class="alert-link"></a>
+        </div>
+--}}
 
-                                            {{--
-                                            Message same menu
-                                            --}}
+       {{-- <div class="row profile-wrapper">--}}
+        <div class="col-xs-8 col-md-7 col-lg-2 profile-left" style="opacity: 0.88;">
+            <div class="profile-left-heading">
+                <ul class="panel-options">
+                    <li><a><i class="glyphicon glyphicon-option-vertical"></i></a></li>
+                </ul>
+                <a href="" class="profile-photo"><img class="img-circle img-responsive" src="{{asset($row->image_path)}}" alt=""></a>
+                <h2 class="profile-name"><?php echo $row->name ?></h2>
+                <h4 class="profile-designation"></h4>
 
-                                            <a href="mingle_fav_view<?php echo $row->id ?>"  class="btn btn-primary btn-quirk" style="margin-left: 10px;width:110px ;height: 40px;margin-top: 12px" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-envelope"></span>Message</a>
+                <ul class="list-group">
+                    <li class="list-group-item">Posts <a href="timeline.html">1,333</a></li>
+                    <li class="list-group-item">Following <a href="people-directory.html">541</a></li>
 
+                </ul>
 
-                                            <div class="container">
-                                                <h2></h2>
-                                                <!-- Trigger the modal with a button -->
+                <a href="mingle_fav_view<?php echo $row->id ?>"><button class="btn btn-danger" style="margin: 8px" onclick="my()">Like</button></a>
+                <a href="mingleMessageView"><button class="btn btn-danger" style="margin: 8px">Message</button></a>
+                <a href="viewMingle_table"><button class="btn btn-danger" style="margin: 8px">Faviourite</button></a>
 
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="myModal" role="dialog">
-                                                    <div class="modal-dialog">
-
-                                                        <!-- Modal content-->
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                <h4 class="modal-title">Modal Header</h4>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <p>Some text in the modal.</p>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
+                <form action="getnext<?php echo $x;$x++;  if($x<9){Session::put('val',$x);} else{$value = Session::pull('val', 1);
+                }?>" method="post">
 
 
 
 
-                                        </td>
-                                        <td>
-                                            <a href="gggg" style="margin-left: 40px"></a>
-
-                                        </td>
-                                    </div>
-                                </tr>
-                            </table>
-                            <hr>
-                            <!-- go to the view mingle table-->
-                            <input type="submit" name="next" value="Next" class="btn btn-primary btn-quirk">
-                            <a href="viewMingle_table"><input type="button" name="fav" value="View Faviourite" class="btn btn-primary btn-quirk" style="float: right"></a>
-
-                        </form>
-
-
-
-
-
-
-                    </div>
-                </div>
-                <div class="col-md-5 map-sidebar">
-                    <div class="panel-body">
-                        <h4 class="panel-title mb20"><?php echo $row->name ?></h4>
-                        <p><?php echo $row->description ?></p>
-                        <?php $x++; }?>
-                                <!--increment x-->
-
-                        <form class="form" action="#">
-                            <div class="form-group">
-                            </div>
-
-                            <div class="form-group">
-                            </div>
-
-                            <div class="form-group">
-
-                                <div class="btn-group">
-
-                                </div>
-                            </div>
-
-                            <hr>
-                            <!--still not implamented-->
-                            <button class="btn btn-success btn-block">Go to Profile</button>
-
-                        </form>
-                    </div>
-                </div>
+                <button type="submit" class="btn btn-danger btn-quirk btn-block profile-btn-follow">Next</button>
             </div>
-        </div><!-- panel -->
+            <div class="profile-left-body">
+                <h4 class="panel-title">About Me</h4>
+                <p><?php echo $row->description ?></p>
 
-    </div><!-- col-md-4 -->
+                <hr class="fadeout">
+            </div>
+        </div>
+    </div>
+
+    </form>
+
+
+
+    <?php $x++; }?>
+            <!--increment x-->
+
+
+    </div>
 
 @stop
 

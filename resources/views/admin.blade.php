@@ -314,10 +314,13 @@
                 <div class="tab-pane active" id="mainmenu">
                     <h5 class="sidebar-title">Admin</h5>
                     <ul class="nav nav-pills nav-stacked nav-quirk">
-                        <li><a href="userAdmin"><i class="fa fa-home"></i> <span>Users Admin Pannel</span></a></li>
+                        <li><a href="AdminDashBoard"><i class="fa fa-home"></i> <span>Home</span></a></li>
+                        <li><a href="userAdmin"><i class="fa fa-anchor"></i> <span>Users Admin Pannel</span></a></li>
                         <li><a href="test"><span class="badge pull-right"></span><i class="fa fa-cube"></i>
                                 <span>Advertisments</span></a></li>
                         <li><a href="maps.html"><i class="fa fa-map-marker"></i> <span>Add Topic</span></a></li>
+
+
                     </ul>
 
                     <h5 class="sidebar-title">Main Menu</h5>
@@ -367,14 +370,14 @@
 
                 <div class="tab-pane" id="emailmenu">
                     <div class="sidebar-btn-wrapper">
-                        <a href="compose.html" class="btn btn-danger btn-block">Compose</a>
+                        <a href="email" class="btn btn-danger btn-block">Compose</a>
                     </div>
 
                     <h5 class="sidebar-title">Mailboxes</h5>
                     <ul class="nav nav-pills nav-stacked nav-quirk nav-mail">
                         <li><a href="viewAllmessages"><i class="fa fa-inbox"></i> <span>Inbox (3)</span></a></li>
                         <li><a href="email.html"><i class="fa fa-pencil"></i> <span>Draft (2)</span></a></li>
-                        <li><a href=""><i class="fa fa-paper-plane"></i> <span>Sent</span></a></li>
+                        <li><a href="viewAllSentMessages"><i class="fa fa-paper-plane"></i> <span>Sent</span></a></li>
                     </ul>
 
                     <h5 class="sidebar-title">Tags</h5>

@@ -1,6 +1,8 @@
 
 @extends('app')
+@section('pageTitle','Search')
 @section('css_ref')
+    <link rel="stylesheet" href="{{asset('external_css/css/searchMain2.css')}}">
     @parent
 @stop
 
@@ -10,18 +12,20 @@
 
 
 
-    <div style="margin-left: 80px">
-
-        <h4 class="panel-title mb5">Messagings</h4>
-        <p class="mb15"></p>
 
 
-    <hr>
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Messages</strong><a href="" class="alert-link"></a>
+    </div>
+
+
+
 
         <div class="row">
-            <div class="col-md-10 col-sm-12">
+            <div class="col-md-12 col-sm-12">
                 <div class="panel-group" id="accordion3">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion3" href="#collapseOne3">
@@ -34,7 +38,7 @@
 
                                 <h4 style="margin-left: 12px"><?= $nam; ?></h4>
 
-                                <h5 style="margin-left: 12px"><?= $subjec; ?></h5>
+                                <h5 style="margin-left: 12px"></h5>
                                 <hr>
 
                                 <span><h5 style="margin-left: 12px"><i class="fa fa-paper-plane"></i> <?= $messag; ?></h5></span>
@@ -45,7 +49,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-primary">
+                     {{--   <div class="panel panel-danger">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" class="collapsed" data-parent="#accordion3" href="#collapseTwo3">
@@ -65,8 +69,8 @@
 
                                 </div>
                             </div>
-                        </div>
-                        <div class="panel panel-primary">
+                        </div>--}}
+                        <div class="panel panel-danger">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" class="collapsed" data-parent="#accordion3" href="#collapseThree3">
@@ -78,11 +82,11 @@
                                 <div class="panel-body">
 
 
-
-                                    <textarea class="note-codable" style="width: 300px;height: 100px" placeholder="Message"></textarea>
+                                    <form action="ReplyforMessages_<?= $id; ?>" method="post">
+                                    <textarea class="note-codable" name="message" style="width: 300px;height: 100px" placeholder="Message"></textarea>
                                     <hr>
-                                    <input type="button" class="btn btn-info btn-lg" name="send" value="Send"></button>
-
+                                    <input type="submit" class="btn btn-danger btn-lg" name="send" value="Send"></button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

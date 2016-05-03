@@ -19,6 +19,8 @@ class CreateMessagesTable extends Migration {
 			$table->string('subject');
 			$table->string('message');
 			$table->string('time');
+			$table->integer('status');
+			$table->string('to');
 
 		});
 	}

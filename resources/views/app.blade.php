@@ -71,11 +71,22 @@
 
             <div class="header-right">
                 <ul class="headermenu">
+
+                    <li class="tooltips unread" data-toggle="tooltip" title="Check Mail">
+                        <button id="chatview" class="btn btn-chat ">
+                            <span class="badge-alert"></span>
+                            <a href="viewMingle" style="color: #EE7D7D"><i  data-toggle="tooltip" title="Mingling" class="fa fa-heart" ></i></a>
+                        </button>
+                    </li>
+
                     <li>
                         <div id="noticePanel" class="btn-group">
 
                         </div>
                     </li>
+
+
+
                     <li>
                         <div class="btn-group">
                             <button type="button" class="btn btn-logged" data-toggle="dropdown">
@@ -240,14 +251,14 @@
 
                 <div class="tab-pane" id="emailmenu">
                     <div class="sidebar-btn-wrapper">
-                        <a href="compose.html" class="btn btn-danger btn-block">Compose</a>
+                        <a href="email" class="btn btn-danger btn-block">Send Message</a>
                     </div>
 
-                    <h5 class="sidebar-title">Mailboxes</h5>
+                    <h5 class="sidebar-title">Messages</h5>
                     <ul class="nav nav-pills nav-stacked nav-quirk nav-mail">
-                        <li><a href="email.html"><i class="fa fa-inbox"></i> <span>Inbox (3)</span></a></li>
+                        <li><a href="viewAllmessages"><i class="fa fa-inbox"></i> <span>Recieved(3)</span></a></li>
                         <li><a href="email.html"><i class="fa fa-pencil"></i> <span>Draft (2)</span></a></li>
-                        <li><a href="email.html"><i class="fa fa-paper-plane"></i> <span>Sent</span></a></li>
+                        <li><a href="viewAllSentMessages"><i class="fa fa-paper-plane"></i> <span>Sent</span></a></li>
                     </ul>
 
                     <h5 class="sidebar-title">Tags</h5>

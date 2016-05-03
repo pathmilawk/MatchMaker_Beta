@@ -44,14 +44,16 @@ class WelcomeController extends Controller {
 
 	public function index()
 	{
+
+
 		/*$result = $this->pageContent();*/
 		/*$stories=$this->storyContent();*/
 
-		/*$result= DB::table('gallery_contents')->where('contentType','=','image')->get();*/
-		/*$result1=DB::table('gallery_contents')->where('publishStatus',1)->get();
+		$result= DB::table('gallery_contents')->where('contentType','=','image')->get();
+		$result1=DB::table('gallery_contents')->where('publishStatus',1)->get();
 		$result2=DB::table('gallery_contents')->where('publishStatus',2)->get();
 		$result3=DB::table('gallery_contents')->where('publishStatus',3)->get();
-		$result4=DB::table('gallery_contents')->where('publishStatus',4)->get();*/
+		$result4=DB::table('gallery_contents')->where('publishStatus',4)->get();
 		/*$result1 = $this->pageContent();
 		$result2 = $this->pageContent();
 		$result3 = $this->pageContent();
@@ -59,10 +61,10 @@ class WelcomeController extends Controller {
 
 
 		$stories=Story::getStories();
-		return view('client.index')/*->with('result1',$result1)
+		return view('client.index')->with('result1',$result1)
 			->with('result2',$result2)
 			->with('result3',$result3)
-			->with('result4',$result4)*/->with('stories',$stories)/*->with('result',$result)*/;
+			->with('result4',$result4)->with('stories',$stories)->with('result',$result);
 	}
 
 }

@@ -43,7 +43,7 @@
         <div class="col-xs-4 col-sm-3 col-md-2 page-messages">
             <div class="panel">
                 <div class="panel-heading">
-                    <h4 class="panel-title">Messages</h4>
+                    <a href="adminRegistrationForm"><h4 class="panel-title">Email Box</h4></a>
                 </div>
                 <div class="panel-body">
                     <div class="page-icon"><i class="fa fa-envelope"></i></div>
@@ -63,7 +63,7 @@
         <div class="col-xs-4 col-sm-4 col-md-2 page-statistics">
             <div class="panel">
                 <div class="panel-heading">
-                    <h4 class="panel-title">Statistics</h4>
+                   <a href="viewAlllogActivities"> <h4 class="panel-title">Statistics</h4></a>
                 </div>
                 <div class="panel-body">
                     <div class="page-icon"><i class="fa fa-stack-overflow"></i></div>
@@ -113,6 +113,7 @@
                 </div>
                 <div class="panel-body">
                     <ul class="media-list user-list">
+                        <?php foreach($result as $row){ ?>
                         <li class="media">
                             <div class="media-left">
                                 <a href="#">
@@ -120,15 +121,19 @@
                                 </a>
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading nomargin"><a href="">Floyd M. Romero</a></h4>
-                                is now following <a href="">Christina R. Hill</a>
-                                <small class="date"><i class="glyphicon glyphicon-time"></i> Just now</small>
+                                <h4 class="media-heading nomargin"><a href=""><?php echo $row->name; ?></a></h4>
+                                 <a href=""></a>
+                                <small class="date"><i class="glyphicon glyphicon-time"></i><?php echo $row->time; ?></small>
                             </div>
                         </li>
 
-
+                        <?php }?>
 
                     </ul>
+                    <br>
+                    <div class="media-body">
+                    <a href="viewAlllogActivities">View All</a>
+                    </div>
                 </div>
             </div><!-- panel -->
 

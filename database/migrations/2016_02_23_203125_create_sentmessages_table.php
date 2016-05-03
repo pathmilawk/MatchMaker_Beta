@@ -18,6 +18,7 @@ class CreateSentmessagesTable extends Migration {
 			$table->string('name');
 			$table->string('message');
 			$table->string('time');
+			$table->integer('from');
 			$table->timestamps();
 		});
 	}

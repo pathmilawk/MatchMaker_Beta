@@ -11,6 +11,21 @@
 |
 */
 
+
+
+/*Route::get('/email', function(){
+
+    Mail::send('emails.test', [name => 'Prageeth'], function($message)
+    {
+        $message->to('prageethkalhara17@gmail.com' ,'Sameera')->subject('Welcome');
+    });
+
+});*/
+
+
+Route::get('sendMails','MessageController@sendMails');
+
+
 Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
@@ -24,6 +39,16 @@ Route::get('view_Selected_messages{id}','MessageController@view');
 Route::get('deleteMessage{id}','MessageController@deleteMessage');
 Route::get('temp','MessageController@temp');
 Route::get('viewAllSentMessages','MessageController@viewAllSentMessages');
+Route::get('message','MessageController@messageSendForm');
+Route::get('email','MessageController@emailSendForm');
+Route::post('sendemail','MessageController@sendemail');
+Route::post('sendmessage','MessageController@sendmessage');
+Route:post('ReplyforMessages_{id}','MessageController@ReplyforMessages');
+Route::get('mingleMessageView','MessageController@mingleMessageView');
+Route::post('mingleSenMessage','MessageController@mingleSenMessage');
+Route::get('eleteMessagesB_{id}','MessageController@eleteMessagesB');
+Route::get('_BletemessagesB_{id}','MessageController@_BletemessagesB');
+
 
 
 //Advertistments---------------------------------------------------
@@ -60,16 +85,24 @@ Route::get('startmingle','mingleController@start');
 //to retrive to the correct page after liking
 
 Route::get('get{id}','mingleController@returnpage');
-Route:get('check','imagecontroller@check');
+//Route:get('check','imagecontroller@check');
 
 //Admin Pannel
 
 Route::get('AdminDashBoard','AdminPannelController@AdminDashBoard');
 Route::get('userAdmin','AdminPannelController@index');
 Route::get('DeleteUsers_{id}','AdminPannelController@DeleteUsers');
+Route::get('DeactivateUsers_{id}','AdminPannelController@DeactivateUsers');
+Route::get('ActivateUsersByAd_{id}','AdminPannelController@ActivateUsersByAd');
 Route::post('SearchUsers','AdminPannelController@SearchUsers');
 Route::post('SearchDeletedUsers','AdminPannelController@SearchDeletedUsers');
 Route::get('DelteDelUsers_{id}','AdminPannelController@DelteDelUsers');
+Route::get('viewAlllogActivities','AdminPannelController@viewAlllogActivities');
+Route::get('adminRegistrationForm','AdminPannelController@adminRegistrationForm');
+Route::get('replyForAdminEmails_{id}','AdminPannelController@replyForAdminEmails');
+Route::post('AdminSentEmail','AdminPannelController@AdminSentEmail');
+Route::get('composeForAdminEmails','AdminPannelController@composeForAdminEmails');
+Route::post('sendAdminsEmail','AdminPannelController@sendAdminsEmail');
 
 
 //Account Deactivate Routes
@@ -104,6 +137,7 @@ Route::get('delete_story/{id}','StoryController@deleteStory');
 
 //admin
 Route::get('admin_panel','AdminController@adminPanel');
+
 
 
 

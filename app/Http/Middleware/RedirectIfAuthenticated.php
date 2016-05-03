@@ -24,10 +24,12 @@ class RedirectIfAuthenticated {
 	 */
 	public function __construct(Guard $auth)
 	{
-		$this->auth = $auth;
 
 
-		//to update deactivate state to activate
+			$this->auth = $auth;
+
+
+	//to update deactivate state to activate
 		$x = Input::get('email');
 
 		$stat = DB::table('users')
@@ -35,7 +37,7 @@ class RedirectIfAuthenticated {
 			->update(['user_activate_state' => 'activate']);
 
 
-		//to loged users log
+	/*	//to loged users log
 
 
 		if (isset($x)) {
@@ -49,7 +51,7 @@ class RedirectIfAuthenticated {
 				['user_id' => $id, 'name' => $name,'time' => $time]
 			);
 
-		}
+		}*/
 	}
 
 	/**

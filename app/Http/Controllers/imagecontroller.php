@@ -155,7 +155,7 @@ public function showVideoGallery()
         DB::table('gallery_contents')->where('publishStatus', 1)->update(['publishStatus' => 0]);
         DB::table('gallery_contents')->where('id', $id)->update(['publishStatus' => 1]);
 
-        return redirect('editUploadImage')->with('addmessage','Add One has Been Successfully Added');
+        return redirect('editUploadImage')->with('addmessage','Add One has Been Successfully Added..!');
 
     }
 
@@ -165,7 +165,7 @@ public function showVideoGallery()
     {
         DB::table('gallery_contents')->where('publishStatus', 2)->update(['publishStatus' => 0]);
         DB::table('gallery_contents')->where('id', $id)->update(['publishStatus' => 2]);
-        return redirect('editUploadImage')->with('addmessage','Add has Two Been Successfully Added');
+        return redirect('editUploadImage')->with('addmessage','Add two has Been Successfully Added..!');
 
     }
 
@@ -175,7 +175,7 @@ public function showVideoGallery()
     {
         DB::table('gallery_contents')->where('publishStatus', 3)->update(['publishStatus' => 0]);
         DB::table('gallery_contents')->where('id', $id)->update(['publishStatus' => 3]);
-        return redirect('editUploadImage')->with('addmessage','Add has Three Been Successfully Added');;
+        return redirect('editUploadImage')->with('addmessage','Add Three has Been Successfully Added..!');;
 
     }
 
@@ -185,7 +185,7 @@ public function showVideoGallery()
     {
         DB::table('gallery_contents')->where('publishStatus', 4)->update(['publishStatus' => 0]);
         DB::table('gallery_contents')->where('id', $id)->update(['publishStatus' => 4]);
-        return redirect('editUploadImage')->with('addmessage','Add has Been Foue Successfully Added');;
+        return redirect('editUploadImage')->with('addmessage','Add Four has been Successfully Added');;
 
     }
 
