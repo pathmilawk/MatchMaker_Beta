@@ -92,6 +92,7 @@ Route::get('contact_us','ContactController@contactUs');
 Route::post('contactFormSubmit','ContactController@contactFormSubmit');
 Route::post('commentAjax','StoryController@commentAjax');
 Route::post('showCommentAjax','StoryController@showCommentAjax');
+Route::post('showCommentAjax1{id}','StoryController@showCommentAjax1');
 Route::post('refreshNotifications','NotificationController@refreshNotifications');
 Route::post('sendDateRequest','AbcController@sendDateRequest');
 Route::get('loadForgot','StoryController@loadForgot');
@@ -100,10 +101,12 @@ Route::get('set_story1/{id}','StoryController@setStory1');
 Route::get('set_story2/{id}','StoryController@setStory2');
 Route::get('delete_story/{id}','StoryController@deleteStory');
 
+Route::post('showAnswer','AdminController@showAnswer');
+Route::post('updateAnswer','AdminController@updateAnswer');
 
-Route::get('passwordReset','AbcController@resetPw');
 //admin
-Route::get('admin_panel','AdminController@adminPanel');
+Route::get('successStoryPanel','AdminController@adminPanel');
+Route::get('contactPanel','AdminController@contactPanel');
 
 
 

@@ -22,7 +22,14 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <input type="hidden" name="id" value="{{ $id }}">
+        @if($published == false)
+            <button class="btn btn-danger" onclick="return publish({{ $id }})" style="float: right">Publish</button>
+        @endif
+        @if($published == true)
+            <button class="btn btn-danger" onclick="return hideQ({{ $id }})" style="float: right">Hide</button>
+        @endif
         <div class="form-group mb10">
+
             <div class="input-group">
                 <h4>Submitted by</h4>
                 <p style="font-size: medium"> {{ $name }}</p>
