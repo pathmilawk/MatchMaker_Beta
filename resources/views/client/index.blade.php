@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="searchBox">
                 <h1 style=" margin-top: 30px; ">Find Your Soulmate Here...</h1>
                 <br>
-                {!! Form::open( ['url' => '/auth/register']) !!}
+                {!! Form::open( ['url' => 'beforeRegister']) !!}
                 <div class="form-group mt15">
                     {!! Form::label('gender','I am looking for a :', ['class' => 'col-sm-6 control-label']) !!}
                     <div class="col-sm-6">

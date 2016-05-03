@@ -79,7 +79,7 @@
                     <li>
                         <div class="btn-group">
                             <button type="button" class="btn btn-logged" data-toggle="dropdown">
-                                <img src="images/photos/loggeduser.png" alt=""/>
+                                <img src="{{asset('Profile_Pictures/default.png')}}" alt=""/>
                                 {{ Auth::user()->name." "}} {{ Auth::user()->lastname  }}
                                 <span class="caret"></span>
                             </button>
@@ -116,7 +116,7 @@
             <div class="media leftpanel-profile">
                 <div class="media-left">
                     <a href="{{Auth::user()->id}}">
-                        <img src="../images/photos/loggeduser.png" alt="" class="media-object img-circle">
+                        <img src="{{asset('Profile_Pictures/default.png')}}" alt="" class="media-object img-circle">
                     </a>
                 </div>
                 <div class="media-body">
@@ -400,35 +400,25 @@
                     <h5 class="sidebar-title">General Settings</h5>
                     <ul class="list-group list-group-settings">
                         <li class="list-group-item">
-                            <h5>Daily Newsletter</h5>
-                            <small>Get notified when someone else is trying to access your account.</small>
-                            <div class="toggle-wrapper">
-                                <div class="leftpanel-toggle toggle-light success"></div>
-                            </div>
+                            <h5>Details Show</h5>
+                            <small>Allow others to view my profile details</small>
+                                <button class="btn btn-primary" onclick="ShowDetails()" value="Hide" id="ds">Hide</button>
+                                <button class="btn btn-primary" onclick="HideDetails()" value="Show">Show</button>
                         </li>
                         <li class="list-group-item">
-                            <h5>Call Phones</h5>
-                            <small>Make calls to friends and family right from your account.</small>
-                            <div class="toggle-wrapper">
-                                <div class="leftpanel-toggle-off toggle-light success"></div>
-                            </div>
+                            <h5>Photos Show</h5>
+                            <small>Allow others to view my photo.</small>
+                                <button class="btn btn-primary" onclick="ShowPhotos()" value="Hide">Hide</button>
+                                <button class="btn btn-primary" onclick="HidePhotos()" value="Show">Show</button>
                         </li>
                     </ul>
+
+
                     <h5 class="sidebar-title">Security Settings</h5>
                     <ul class="list-group list-group-settings">
                         <li class="list-group-item">
-                            <h5>Login Notifications</h5>
-                            <small>Get notified when someone else is trying to access your account.</small>
-                            <div class="toggle-wrapper">
-                                <div class="leftpanel-toggle toggle-light success"></div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Phone Approvals</h5>
-                            <small>Use your phone when login as an extra layer of security.</small>
-                            <div class="toggle-wrapper">
-                                <div class="leftpanel-toggle toggle-light success"></div>
-                            </div>
+                            <h5>Reset Password</h5>
+                            <a href="/password/email"> <button class="btn btn-warning btn-xs">Reset</button></a>
                         </li>
                         <li class="list-group-item">
                             <h5>Accounts Settings</h5>
@@ -440,9 +430,8 @@
 
                             <a href="DeactivateUser"> <button class="btn btn-danger btn-xs" onclick="return con()">Deactivate</button></a>
                             <a href="DeleteUserFeedBack"> <button class="btn btn-danger btn-xs" onclick="return delcon()">Delete Account</button></a>
-
-
                         </li>
+
                     </ul>
                 </div>
                 <!-- tab-pane -->
@@ -485,6 +474,76 @@
     <script src="{{asset('internal_css/js/quirk.js')}}"></script>
 
     <script>
+
+        function ShowDetails()
+        {
+
+            $.ajax({
+                url: 'showDetails',
+                type: 'get',
+                data: {
+                },
+                dataType: 'json',
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (err, req) {
+                    Console.log(err);
+                },
+            });
+        }
+
+        function HideDetails()
+        {
+            $.ajax({
+                url: 'HideDetails',
+                type: 'get',
+                data: {
+                },
+                dataType: 'json',
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (err, req) {
+                    Console.log(err);
+                },
+            });
+        }
+
+        function ShowPhotos()
+        {
+
+            $.ajax({
+                url: 'ShoyjywPhotos',
+                type: 'get',
+                data: {
+                },
+                dataType: 'json',
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (err, req) {
+                    Console.log(err);
+                },
+            });
+        }
+
+        function HidePhotos()
+        {
+            $.ajax({
+                url: 'HidePhotos',
+                type: 'get',
+                data: {
+                },
+                dataType: 'json',
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (err, req) {
+                    Console.log(err);
+                },
+            });
+        }
 
 
         function refreshNotifications() {

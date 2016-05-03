@@ -22,24 +22,33 @@
                                     <div class="col-xs-2">
                                         <i class="fa fa-heart"></i>
                                      </div>
-                                @elseif($result->type=="Follow")
+                                @elseif($result->type=="friend")
                                     <div class="col-xs-2">
                                         <i class="fa fa-user"></i>
+                                       {{--
+                                            <button id="accept" value="Accept" class="btn btn-primary"></button>
+                                        </a>
+                                        <a href="">
+                                            <button id="reject" value="Reject" class="btn btn-primary"></button>
+                                        </a>--}}
                                     </div>
                                 @endif
 
                                 @if($result->type=="Date")
                                     <div class="col-xs-10">
-                                        <h5><a href="#">{{ $result->sender_username }} {{ $result->message }}</a></h5>
+                                        <h5><a href="{{$result->linktogo}}">{{ $result->sender_username }} {{ $result->message }}</a></h5>
                                         <small>{{ $result->created_at }}</small>
                                         <button type="button" class="btn btn-primary btn-quirk" style="color:#0075b0;" data-toggle="modal" data-target="#myModal">Accept</button>
                                         <button type="button" class="btn btn-danger btn-quirk" style="color:red;" >Decline</button>
                                     </div>
-                                    @elseif($result->type=="Follow")
+                                    @elseif($result->type=="friend")
                                         <div class="col-xs-10">
-                                            <h5><a href="#">{{ $result->sender_username }} {{ $result->message }}</a></h5>
+                                            <h5><a href="{{$result->linktogo}}">{{ $result->sender_username }} <br>{{ $result->message }}</a></h5>
                                             <small>{{ $result->created_at }}</small>
-
+                                            <a href="acceptReq">
+                                                <button type="button" class="btn btn-primary btn-quirk" style="color:#0075b0;">Accept</button>
+                                            </a>
+                                            <button type="button" class="btn btn-danger btn-quirk" style="color:red;" >Decline</button>
                                         </div>
                                     @endif
                             </div>

@@ -1,14 +1,15 @@
 <?php namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
+use DB;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use DB;
-use session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\User;
+use Session;
+
 
 class AuthController extends Controller {
 
@@ -51,8 +52,15 @@ class AuthController extends Controller {
        if(Auth::user()->is_admin){
             return '/AdminDashBoard';
        }
+
        else{
-           return '/home';
+            if(Session::has('Gender'))
+           {
+               return '/ResultSession';
+           }
+           else {
+               return '/home';
+           }
        }
    }
 
