@@ -11,7 +11,7 @@
                 <div class="col-xs-12 col-md-3 col-lg-2 profile-left">
                     <div class="profile-left-heading">
                         @if($key->profile_picture == 1)
-                            <a href="{!! $key->user_id !!}" class="profile-photo"><img class="img-circle img-responsive" src="{{asset('Profile_Pictures/'.$key->user_id.'.png')}}" alt=""></a>
+                            <a href="{!! $key->user_id !!}" class="profile-photo"><img class="img-circle img-responsive" src="{{asset('Profile_Pictures/'.$key->user_id.'/'.$key->picture)}}" alt=""></a>
                         @else
                             @if($key->gender == "Male")
                                 <a href="{!! $key->user_id !!}" class="profile-photo"><img class="img-circle img-responsive" src="{{asset('Profile_Pictures/defaultMale.png')}}" alt=""></a>
@@ -30,7 +30,7 @@
 
                         @if(Auth::user()->id == $key->user_id)
                             <button class="btn btn-danger btn-quirk btn-block profile-btn-follow" onclick="editProfile({{$key->user_id}})">Edit Profile</button>
-                            <button class="btn btn-danger btn-quirk btn-block profile-btn-follow" onclick="change({{$key->user_id}})">Change Profile Picture</button>
+                            <button class="btn btn-danger btn-quirk btn-block profile-btn-follow" onclick="changeProfilePicture({{$key->user_id}})">Change Profile Picture</button>
                         @else
                             <button class="btn btn-danger btn-quirk btn-block profile-btn-follow" onclick="sendRequest({{$key->user_id}})">Send Request</button>
                         @endif
@@ -150,13 +150,21 @@
                             </div><!-- tab-1 -->
 
                             <div class="tab-pane " id="photos">
-                                @if(Auth::user()->id == $key->user_id || $key->allowNonFriendPhotos)
+                                @if(Auth::user()->id == $key->user_id)
                                     <div class="panel panel-post-item">
-                                        <div style="width: 300px; height: 300px;">
-
-
-
-                                        </div>
+                                        <button style="width:525px; display: inline;" class="btn btn-primary btn-quirk btn-block profile-btn-follow" onclick="loadPhotos({{$key->user_id}})">View All</button>
+                                        <button style="width:525px; display: inline;" class="btn btn-primary btn-quirk btn-block profile-btn-follow" onclick="addPhoto()">Add Photo</button>
+                                        <button style="width:525px; display: inline;" class="btn btn-primary btn-quirk btn-block profile-btn-follow" onclick="deletePhotos()">Delete Photo</button>
+                                    </div>
+                                    <div class="panel panel-post-item" id="load">
+                                        {{--content will be loaded via ajax--}}
+                                    </div>
+                                @elseif( $key->allowNonFriendPhotos)
+                                    <div class="panel panel-post-item">
+                                        <button style="width:525px; display: inline;" class="btn btn-primary btn-quirk btn-block profile-btn-follow" onclick="loadPhotos({{$key->user_id}})">View All</button>
+                                    </div>
+                                    <div class="panel panel-post-item" id="load">
+                                        {{--content will be loaded via ajax--}}
                                     </div>
                                 @else
                                     <div class="panel panel-post-item">
@@ -167,74 +175,17 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3 col-lg-2 profile-sidebar">
+
                     <div class="row">
-                        <div class="col-sm-6 col-md-12">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">People You May Know</h4>
-                                </div>
-                                <div class="panel-body">
-                                    <ul class="media-list user-list">
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <a href="#">
-                                                    <img class="media-object img-circle" src="../images/photos/user9.png" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading"><a href="">Ashley T. Brewington</a></h4>
-                                                <span>5,323</span> Followers
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <a href="#">
-                                                    <img class="media-object img-circle" src="../images/photos/user10.png" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading"><a href="">Roberta F. Horn</a></h4>
-                                                <span>4,100</span> Followers
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <a href="#">
-                                                    <img class="media-object img-circle" src="../images/photos/user3.png" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading"><a href="">Jennie S. Gray</a></h4>
-                                                <span>3,508</span> Followers
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <a href="#">
-                                                    <img class="media-object img-circle" src="../images/photos/user4.png" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading"><a href="">Alia J. Locher</a></h4>
-                                                <span>3,508</span> Followers
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <a href="#">
-                                                    <img class="media-object img-circle" src="../images/photos/user6.png" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading"><a href="">Jamie W. Bradford</a></h4>
-                                                <span>2,001</span> Followers
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div><!-- panel -->
+                        <div class="col-sm-6 col-md-12" id="suggested">
+                            <div class="panel" style="align-content: center;">
+                                <button style="margin: 10px; margin-left:60px;" class="btn btn-primary" value="View Suggested People" onclick="suggestedPartners({{$key->user_id}})">View Suggested People</button>
+                                {{--content will Load via ajax function suggestedPartners--}}
+                            </div>
                         </div>
+
                         <div class="col-sm-6 col-md-12">
                             <div class="panel">
                                 <div class="panel-heading">
@@ -319,7 +270,7 @@
     <script src="{{asset('internal_css/lib/modernizr/modernizr.js')}}"></script>
     <script type="text/javascript">
 
-        {{--Javascript function that send request using ajax--}}
+        /*Javascript function that send request using ajax*/
         function sendRequest(id)
         {
             $.ajax({
@@ -337,7 +288,7 @@
             });
         }
 
-        {{--Load editProfile.blade using ajax--}}
+        /*Load editProfile.blade using ajax*/
         function editProfile(id) {
 
             $.ajax({
@@ -356,34 +307,116 @@
             });
         }
 
+        /*Change the profile picture*/
+        function changeProfilePicture(id)
+        {
+            $.ajax({
+
+                type: "POST",
+                url: 'changeProfilePicture_'+id,
+                data: {
+                },
+                dataType: 'html',
+                success: function (data) {
+                    document.getElementById("presonalinfo").innerHTML = data;
+                },
+                error: function (err) {
+                    alert("error");
+                }
+            });
+
+        }
+
+        /*Load suggested partners*/
+        function suggestedPartners(id)
+        {
+            $.ajax({
+                type: "POST",
+                url: 'suggestedPartners_'+id,
+                data: {
+                },
+                dataType: 'html',
+                success: function (data) {
+                    document.getElementById("suggested").innerHTML = data;
+                },
+                error: function (err) {
+                    alert("error");
+                }
+            });
+        }
+
+        /*Add photos*/
+        function addPhoto()
+        {
+            $.ajax({
+                type: "POST",
+                url: 'addPhoto',
+                data: {
+                },
+                dataType: 'html',
+                success: function (data) {
+                    document.getElementById("load").innerHTML = data;
+                },
+                error: function (err) {
+                    alert("error");
+                }
+            });
+        }
+
+        /*Load photos*/
+        function loadPhotos(id)
+        {
+            $.ajax({
+                type: "POST",
+                url: 'loadPhoto_'+id,
+                data: {
+                },
+                dataType: 'html',
+                success: function (data) {
+                    document.getElementById("load").innerHTML = data;
+                },
+                error: function (err) {
+                    alert("error");
+                }
+            });
+        }
+
+        /*Delete photos*/
+        function deletePhotos()
+        {
+            var photos =  document.getElementsByName("photoSelected");
+            var len = photos.length;
+
+            for(k=0;k< len;k++)
+            {
+                if(photos[k].checked == true)
+                {
+                    var delP = photos[k].value;
+                }
+            }
+
+            $.ajax({
+                type: "POST",
+                url: 'deletePhotos',
+                data: {
+                    delP:delP
+                },
+                dataType: 'html',
+                success: function (data) {
+                    document.getElementById("load").innerHTML = data;
+                    alert('Deleted');
+                },
+                error: function (err) {
+                    alert("error");
+                }
+            });
+        }
+
         /*****************************************************************************/
         /*Java Scripts for editProfile.blade page*/
         /*****************************************************************************/
 
-        {{--Change the profile picture--}}
-        function changeProfilePicture(id)
-        {
-             var profilePic = document.getElementById("profilePic");
-
-             $.ajax({
-
-                 type: "POST",
-                 url: 'changeProfilePicture',
-                 data: {
-                     profilePic:profilePic, id:id
-                 },
-                 dataType: 'html',
-                 success: function (data) {
-                     document.getElementById("presonalinfo").innerHTML = data;
-                 },
-                 error: function (err) {
-                     alert("error");
-                 }
-             });
-
-        }
-
-        {{--Change the Basic info--}}
+        /*Change the Basic info*/
         function updateBasicInfo(id)
         {
             var home = document.getElementById("Hometown").value;
@@ -407,8 +440,8 @@
                     },
                     dataType: 'html',
                     success: function (data) {
+                        alert("Updated");
                         document.getElementById("presonalinfo").innerHTML = data;
-                        // alert(data);
                     },
                     error: function (err) {
                         alert("error");
@@ -425,7 +458,7 @@
         }
 
 
-        {{--Change the Contact info--}}
+        /*Change the Contact info*/
         function updateContactInfo(id)
         {
             var address = document.getElementById("Address").value;
@@ -448,8 +481,8 @@
                     },
                     dataType: 'html',
                     success: function (data) {
+                        alert("Updated");
                         document.getElementById("presonalinfo").innerHTML = data;
-                        // alert(data);
                     },
                     error: function (err) {
                         alert("error");
@@ -462,7 +495,7 @@
         }
 
 
-        {{--Change the Appearence--}}
+        /*Change the Appearence*/
         function updateAppearance(id)
         {
             var height = document.getElementById("height").value;
@@ -486,8 +519,9 @@
                     },
                     dataType: 'html',
                     success: function (data) {
+                        alert("Updated");
                         document.getElementById("presonalinfo").innerHTML = data;
-                        // alert(data);
+
                     },
                     error: function (err) {
                         alert("error");
@@ -501,31 +535,43 @@
             }
         }
 
-        {{--Change the Education details--}}
+        /*Change the Education details*/
         function updateEducation(id)
         {
             var des = document.getElementById("education").value;
+            var occ = document.getElementById("occupation").value;
+
+            var stringCk = /^[A-Za-z ]+$/;
+
+            if((stringCk.test(occ)))
+            {
+                document.getElementById('erroroccu').style.display = 'none';
 
                 $.ajax({
 
                     type: "POST",
                     url: 'updateEducation',
                     data: {
-                        id:id, des:des
+                        id: id, des: des, occ:occ
                     },
                     dataType: 'html',
                     success: function (data) {
+                        alert("Updated");
                         document.getElementById("presonalinfo").innerHTML = data;
-                        // alert(data);
                     },
                     error: function (err) {
                         alert("error");
                     }
                 });
+            }
+            else {
+                    document.getElementById('erroroccu').style.display = 'inline';
+
+            }
 
         }
 
-        {{--Change the other details--}}
+        /*Change the other details*/
         function updateOther(id)
         {
             var d = document.getElementById("day").value;
@@ -549,8 +595,9 @@
                 },
                 dataType: 'html',
                 success: function (data) {
+                    alert("Updated");
                     document.getElementById("presonalinfo").innerHTML = data;
-                    // alert(data);
+
                 },
                 error: function (err) {
                     alert("error");

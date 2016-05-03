@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Requests\SearchRequest;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\App;
@@ -16,67 +17,13 @@ class searchController extends Controller {
         return view('client.search_main2');
     }
 
-    /*public function connectSearch()
+    public  function beforeRegister(SearchRequest $request)
     {
-        if(Session::has('gender'))
-        {
-            $uname = $_POST['username'];
-            $password = $_POST['password'];
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $bdayM = $_POST['bdayM'];
-            $bdayD = $_POST['bdayD'];
-            $bdayY = $_POST['bdayY'];
-            $checkbox = $_POST['checkbox'];
 
-            DB::table('users')->insert(
-                ['name' => $name, 'email' => $email,'password'=>$password,'bday'=>$bdayM.'.'.$bdayD.'.'.$bdayY, 'username'=>$uname ]
-            );
+        //$details = $request->all();
 
-            //retriving data from session variables
-            $gender=Session::get('gender');
-            $ageStart=Session::get('ageStart');
-            $ageEnd=Session::get('ageEnd');
-            $religion=Session::get('religion');
-            $motherTongue=Session::get('motherTongue');
-            $district=Session::get('district');
+        //Session::put('details',$details);
 
-            //query run
-            $results=DB::table('opt_filters')->join('user_profiles', 'opt_filters.user_id', '=', 'user_profiles.user_id')
-                ->select('user_profiles.first_name','user_profiles.last_name','user_profiles.location','user_profiles.user_id')
-                ->where('opt_filters.district','=',$district)
-                ->whereBetween('opt_filters.age', [$ageStart, $ageEnd])
-                ->where('opt_filters.religion','=',$religion)
-                ->where('opt_filters.motherTongue','=',$motherTongue)
-                ->where('opt_filters.gender','=',$gender)->get();
-
-
-           /* echo '<script language="javascript">';
-            echo 'alert("Successfully registered!")';
-            echo '</script>';
-            exit;
-
-            Session::flush(); //session end
-
-            //check if has any results from the query
-            if(count($results)<1)
-            {
-                $results = "No Result";
-                return view('client.search_result')->with('results',$results);//if query does not have any result return this
-            }
-
-            return view('client.search_result')->with('results',$results);//if query has any result return this
-
-
-        }
-        else
-        {
-            return view('client.index');
-        }
-    }*/
-
-   /* public  function Register(SearchRequest $request)
-    {
         //Getting values from the form
         $gender = \Input::get('Gender');
         $ageStart = \Input::get('AgeStart');
@@ -87,15 +34,15 @@ class searchController extends Controller {
 
 
         //puting them in session variables
-        Session::put('gender',$gender);
-        Session::put('ageStart',$ageStart);
-        Session::put('ageEnd',$ageEnd);
-        Session::put('religion',$religion);
-        Session::put('motherTongue',$motherTongue);
-        Session::put('district',$district);
+        Session::put('Gender',$gender);
+        Session::put('AgeStart',$ageStart);
+        Session::put('AgeEnd',$ageEnd);
+        Session::put('Religion',$religion);
+        Session::put('MotherTongue',$motherTongue);
+        Session::put('District',$district);
 
-        return view('auth.register');
-    }*/
+        return redirect('/auth/register');
+    }
 
 
     /*
@@ -121,40 +68,17 @@ class searchController extends Controller {
         $motherTongue = \Input::get('MotherTongue');
 
         //query run
-        $results=DB::table('profiles')
-            ->select('first_name','last_name','location','user_id','birthday')
-            ->where('location','=',$district)
-            ->where('user_id','!=', Auth::user()->id)
-            ->where('religion','=',$religion)
-            ->where('motherTongue','=',$motherTongue)
-            ->where('gender','=',$gender)
+        $final=DB::table('profiles')
+            ->join('users', 'users.id', '=', 'profiles.user_id')
+            ->where('profiles.location','=',$district)
+            ->where('profiles.user_id','!=', Auth::user()->id)
+            ->where('profiles.religion','=',$religion)
+            ->where('profiles.motherTongue','=',$motherTongue)
+            ->where('profiles.gender','=',$gender)
+            ->whereBetween('profiles.age', array($ageStart, $ageEnd))
+            ->where('users.is_admin','=',0)
+            ->where('users.user_activate_state','=','activate')
             ->get();
-
-        //checking age
-
-        $currentDate = Carbon::now();
-
-        //GET THE CURRENT YEAR
-        $currentYear = (int)str_limit($currentDate,4);
-        $count =0;
-
-        foreach($results as $raw)
-        {
-            $bdy=$raw->birthday;
-
-            //GET THE BIRTH YEAR
-            $bYear = (int)str_limit($bdy,4);
-
-            // CALCULATE THE AGE
-            $age = $currentYear - $bYear;
-
-            //CHECK THE AGE
-            if(($age >= $ageStart)&&($age < $ageEnd))
-            {
-                $final[$count]=$raw;
-            }
-            $count  ++;
-        }
 
         //check if has any results from the query
         if(count($final)<1)
@@ -165,11 +89,52 @@ class searchController extends Controller {
             return view('client.search_result')->with('final',$final);
         }
 
-
         //if query has values return this
        return view('client.search_result')->with('final',$final);
 
 
+    }
+
+    public  function ResultSession(){
+        $gender = Session::get('Gender');
+        $ageStart = Session::get('AgeStart');
+        $ageEnd = Session::get('AgeEnd');
+        $district = Session::get('District');
+        $religion = Session::get('Religion');
+        $motherTongue = Session::get('MotherTongue');
+
+        Session::forget('Gender');
+        Session::forget('AgeStart');
+        Session::forget('AgeEnd');
+        Session::forget('From');
+        Session::forget('Religion');
+        Session::forget('MotherTongue');
+
+
+        //query run
+        $final=DB::table('profiles')
+            ->join('users', 'users.id', '=', 'profiles.user_id')
+            ->where('profiles.location','=',$district)
+            ->where('profiles.user_id','!=', Auth::user()->id)
+            ->where('profiles.religion','=',$religion)
+            ->where('profiles.motherTongue','=',$motherTongue)
+            ->where('profiles.gender','=',$gender)
+            ->whereBetween('profiles.age', array($ageStart, $ageEnd))
+            ->where('users.is_admin','=',0)
+            ->where('users.user_activate_state','=','activate')
+            ->get();
+
+        //check if has any results from the query
+        if(count($final)<1)
+        {
+            $final = "No Result";
+
+            //if query does not have any result return this
+            return view('client.search_result')->with('final',$final);
+        }
+
+        //if query has values return this
+        return view('client.search_result')->with('final',$final);
     }
 
     public function searchSocial()
@@ -263,7 +228,7 @@ class searchController extends Controller {
         }
         else{
             //A NEW RAW WILL BE ADDED TO THE TABLE
-            $query = DB::table('requests')->insert([
+            DB::table('requests')->insert([
                 [
                     'userID' => $id,
                     'friendID' => $uid,
@@ -272,11 +237,28 @@ class searchController extends Controller {
                 ]
             ]);
 
-            //CHECK IF THE QUERY EXECUTED SUCCESSFULLY
-            if(!$query)
-                App::abort(500, 'Oopz..Something went wrong with the database!');
-            else
-                return json_encode("Request Sent!");
+            $friendName=DB::table('users')
+                ->select('name')
+                ->where('id','=',$id)
+                ->get();
+
+            foreach ($friendName as $name) {
+                 $username=$name->name;
+            }
+
+            DB::table('notifications')->insert([
+                [
+                    'sender_username' => Auth::user()->name,
+                    'receiver_username' => $username,
+                    'type' => 'friend',
+                    'message' => 'Would you like to be my friend?',
+                    'linktogo' => $uid,
+                    'created_at' => $x,
+                    'updated_at' => $x
+                ]
+            ]);
+
+            return json_encode("Request Sent!");
 
         }
         //return json_encode("Hi");
@@ -362,6 +344,7 @@ class searchController extends Controller {
         return view('ajax.editProfile')->with('user',$user);
 
     }//End of the EditProfile function
+
 
 
 

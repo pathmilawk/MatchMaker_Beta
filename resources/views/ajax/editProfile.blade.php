@@ -1,13 +1,5 @@
 @foreach($user as $key)
     <div class="panel panel-post-item">
-        Change the profile picture
-        <img class="img-circle img-responsive" src="{{asset('Profile_Pictures/'.$key->user_id.'.png')}}" alt="" style="left: 100px;">
-        {!! Form::open(array('action' => 'EditProfileController@changeProfilePicture','files'=>true)) !!}
-            <input type="file" class="form-group" id="profilePic" name="profilePic">
-            <input type="submit" class="btn btn-danger" style="padding:10px; float: right;" value="Change">
-        {!! Form::close() !!}
-    </div>
-    <div class="panel panel-post-item">
         <h4>Basic Information</h4>
         <table style="width: 100%;">
             <tr>
@@ -135,6 +127,11 @@
         <table style="width: 100%;">
             <tr style="padding: 10px;">
                 <textarea rows="4" cols="90" id="education">@if($key->education != null){{$key->education}}@endif</textarea>
+            </tr>
+            <tr>
+                <td style="padding: 10px;"><i class="fa fa-phone"></i> Occupation </td>
+                <td style="padding: 10px;"><input type="text" value="{{$key->occupation}}" style="width: 200px;" id="occupation"></td>
+                <td style="padding: 10px;"><div id="erroroccu" class="alert alert-danger" style="display: none;" >Invalid format.</div></td>
             </tr>
         </table>
         <button class="btn btn-danger" style="padding:10px; float: right;" onclick="updateEducation({{$key->user_id}})">Update</button>
@@ -293,6 +290,8 @@
         <button class="btn btn-danger" style="padding:10px; float: right;" onclick="updateOther({{$key->user_id}})">Update</button>
     </div>
     <div class="panel panel-post-item" style="text-align: center;">
-        <button class="btn btn-danger" style="padding:10px;" onclick="{{$key->user_id}}">Finish Editing</button>
+        <a href='{!! $key->user_id !!}'>
+            <button class="btn btn-danger" style="padding:10px;">Finish Editing</button>
+        </a>
     </div>
 @endforeach

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateProfilePicturesTable extends Migration {
+class CreateUploadedPhotosTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,11 @@ class CreateProfilePicturesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('profilePictures', function(Blueprint $table)
+		Schema::create('uploaded_photos',function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('user_id');
-			$table->string('picture');
+			$table->integer('userID');
+			$table->string('photo');
 			$table->timestamps();
 		});
 	}
@@ -28,7 +28,7 @@ class CreateProfilePicturesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('profilePictures');
+		Schema::drop('uploaded_photos');
 	}
 
 }

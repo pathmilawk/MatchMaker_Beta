@@ -31,7 +31,7 @@
                        <tr>
                            <td>
                                <div class="col-sm-2">
-                                   <img src="{{asset('Profile_Pictures'.$raw->first_name.'/'.$raw->user_id.'.png')}}" width="120px" height="120px">
+                                   <img src="{{asset('Profile_Pictures/'.$raw->user_id.'/'.$raw->picture)}}" width="120px" height="120px">
                                </div>
                            </td>
                            <td>

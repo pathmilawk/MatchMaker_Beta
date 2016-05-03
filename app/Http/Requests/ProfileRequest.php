@@ -20,12 +20,7 @@ class ProfileRequest extends Request {
 	public function rules()
 	{
 		return [
-
-			//Basic Information
-			'home' => 'string',
-			'loc' => 'string',
-			'con' => 'string',
-
+			//
 		];
 	}
 
