@@ -2,8 +2,17 @@
 @section('css_ref')
 @parent
 @stop
+@section('BarButtons')
+    <div class="header-right paddingtop10">
+        <h4>
+            <a href="http://<?php echo $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']; ?>/auth/login"><button
+                        class="btn btn-primary btn-quirk">Sign In</button></a>&nbsp;&nbsp;&nbsp;
+            <a href="http://<?php echo $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']; ?>/auth/register"><button
+                        class="btn btn-primary btn-quirk">Register</button></a>
+        </h4>
+    </div>
+    @show
 @section('content')
-        <!DOCTYPE html>
 <html>
 <head>
     <link href="{{asset('external_css/css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
@@ -81,6 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <?php
                 echo htmlspecialchars($story->id);
                 ?>
+                    <input type="hidden" value="{{ $story->id }}" id="mmm" name="mmm" />
             </div>
 
             <!--post comments-->
@@ -144,10 +154,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         function showcomment() {
             var div = document.getElementById("dom-target");
-            var storyid = div.textContent;
+            var storyid = $("#mmm").val();
 
             $.ajax({
-                url: '/showCommentAjax',
+                url: '/showCommentAjax1'+storyid,
                 type: 'post',
                 data: {
                     storyid: storyid
@@ -169,8 +179,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
 
-        onload = showcomment();
-
+        //onload = showcomment();
+        $(document).ready(function(){
+            showcomment();
+        })
 
     </script>
 

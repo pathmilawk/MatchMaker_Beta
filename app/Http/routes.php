@@ -101,11 +101,12 @@ Route::get('set_story1/{id}','StoryController@setStory1');
 Route::get('set_story2/{id}','StoryController@setStory2');
 Route::get('delete_story/{id}','StoryController@deleteStory');
 
-
+Route::post('showAnswer','AdminController@showAnswer');
+Route::post('updateAnswer','AdminController@updateAnswer');
 
 //admin
-Route::get('admin_panel','AdminController@adminPanel');
-
+Route::get('successStoryPanel','AdminController@adminPanel');
+Route::get('contactPanel','AdminController@contactPanel');
 
 
 

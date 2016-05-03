@@ -19,6 +19,14 @@
                 <div class="panel-body">
                     <h2 class="text-success">Contact us</h2>
                     <hr>
+                    @if((session()->has('contactsuccess'))) <!--status of submitting the story-->
+                    @if(session('contactsuccess')=='true')
+                        <div class="alert alert-success" style="width: 65%">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>Thank you!your question has been submitted.</strong>
+                        </div>
+                        @endif
+                        @endif
                     <!--contact form-->
                     {!! Form::open(array('action' => 'ContactController@contactFormSubmit')) !!}
 

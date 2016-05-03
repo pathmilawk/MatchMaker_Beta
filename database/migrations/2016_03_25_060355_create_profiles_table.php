@@ -41,6 +41,7 @@ class CreateProfilesTable extends Migration {
 			$table->string('education'); // to select-> 'Degree Holder','High school Graduate',
 			$table->string('sign');
 			$table->boolean('profile_picture');
+			$table->string('picture');
 
 			$table->string('address'); // home address
 			$table->string('telephone'); // one phone number

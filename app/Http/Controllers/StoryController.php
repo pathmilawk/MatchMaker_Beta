@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Auth;
 
 class StoryController extends Controller {
 
+    /**
+     * get a view to view user stories
+     * @param $id
+     * @return $this
+     */
     public function viewStory($id){
         $story = Story::find($id);
         $comments = DB::table('comments')->where('storyid',$id)->get();
@@ -30,6 +35,12 @@ class StoryController extends Controller {
         }
     }
 
+    /**
+     * save comment to database
+     * @param CommentRequest $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function commentFormSubmit(CommentRequest $request,$id){
 
         $input=$request->all();
@@ -41,10 +52,19 @@ class StoryController extends Controller {
             ->with('comments',$comments);
     }
 
+    /**
+     * get submit story view
+     * @return \Illuminate\View\View
+     */
     public function submitStory(){
         return view('client.submit_story');
     }
 
+    /**
+     * save success story to database
+     * @param StoryRequest $request
+     * @return $this
+     */
     public function storyFormSubmit(StoryRequest $request){
         $success='false';
         $data=$request->all();
@@ -66,24 +86,44 @@ class StoryController extends Controller {
         return view('client.submit_story')->with('success',$success);
     }
 
+    /**
+     * set the story fo story 1 in home
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function setStory1($id){
         DB::table('storys')->where('published',1)->update(['published' => 0]);
         DB::table('storys')->where('id',$id)->update(['published' => 1]);
         return redirect('admin_panel');
     }
 
+    /**
+     * set the story for story 2 in home
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function setStory2($id){
         DB::table('storys')->where('published',2)->update(['published' => 0]);
         DB::table('storys')->where('id',$id)->update(['published' => 2]);
         return redirect('admin_panel');
     }
 
+    /**
+     * remove a story from the database.
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function deleteStory($id){
         DB::table('storys')->where('id',$id)->delete();
         return redirect('admin_panel');
     }
 
 
+    /**
+     * insert comments to the database
+     * with related success story
+     * @param CommentRequest $request
+     */
     public  function  commentAjax(CommentRequest $request){
 
         $input=$request->all();
@@ -95,6 +135,11 @@ class StoryController extends Controller {
             ->with('comments',$comments);*/
     }
 
+    /**
+     * reload comments div of  view story
+     * @param Request $request
+     * @return $this
+     */
     public function showCommentAjax(Request $request)
     {
         //$storyid = $request->Input('storyid');
@@ -105,6 +150,11 @@ class StoryController extends Controller {
 
     }
 
+    /**
+     * reload comments div in view story
+     * @param $id
+     * @return $this
+     */
     public function showCommentAjax1($id)
     {
         $storyid = $id;

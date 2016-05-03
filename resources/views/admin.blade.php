@@ -28,7 +28,7 @@
     <div class="headerpanel">
 
         <div class="logopanel">
-            <h2><a href="/">Match Maker</a></h2>
+            <h2><a href="/AdminDashBoard">Match Maker</a></h2>
         </div>
         <!-- logopanel -->
 
@@ -576,7 +576,7 @@
         <div class="contentpanel">
 
             <ol class="breadcrumb breadcrumb-quirk">
-                <li><a href="AdminDashBoard"><i class="fa fa-home mr5"></i> Home</a></li>
+                <li><a href="AdminDashBoard"><i class="fa fa-home mr5"></i> Admin DashBoard</a></li>
                 <li><a href="#">Pages</a></li>
                 <li class="#"><?php echo pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME); ?></li>
             </ol>

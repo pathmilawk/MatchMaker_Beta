@@ -47,6 +47,10 @@ class AuthController extends Controller {
 //		return view('auth/register');
 //	}
 
+
+    /**check if user is admin or normal user
+     * @return string
+     */
    public function  redirectPath(){
        if(Auth::user()->is_admin){
             return '/AdminDashBoard';
@@ -57,8 +61,11 @@ class AuthController extends Controller {
    }
 
 
-
-
+    /**
+     * validate user registration details
+     * @param array $data
+     * @return mixed
+     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -75,6 +82,11 @@ class AuthController extends Controller {
         ]);
     }
 
+    /**
+     * insert new user
+     * @param array $data
+     * @return static
+     */
     protected function create(array $data)
     {
         return User::create([
@@ -90,6 +102,11 @@ class AuthController extends Controller {
         ]);
     }
 
+    /**
+     * validate user registration details
+     * @param Request $request
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function postRegister(Request $request)
     {
         $this->validate($request, [
