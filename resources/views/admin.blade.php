@@ -28,7 +28,7 @@
     <div class="headerpanel">
 
         <div class="logopanel">
-            <h2><a href="/AdminDashBoard">Match Maker</a></h2>
+            <h2><a href="/">Match Maker</a></h2>
         </div>
         <!-- logopanel -->
 
@@ -36,16 +36,16 @@
 
             <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
 
-           {{-- <div class="searchpanel">
-                <div class="input-group">
-                    --}}{{--<input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="text" name="name" class="form-control" placeholder="Search for..." required>--}}{{--
-                    <span class="input-group-btn">
-                <a href="Search"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></a>
-              </span>
-                </div>
-                <!-- input-group -->
-            </div>--}}
+            {{-- <div class="searchpanel">
+                 <div class="input-group">
+                     --}}{{--<input type="hidden" name="_token" value="{{ csrf_token() }}">
+                     <input type="text" name="name" class="form-control" placeholder="Search for..." required>--}}{{--
+                     <span class="input-group-btn">
+                 <a href="Search"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></a>
+               </span>
+                 </div>
+                 <!-- input-group -->
+             </div>--}}
 
             <div class="header-right">
                 <ul class="headermenu">
@@ -318,12 +318,15 @@
                         <li><a href="userAdmin"><i class="fa fa-anchor"></i> <span>Users Admin Pannel</span></a></li>
                         <li><a href="test"><span class="badge pull-right"></span><i class="fa fa-cube"></i>
                                 <span>Advertisments</span></a></li>
-                        <li><a href="maps.html"><i class="fa fa-map-marker"></i> <span>Add Topic</span></a></li>
+                        <li><a href="adminRegistrationForm"><i class="fa fa-map-marker"></i> <span>Email Box</span></a></li>
+                        <li><a href="contactPanel"><i class="fa fa-map-marker"></i> <span>FAQ</span></a></li>
+                        <li><a href="viewAlllogActivities"><i class="fa fa-map-marker"></i> <span>Statistics</span></a></li>
+                        <li><a href="successStoryPanel"><i class="fa fa-map-marker"></i> <span>Success Stories</span></a></li>
 
 
                     </ul>
 
-                    <h5 class="sidebar-title">Main Menu</h5>
+                    {{--<h5 class="sidebar-title">Main Menu</h5>
                     <ul class="nav nav-pills nav-stacked nav-quirk">
                         <li class="nav-parent">
                             <a href=""><i class="fa fa-check-square"></i> <span>Add Topic</span></a>
@@ -362,7 +365,7 @@
                                 <li><a href="#"></a></li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul>--}}
                 </div>
                 <!-- tab-pane -->
 
@@ -579,7 +582,7 @@
         <div class="contentpanel">
 
             <ol class="breadcrumb breadcrumb-quirk">
-                <li><a href="AdminDashBoard"><i class="fa fa-home mr5"></i> Admin DashBoard</a></li>
+                <li><a href="AdminDashBoard"><i class="fa fa-home mr5"></i> Home</a></li>
                 <li><a href="#">Pages</a></li>
                 <li class="#"><?php echo pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME); ?></li>
             </ol>

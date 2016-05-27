@@ -112,7 +112,6 @@ Route::post('submitFeedBack','AccountsController@submitFeedBack');
 
 
 
-
 //==================
 
 //pathmila's=============
@@ -160,6 +159,7 @@ Route::post('sendRequest_{id}','searchController@SendRequest');
 Route::post('showInterest_{id}','searchController@showInterest');
 Route::get('{id}','searchController@ProfileLoad');
 Route::post('editProfile_{id}','searchController@EditProfile');
+Route::post('getI_{id}','ProfileController@getI');
 
 //Edit Profile routes (Savidya)
 Route::post('changeProfilePicture_{id}','EditProfileController@changeProfilePicture');
@@ -180,10 +180,10 @@ Route::post('loadPhoto_{id}','ProfileController@loadPhoto');
 Route::post('deletePhotos','ProfileController@deletePhotos');
 
 //privacy setting
-Route::get('ShowDetails','ProfileController@ShowDetails');
-Route::get('HideDetails','ProfileController@HideDetails');
-Route::get('ShowPhotos','ProfileController@ShowPhotos');
-Route::get('HidePhotos','ProfileController@HidePhotos');
+Route::post('showDetails','ProfileController@ShowDetails');
+Route::post('HideDetails','ProfileController@HideDetails');
+Route::post('ShowPhotos','ProfileController@ShowPhotos');
+Route::post('HidePhotos','ProfileController@HidePhotos');
 
 
 

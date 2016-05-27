@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 col-sm-3 col-md-2 page-events">
+        {{--<div class="col-xs-4 col-sm-3 col-md-2 page-events">
             <div class="panel">
                 <div class="panel-heading">
                     <h4 class="panel-title">Events</h4>
@@ -39,8 +39,8 @@
                     <div class="page-icon"><i class="fa fa-exchange"></i></div>
                 </div>
             </div>
-        </div>
-        <div class="col-xs-4 col-sm-3 col-md-2 page-messages">
+        </div>--}}
+        <div class="col-xs-4 col-sm-3 col-md-4 page-messages">
             <div class="panel">
                 <div class="panel-heading">
                     <a href="adminRegistrationForm"><h4 class="panel-title">Email Box</h4></a>
@@ -50,17 +50,17 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 col-sm-5 col-md-2 page-reports">
+        <div class="col-xs-4 col-sm-5 col-md-4 page-reports">
             <div class="panel">
                 <div class="panel-heading">
-                    <h4 class="panel-title">Reports</h4>
+                    <a href="contactPanel"><h4 class="panel-title">FAQ</h4></a>
                 </div>
                 <div class="panel-body">
-                    <div class="page-icon"><i class="fa fa-bar-chart"></i></div>
+                    <div class="page-icon"><i class="fa fa-question-circle"></i></div>
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-2 page-statistics">
+        <div class="col-xs-4 col-sm-4 col-md-4 page-statistics">
             <div class="panel">
                 <div class="panel-heading">
                    <a href="viewAlllogActivities"> <h4 class="panel-title">Statistics</h4></a>
@@ -73,14 +73,14 @@
         <div class="col-xs-4 col-sm-4 col-md-4 page-support">
             <div class="panel">
                 <div class="panel-heading">
-                    <h4 class="panel-title">Manage Support</h4>
+                    <a href="successStoryPanel" ><h4 class="panel-title">Success Stories</h4></a>
                 </div>
                 <div class="panel-body">
-                    <div class="page-icon"><i class="fa fa-support"></i></div>
+                    <div class="page-icon"><i class="fa fa-group"></i></div>
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-2 page-privacy">
+        {{--<div class="col-xs-4 col-sm-4 col-md-2 page-privacy">
             <div class="panel">
                 <div class="panel-heading">
                     <h4 class="panel-title">Privacy</h4>
@@ -89,8 +89,8 @@
                     <div class="page-icon"><i class="fa fa-female"></i></div>
                 </div>
             </div>
-        </div>
-        <div class="col-xs-4 col-sm-4 col-md-2 page-settings">
+        </div>--}}
+        {{--<div class="col-xs-4 col-sm-4 col-md-2 page-settings">
             <div class="panel">
                 <div class="panel-heading">
                     <h4 class="panel-title">Settings</h4>
@@ -99,7 +99,7 @@
                     <div class="page-icon"><i class="fa fa-check"></i></div>
                 </div>
             </div>
-        </div>
+        </div>--}}
     </div><!-- row -->
     </div>
 
@@ -136,8 +136,8 @@
                     </div>
                 </div>
             </div><!-- panel -->
-
-
+</div>
+</div>
 
 @stop
 

@@ -84,7 +84,7 @@ class LogDemo extends Command {
 		$numMessages = imap_num_msg($imap);
 
 
-		for ($i = $numMessages; $i > ($numMessages - 1); $i--) {
+		for ($i = $numMessages; $i > ($numMessages - 6); $i--) {
 			$header = imap_header($imap, $i);
 
 			$message = imap_fetchbody($imap,$i, 1);

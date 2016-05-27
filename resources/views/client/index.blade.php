@@ -62,48 +62,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <br>
             <!-- Search Box Starts -->
             <div class="searchBox">
-                <h1 style=" margin-top: 30px; ">Find Your Soulmate Here...</h1>
+                <h1 style=" margin-top: 30px;colour:black; ">Find Your Soulmate Here...</h1>
                 <br>
                 {!! Form::open( ['url' => 'beforeRegister']) !!}
-                <div class="form-group mt15">
-                    {!! Form::label('gender','I am looking for a :', ['class' => 'col-sm-6 control-label']) !!}
-                    <div class="col-sm-6">
-                        {!! Form::select('Gender',['Select a gender'=>'Select a gender','Male'=>'Male','Female'=>'Female']) !!}
-                    </div>
-                </div>
-                <br>
-                <br>
-                <br>
-
-                <div class="form-group mt15">
-                    {!! Form::label('Age','Age Between :', ['class' => 'col-sm-6 control-label']) !!}
-                    <div class="col-sm-3">
-                        {!! Form::select('AgeStart',['From' => 'From',
+                <table width="500px" style="margin-left: 60px;">
+                    <tr>
+                        <td style="width: 600px">{!! Form::label('gender','I am looking for a :', ['class' => 'col-sm-6 control-label']) !!}</td>
+                        <td>{!! Form::select('Gender',['Select a gender'=>'Select a gender','Male'=>'Male','Female'=>'Female']) !!}</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 500px">{!! Form::label('Age','Age Between :', ['class' => 'col-sm-6 control-label']) !!}</td>
+                        <td>
+                            {!! Form::select('AgeStart',['From' => 'From',
                                                     '18'=>'18','19'=>'19','20'=>'20','21'=>'21','22'=>'22','23'=>'23','24'=>'24','25'=>'25','26'=>'26','27'=>'27','28'=>'28','29'=>'29',
                                                     '30'=>'30','31'=>'31','32'=>'32','33'=>'33','34'=>'34','35'=>'35','36'=>'36','37'=>'37','38'=>'38','39'=>'39',
                                                     '40'=>'40','41'=>'41','42'=>'42','43'=>'43','44'=>'44','45'=>'45','46'=>'46','47'=>'47','48'=>'48','49'=>'49',
                                                     '50'=>'50','51'=>'51','52'=>'52','53'=>'53','54'=>'54','55'=>'55','56'=>'56','57'=>'57','58'=>'58','59'=>'59',
                                                     '60'=>'60','61'=>'61','62'=>'62','63'=>'63','64'=>'64','65'=>'65','66'=>'66','67'=>'67','68'=>'68','69'=>'69','70'=>'70',
                                                     ]) !!}
-                    </div>
-                    <div class="col-sm-3">
-                        {!! Form::select('AgeEnd',['To' => 'To',
+                        </td>
+                        <td>
+                            {!! Form::select('AgeEnd',['To' => 'To',
                                                         '18'=>'18','19'=>'19','20'=>'20','21'=>'21','22'=>'22','23'=>'23','24'=>'24','25'=>'25','26'=>'26','27'=>'27','28'=>'28','29'=>'29',
                                                         '30'=>'30','31'=>'31','32'=>'32','33'=>'33','34'=>'34','35'=>'35','36'=>'36','37'=>'37','38'=>'38','39'=>'39',
                                                         '40'=>'40','41'=>'41','42'=>'42','43'=>'43','44'=>'44','45'=>'45','46'=>'46','47'=>'47','48'=>'48','49'=>'49',
                                                         '50'=>'50','51'=>'51','52'=>'52','53'=>'53','54'=>'54','55'=>'55','56'=>'56','57'=>'57','58'=>'58','59'=>'59',
                                                         '60'=>'60','61'=>'61','62'=>'62','63'=>'63','64'=>'64','65'=>'65','66'=>'66','67'=>'67','68'=>'68','69'=>'69','70'=>'70',
                                                         ]) !!}
-                    </div>
-                </div>
-                <br>
-                <br>
-
-                <div class="form-group mt10">
-                    {!! Form::label('From','From :', ['class' => 'col-sm-6 control-label']) !!}
-                    <div class="col-sm-6">
-                        {!! Form::select('From',
-                        ['Select a district'=>'Select a district',
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 500px">{!! Form::label('From','From :', ['class' => 'col-sm-6 control-label']) !!}</td>
+                        <td>
+                            {!! Form::select('From',
+                            ['Select a district'=>'Select a district',
                             'Ampara'=>'Ampara',
                             'Anuradhapura'=>'Anuradhapura',
                             'Badulla'=>'Badulla',
@@ -118,7 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             'Kurunegala'=>'Kurunegala',
                             'Manner'=>'Manner',
                             'Matale'=>'Matale',
-                            'Matale'=>'Matale',
+                            'Marale'=>'Marale',
                             'Monaragala'=>'Monaragala',
                             'Mullativu'=>'Mullativu',
                             'Nuwara Eliya'=>'Nuwara Eliya',
@@ -128,45 +120,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             'Trincomalee'=>'Trincomalee',
                             'Vavuniya'=>'Vavuniya',
                             'Does not matter'=>'Does not matter',]) !!}
-                    </div>
-                </div>
-                <br>
-                <br>
-
-                <div class="form-group mt10">
-                    {!! Form::label('Religion','Religion :', ['class' => 'col-sm-6 control-label']) !!}
-                    <div class="col-sm-6">
-                        {!! Form::select('Religion',['Select a religion'=>'Select a religion',
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 500px">{!! Form::label('Religion','Religion :', ['class' => 'col-sm-6 control-label']) !!}</td>
+                        <td>
+                            {!! Form::select('Religion',['Select a religion'=>'Select a religion',
                                                     'Buddhist'=> 'Buddhist',
                                                     'Christian'=>'Christian',
                                                     'Muslim'=> 'Muslim',
                                                     'Hindu'=>'Hindu',
                                                     'Does not matter'=>'Does not matter',]) !!}
-                    </div>
-                </div>
-                <br>
-                <br>
-
-                <div class="form-group mt15">
-                    {!! Form::label('Mother Tongue','Mother Tongue :', ['class' => 'col-sm-6 control-label']) !!}
-                    <div class="col-sm-6">
-                        {!! Form::select('MotherTongue',['Select a language'=>'Select a language',
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 500px">{!! Form::label('Mother Tongue','Mother Tongue :', ['class' => 'col-sm-6 control-label']) !!}</td>
+                        <td>
+                            {!! Form::select('MotherTongue',['Select a language'=>'Select a language',
                                                     'Sinhala'=>'Sinhala',
                                                     'Tamil'=>'Tamil',
                                                     'English'=>'English',
                                                     'Hindi'=>'Hindi',
                                                     'Does not matter'=>'Does not matter',]) !!}
-                    </div>
-                </div>
-                <br>
-
-                <div class="form-group mt15">
-                    {!! Form::submit('Search', ['id' => 'button']) !!}
-                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 1000px;">{!! Form::submit('Search', ['id' => 'button']) !!}</td>
+                    </tr>
+                </table>
                 {!! Form::close() !!}
+
             </div>
 
-            <div class="col-md-3" style="left: 600px;">
+            <div class="col-md-3" style="left: 200px;">
                 @if($errors->any())
                     <ul class="alert alert-danger">
                         @foreach($errors->all() as $error)
@@ -506,7 +492,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </br>
     </br>
     </br><br><br><br>
-
 
     <!--contact-->
     <div class="contact">

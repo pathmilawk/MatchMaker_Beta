@@ -45,14 +45,15 @@
         </div>
 
         <div class="form-group nomargin">
-
             <div class="input-group">
                 <h4>Answer</h4>
-                <textarea rows="6" style="width: 375px;" name="answer" id="answer" type="area" class="form-control">{{ $answer }}</textarea>
-
+                <textarea rows="6" style="max-width: 330px;width:330px" name="answer" id="answer" type="area" class="form-control">{{ $answer }}</textarea>
             </div>
-
         </div>
+
+
+                {{----}}
+
         <hr class="invisible">
 
         <div class="form-group">

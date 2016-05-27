@@ -23,6 +23,31 @@ class ProfileController extends Controller
     }//end of addPhoto function
 
 
+    /*
+    * Function for loading interested people
+    *
+    */
+    public function getI($id)
+    {
+
+        $interested = DB::table('show_interested')
+            ->join('profiles', 'profiles.user_id', '=', 'show_interested.user_id')
+            ->select('profiles.gender','profiles.first_name','profiles.last_name','profiles.occupation','profiles.user_id')
+            ->where('show_interested.user_id','=',$id)
+            ->get();
+
+        if(count($interested)<1)
+        {
+            $interested = "No Result";
+
+            //if query does not have any result return this
+            return view('ajax.interest')->with('interested',$interested);
+        }
+
+        return view('ajax.interest')->with('interested',$interested);
+    }//end of getI function
+
+
 
     /*
     * Function for add the 4to
@@ -116,8 +141,8 @@ class ProfileController extends Controller
     public function suggestedPartners($id)
     {
         $details = DB::table('profiles')
-                ->where('user_id','=',$id)
-                ->get();
+            ->where('user_id','=',$id)
+            ->get();
 
         foreach($details as $raw)
         {
@@ -190,10 +215,10 @@ class ProfileController extends Controller
         DB::table('profiles')
             ->where('user_id','=',$id)
             ->update([
-            [
-                'allowNonFriendDetails' => true,
-            ]
-        ]);
+
+                'allowNonFriendDetails' => 1,
+
+            ]);
 
         return json_encode("Anyone can view your details");
     }
@@ -205,9 +230,9 @@ class ProfileController extends Controller
         DB::table('profiles')
             ->where('user_id','=',$id)
             ->update([
-                [
-                    'allowNonFriendDetails' => false,
-                ]
+
+                'allowNonFriendDetails' => 0,
+
             ]);
 
         return json_encode("Your details are protected");
@@ -220,9 +245,9 @@ class ProfileController extends Controller
         DB::table('profiles')
             ->where('user_id','=',$id)
             ->update([
-                [
-                    'allowNonFriendPhoto' => true,
-                ]
+
+                'allowNonFriendPhotos' => 1,
+
             ]);
 
         return json_encode("Anyone can view your photos");
@@ -235,9 +260,9 @@ class ProfileController extends Controller
         DB::table('profiles')
             ->where('user_id','=',$id)
             ->update([
-                [
-                    'allowNonFriendPhoto' => false,
-                ]
+
+                'allowNonFriendPhotos' => 0,
+
             ]);
 
         return json_encode("Your photos are protected");

@@ -94,7 +94,7 @@ class StoryController extends Controller {
     public function setStory1($id){
         DB::table('storys')->where('published',1)->update(['published' => 0]);
         DB::table('storys')->where('id',$id)->update(['published' => 1]);
-        return redirect('admin_panel');
+        return redirect('successStoryPanel');
     }
 
     /**
@@ -105,7 +105,7 @@ class StoryController extends Controller {
     public function setStory2($id){
         DB::table('storys')->where('published',2)->update(['published' => 0]);
         DB::table('storys')->where('id',$id)->update(['published' => 2]);
-        return redirect('admin_panel');
+        return redirect('successStoryPanel');
     }
 
     /**
@@ -115,7 +115,7 @@ class StoryController extends Controller {
      */
     public function deleteStory($id){
         DB::table('storys')->where('id',$id)->delete();
-        return redirect('admin_panel');
+        return redirect('successStoryPanel');
     }
 
 

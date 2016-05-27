@@ -19,7 +19,7 @@
     </div>
 
     <div id="searchBody" align="center">
-        <h3 align="center" style="padding-top: 10px; padding-bottom: 10px; color: #31c1d2">What kind of person you are looking for..</h3>
+        <h3 align="center" style="padding-top: 10px; padding-bottom: 10px; color: black">What kind of person you are looking for..</h3>
         {!! Form::open( ['url' => 'Results']) !!}                                    {{-- Form Start--}}
 
                 <div class="form-group mt10">

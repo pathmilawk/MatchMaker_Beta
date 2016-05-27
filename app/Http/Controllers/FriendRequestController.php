@@ -10,9 +10,9 @@ class FriendRequestController extends Controller {
      *return
 
     */
-	public function acceptReq()
+	public function acceptReq($id)
 	{
-		return view('client.search_main2');
+
 	}
 
 }

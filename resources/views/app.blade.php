@@ -102,12 +102,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li>
-                        <button id="chatview" class="btn btn-chat alert-notice">
-                            <span class="badge-alert"></span>
-                            <i class="fa fa-comments-o"></i>
-                        </button>
-                    </li>
+
                 </ul>
             </div>
             <!-- header-right -->
@@ -174,9 +169,9 @@
             <!-- leftpanel-userinfo -->
 
             <ul class="nav nav-tabs nav-justified nav-sidebar">
-                <li class="tooltips active" data-toggle="tooltip" title="Main Menu"><a data-toggle="tab"
-                                                                                       data-target="#mainmenu"><i
-                                class="tooltips fa fa-ellipsis-h"></i></a></li>
+                {{--<li class="tooltips active" data-toggle="tooltip" title="Main Menu"><a data-toggle="tab"
+                                                                                       data-target="#emailmenu"><i
+                                class="tooltips fa fa-ellipsis-h"></i></a></li>--}}
                 <li class="tooltips unread" data-toggle="tooltip" title="Check Mail"><a data-toggle="tab"
                                                                                         data-target="#emailmenu"><i
                                 class="tooltips fa fa-envelope"></i></a></li>
@@ -194,7 +189,7 @@
 
                 <!-- ################# MAIN MENU ################### -->
 
-                <div class="tab-pane active" id="mainmenu">
+                {{--<div class="tab-pane active" id="mainmenu">
                     <h5 class="sidebar-title">Favorites</h5>
                     <ul class="nav nav-pills nav-stacked nav-quirk">
                         <li><a href="index.html"><i class="fa fa-home"></i> <span>Add Topic</span></a></li>
@@ -243,12 +238,12 @@
                             </ul>
                         </li>
                     </ul>
-                </div>
+                </div>--}}
                 <!-- tab-pane -->
 
                 <!-- ######################## EMAIL MENU ##################### -->
 
-                <div class="tab-pane" id="emailmenu">
+                <div class="tab-pane active" id="emailmenu">
                     <div class="sidebar-btn-wrapper">
                         <a href="email" class="btn btn-danger btn-block">Send Message</a>
                     </div>
@@ -260,13 +255,13 @@
                         <li><a href="viewAllSentMessages"><i class="fa fa-paper-plane"></i> <span>Sent</span></a></li>
                     </ul>
 
-                    <h5 class="sidebar-title">Tags</h5>
+                    {{--<h5 class="sidebar-title">Tags</h5>
                     <ul class="nav nav-pills nav-stacked nav-quirk nav-label">
                         <li><a href="#"><i class="fa fa-tags primary"></i> <span>Communication</span></a></li>
                         <li><a href="#"><i class="fa fa-tags success"></i> <span>Updates</span></a></li>
                         <li><a href="#"><i class="fa fa-tags warning"></i> <span>Promotions</span></a></li>
                         <li><a href="#"><i class="fa fa-tags danger"></i> <span>Social</span></a></li>
-                    </ul>
+                    </ul>--}}
                 </div>
                 <!-- tab-pane -->
 
@@ -413,24 +408,24 @@
                         <li class="list-group-item">
                             <h5>Details Show</h5>
                             <small>Allow others to view my profile details</small>
-                                <button class="btn btn-primary" onclick="ShowDetails()" value="Hide" id="ds">Hide</button>
-                                <button class="btn btn-primary" onclick="HideDetails()" value="Show">Show</button>
+                            <button class="btn btn-primary btn-xs" onclick="ShowDetails()" value="Show">Show</button>
+                            <button class="btn btn-primary btn-xs" onclick="HideDetails()" value="Hide">Hide</button>
                         </li>
                         <li class="list-group-item">
                             <h5>Photos Show</h5>
                             <small>Allow others to view my photo.</small>
-                                <button class="btn btn-primary" onclick="ShowPhotos()" value="Hide">Hide</button>
-                                <button class="btn btn-primary" onclick="HidePhotos()" value="Show">Show</button>
+                            <button class="btn btn-primary btn-xs" onclick="ShowPhotos()" value="Show">Show</button>
+                            <button class="btn btn-primary btn-xs" onclick="HidePhotos()" value="Hide">Hide</button>
                         </li>
                     </ul>
 
 
                     <h5 class="sidebar-title">Security Settings</h5>
                     <ul class="list-group list-group-settings">
-                        <li class="list-group-item">
+                        {{--<li class="list-group-item">
                             <h5>Reset Password</h5>
                             <a href="/password/email"> <button class="btn btn-warning btn-xs">Reset</button></a>
-                        </li>
+                        </li>--}}
                         <li class="list-group-item">
                             <h5>Accounts Settings</h5>
                             {{--<small>Turn off if you want to Deactivte</small>--}}
@@ -491,7 +486,7 @@
 
             $.ajax({
                 url: 'showDetails',
-                type: 'get',
+                type: 'POST',
                 data: {
                 },
                 dataType: 'json',
@@ -499,7 +494,7 @@
                     alert(data);
                 },
                 error: function (err, req) {
-                    Console.log(err);
+                    alert(err);
                 },
             });
         }
@@ -508,7 +503,7 @@
         {
             $.ajax({
                 url: 'HideDetails',
-                type: 'get',
+                type: 'POST',
                 data: {
                 },
                 dataType: 'json',
@@ -516,7 +511,7 @@
                     alert(data);
                 },
                 error: function (err, req) {
-                    Console.log(err);
+                    alert(err);
                 },
             });
         }
@@ -525,8 +520,8 @@
         {
 
             $.ajax({
-                url: 'ShoyjywPhotos',
-                type: 'get',
+                url: 'ShowPhotos',
+                type: 'POST',
                 data: {
                 },
                 dataType: 'json',
@@ -534,7 +529,7 @@
                     alert(data);
                 },
                 error: function (err, req) {
-                    Console.log(err);
+                    alert(err);
                 },
             });
         }
@@ -543,7 +538,7 @@
         {
             $.ajax({
                 url: 'HidePhotos',
-                type: 'get',
+                type: 'POST',
                 data: {
                 },
                 dataType: 'json',
@@ -551,7 +546,7 @@
                     alert(data);
                 },
                 error: function (err, req) {
-                    Console.log(err);
+                    alert(err);
                 },
             });
         }
